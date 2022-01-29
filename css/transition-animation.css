@@ -4,16 +4,33 @@
 }
 
 @keyframes typing {
-  100%{
-    left: 100%;
-     margin: 0 -35px 0 35px;
+  40%,
+  60% {
+    left: calc(100% + 20px);
+  }
+  100% {
+    left: 0;
+    margin: 0 -35px 0 20px;
   }
 }
 
-
 @keyframes slide {
-  100%{
+  100% {
     top: -172px;
+    margin: 0 0 0 0;
+  }
+}
+
+@keyframes typing-2 {
+  100% {
+    left: 100%;
+    margin: 0 -30px 0 30px;
+  }
+}
+
+@keyframes slide-2 {
+  100% {
+    top: -140px;
     margin: 0 0 0 0;
   }
 }

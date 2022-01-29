@@ -72,24 +72,9 @@
     justify-content: space-between;
   }
 
-  /* .about-me-content > div {
-    margin-top: 30px;
-  }
-
-  .about-me-content > div > h1 {
-    font-weight: 800;
-    font-size: 50px;
-    line-height: 70px;
-  }
-
-  .about-me-content > div > h3 {
-    font-size: 30px;
-    line-height: 50px;
-    color: #e1e1e1;
-  } */
-
   .css-typewriting-container {
     display: inline-flex;
+        margin-bottom: 50px;
   }
 
   .css-typewriting-container .static-text {
@@ -129,6 +114,49 @@
     background: #131517;
     border-left: 2px solid #ffc800;
     animation: typing 1.5s steps(10) infinite;
+  }
+
+  .css-typewriting-container-2 {
+    display: inline-flex;
+  }
+
+  .css-typewriting-container-2 .static-text-2 {
+    font-weight: 300;
+    font-size: 40px;
+    color: #e1e1e1;
+  }
+
+  .css-typewriting-container-2 .dynamic-text-2 {
+    margin-left: 15px;
+    height: 40px;
+    font-size: 40px;
+    font-weight: 400;
+    overflow: hidden;
+  }
+
+  .dynamic-text-2 li {
+    list-style: none;
+    /* font-size: 40px;
+    font-weight: 400; */
+    color: #ffc800;
+    position: relative;
+    top: 0;
+    animation: slide-2 6s steps(3) infinite;
+  }
+
+  .dynamic-text-2 li span {
+    position: relative;
+  }
+
+  .dynamic-text-2 li span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #131517;
+    border-left: 2px solid #ffc800;
+    animation: typing-2 2s steps(20) infinite;
   }
 
   .about-me-content > div > p {
