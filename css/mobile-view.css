@@ -1,19 +1,30 @@
-@media screen and (max-width: 500px){
-nav {
+@media screen and (max-width: 500px) {
+  nav {
     position: static;
     background-color: #131517;
     padding: 20px 10px 20px 10px;
-}
+  }
 
-nav > a {
+  nav > a {
     font-size: 20px;
     color: #ffffff;
     text-decoration: none;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-weight: bold;
-}
+  }
 
-.nav-items > a {
+  .nav-links {
+    /* display: block;
+    width: 100%;
+    margin-left: 100%;
+    margin-right: 0;
+    z-index: 1000;
+    transition: all 0.5s;
+    opacity: 93%; */
+    display: none;
+  }
+
+  .nav-links > a {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,16 +32,17 @@ nav > a {
     color: #ffffff;
     line-height: 20px;
     margin: 20px 0 20px 0;
-}
+  }
 
-.download-cv-btn {   
-    color: #131517;
+  .download-cv-btn {
+    /* color: #131517;
     display: flex;
-    justify-content: right; 
-}
+    justify-content: right; */
+    display: none;
+  }
 
-.download-cv-btn > * {
-    background-color: #FFC800;
+  .download-cv-btn > * {
+    background-color: #ffc800;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,6 +51,29 @@ nav > a {
     border-radius: 8px;
     color: #131517 !important;
     text-decoration: none;
-}
-    
+  }
+
+  .nav-icons{
+    float: right;
+    color: #ffffff;
+    align-items: center;
+    padding-top: 3px;
+    cursor: pointer;
+  }
+
+  #check:checked + label span#bars {
+    display: none;
+  }
+
+  #check:checked + label span#cross {
+    display: inline-block;
+  }
+
+  #cross, #check {
+    display: none;
+  }
+
+  #check:checked ~ .nav-links {
+    margin-left: 0;
+  }
 }
