@@ -1,4 +1,19 @@
 .nav-links > a:hover {
-    transition: all 0.2s ease-in; 
-    color: #ffc800;
+  transition: all 0.2s ease-in;
+  color: #ffc800;
+}
+
+@keyframes typing {
+  100%{
+    left: 100%;
+    margin: 0 -35px 0 35px;
+  }
+}
+
+
+@keyframes slide {
+  100%{
+    top: -360px;
+    margin: 0 -35px 0 35px;
+  }
 }

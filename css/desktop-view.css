@@ -45,7 +45,7 @@
     display: none;
   }
 
-  .download-cv-btn {
+  .download-cv {
     background-color: #ffc800;
     border-radius: 10px;
     text-decoration: none;
@@ -54,16 +54,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .download-cv-btn > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #131517;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 400;
   }
 
   .download-cv > img {
@@ -73,15 +64,78 @@
   }
 
   .about-me {
-    background: radial-gradient(37.11% 37.11% at 50% 50%, rgba(19, 21, 23, 0.85) 0%, #131517 100%);
+    /* background: radial-gradient(37.11% 37.11% at 50% 50%, rgba(19, 21, 23, 0.85) 0%, #131517 100%); */
+    background-color: #131517;
     padding: 30px 5% 30px 5%;
     color: #ffffff;
     display: flex;
     justify-content: space-between;
   }
 
+  /* .about-me-content > div {
+    margin-top: 30px;
+  }
 
-  .background{
+  .about-me-content > div > h1 {
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 70px;
+  }
+
+  .about-me-content > div > h3 {
+    font-size: 30px;
+    line-height: 50px;
+    color: #e1e1e1;
+  } */
+
+  .css-typewriting-container {
+    display: inline-flex;
+  }
+
+  .css-typewriting-container .static-text {
+    font-weight: 600;
+    font-size: 50px;
+    color: #e1e1e1;
+  }
+
+  .css-typewriting-container .dynamic-text {
+    margin-left: 15px;
+    height: 58px;
+    overflow: hidden;
+  }
+
+  .dynamic-text li{
+    list-style: none;
+    font-size: 50px;
+    font-weight: 700;
+    color: #ffc800;
+    top: 0;
+    position: relative;
+     animation: slide 6s steps(3) infinite;
+  }
+  
+  .dynamic-text li span {
+    position: relative;
+  }
+
+  .dynamic-text li span::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #131517;
+    border-left: 2px solid #ffc800;
+    animation: typing 1.5s steps(10) infinite;
+  }
+
+  .about-me-content > div > p {
+    font-size: 16px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .background {
     background-color: #ffc800;
     width: 220px;
     height: 220px;
@@ -95,5 +149,4 @@
     position: relative;
     margin-top: 5px;
   }
-
 }
