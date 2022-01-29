@@ -21,22 +21,27 @@
     justify-content: space-between;
   }
 
- .main-logo {
-    font-size: 20px;
+  .main-logo {
+    font-size: 30px;
     color: #ffffff;
     text-decoration: none;
     font-family: "Quicksand", sans-serif;
     font-weight: bold;
+    line-height: 39px;
   }
 
   .nav-links > a {
     color: #ffffff;
     text-decoration: none;
-    line-height: 20px;
-    margin: 0 10px 0 10px;
+    line-height: 30px;
+    margin: 0 20px 0 20px;
+    font-weight: normal;
+    font-size: 20px;
   }
 
- #check,#bars,#cross {
+  #check,
+  #bars,
+  #cross {
     display: none;
   }
 
@@ -44,8 +49,8 @@
     background-color: #ffc800;
     border-radius: 10px;
     text-decoration: none;
-    width: 140px;
-    height: 30px;
+    width: 157px;
+    height: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,23 +63,37 @@
     color: #131517;
     text-decoration: none;
     font-size: 16px;
+    font-weight: 400;
   }
 
   .download-cv > img {
-    width: 16px;
+    width: 20px;
+    height: 20px;
     margin-right: 5px;
   }
 
   .about-me {
     background: radial-gradient(37.11% 37.11% at 50% 50%, rgba(19, 21, 23, 0.85) 0%, #131517 100%);
-    padding: 30px 30px 30px 30px;
+    padding: 30px 5% 30px 5%;
     color: #ffffff;
     display: flex;
     justify-content: space-between;
-    align-items: center;  
   }
 
-  .my-image > img {
-    width: 300px;
+
+  .background{
+    background-color: #ffc800;
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    border-radius: 100%;
+    margin-left: 26px;
   }
+
+  .my-image {
+    width: 300px;
+    position: relative;
+    margin-top: 5px;
+  }
+
 }
