@@ -17,9 +17,9 @@
   .nav-links {
     display: block;
     width: 100%;
-    /* margin-left: 100%; */
+    margin-left: 100%;
     margin-right: 0;
-    /* margin-top: -1000%; */
+    margin-top: -1000%;
     z-index: 1000;
     transition: all 3s ease-in-out;
     opacity: 93%;
@@ -75,7 +75,7 @@
     display: none;
   }
 
-  #check:checked + .checkbtn + .nav-links {
+  #check:checked ~ .nav-links {
     margin-left: 0 !important;
     transition: all 4s ease-in-out;
     margin-top: 0 !important;

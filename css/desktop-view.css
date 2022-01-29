@@ -41,7 +41,7 @@
 
   #check,
   #bars,
-  #cross {
+  #cross, .checkbtn {
     display: none;
   }
 
