@@ -6,14 +6,14 @@
 @keyframes typing {
   100%{
     left: 100%;
-    margin: 0 -35px 0 35px;
+     margin: 0 -35px 0 35px;
   }
 }
 
 
 @keyframes slide {
   100%{
-    top: -360px;
-    margin: 0 -35px 0 35px;
+    top: -172px;
+    margin: 0 0 0 0;
   }
 }
