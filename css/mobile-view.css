@@ -1,20 +1,16 @@
-*{
-    border: 0;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Mark-Pro', sans-serif;
-}
-
-@font-face{
-    font-family: 'Mark Pro', sans-serif;
-    src: url('./fonts/Mark-Pro.ttf');
-}
-
-nav{
+@media screen and (max-width: 500px){
+nav {
     position: static;
     background-color: #131517;
     padding: 20px 10px 20px 10px;
+}
+
+nav > a {
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
 }
 
 .nav-items > a {
@@ -43,4 +39,6 @@ nav{
     border-radius: 8px;
     color: #131517 !important;
     text-decoration: none;
+}
+    
 }

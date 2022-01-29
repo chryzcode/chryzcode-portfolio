@@ -1,0 +1,14 @@
+*{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mark-Pro', sans-serif;
+}
+
+@font-face{
+    font-family: 'Mark Pro', sans-serif;
+    src: url('./fonts/Mark-Pro.ttf');
+}
+
+
