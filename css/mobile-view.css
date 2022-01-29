@@ -2,10 +2,11 @@
   nav {
     position: static;
     background-color: #131517;
-    padding: 20px 10px 20px 10px;
+    padding: 20px 10px 40px 10px;
+    
   }
 
-  nav > a {
+.main-logo {
     font-size: 20px;
     color: #ffffff;
     text-decoration: none;
@@ -14,14 +15,15 @@
   }
 
   .nav-links {
-    /* display: block;
+    display: block;
     width: 100%;
     margin-left: 100%;
     margin-right: 0;
+    margin-top: -1000%;
     z-index: 1000;
-    transition: all 0.5s;
-    opacity: 93%; */
-    display: none;
+    transition: all 3s ease-in-out;
+    opacity: 93%;
+
   }
 
   .nav-links > a {
@@ -35,10 +37,9 @@
   }
 
   .download-cv-btn {
-    /* color: #131517;
+    color: #131517;
     display: flex;
-    justify-content: right; */
-    display: none;
+    justify-content: right;
   }
 
   .download-cv-btn > * {
@@ -53,14 +54,14 @@
     text-decoration: none;
   }
 
-  .nav-icons{
+  #bars,
+  #cross {
     float: right;
     color: #ffffff;
     align-items: center;
-    padding-top: 3px;
     cursor: pointer;
   }
-
+  
   #check:checked + label span#bars {
     display: none;
   }
@@ -69,11 +70,14 @@
     display: inline-block;
   }
 
-  #cross, #check {
+  #cross,
+  #check {
     display: none;
   }
 
-  #check:checked ~ .nav-links {
-    margin-left: 0;
+  #check:checked + .checkbtn + .nav-links {
+    margin-left: 0 !important;
+    transition: all 4s ease-in-out;
+    margin-top: 0 !important;
   }
 }

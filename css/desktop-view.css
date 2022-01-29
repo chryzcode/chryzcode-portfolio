@@ -21,7 +21,7 @@
     justify-content: space-between;
   }
 
-  nav > a {
+ .main-logo {
     font-size: 20px;
     color: #ffffff;
     text-decoration: none;
@@ -36,7 +36,7 @@
     margin: 0 10px 0 10px;
   }
 
-  .nav-icons {
+ #check,#bars,#cross {
     display: none;
   }
 
@@ -63,5 +63,18 @@
   .download-cv > img {
     width: 16px;
     margin-right: 5px;
+  }
+
+  .about-me {
+    background: radial-gradient(37.11% 37.11% at 50% 50%, rgba(19, 21, 23, 0.85) 0%, #131517 100%);
+    padding: 30px 30px 30px 30px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+  }
+
+  .my-image > img {
+    width: 300px;
   }
 }
