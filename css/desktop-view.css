@@ -181,12 +181,37 @@
 
   .socials-logo {
     display: flex;
-    align-items: center;
     margin-top: 20px;
+    justify-content: space-between;
   }
 
-  .socials-logo > a {
+  .socials-logo > span > a {
     color: #5A5A5A;
     margin-right: 20px;
   }
+
+  .hire-me-section{
+  display: flex;
+  justify-content: center;
+  }
+
+  .hire-me-rolling-circle{
+    background: #ffc800;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    animation: rotate 5s infinite linear;
+  }
+
+  .hire-me-content{
+    position: relative;
+    margin-top: 50px;
+  }
+
+  .hire-me-container{
+    margin-right: 50px;
+  }
+
+  
 }

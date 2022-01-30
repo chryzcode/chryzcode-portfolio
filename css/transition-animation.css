@@ -10,7 +10,7 @@
   transition: all 0.5s ease-in-out;
 }
 
-.socials-logo >a:hover {
+.socials-logo > a:hover {
   color: #ffc800;
   transition: all 0.5s ease-in-out;
 }
@@ -45,4 +45,8 @@
     top: -105px;
     margin: 0 0 0 0;
   }
+
+@keyframes rotate {
+
+}
 }
