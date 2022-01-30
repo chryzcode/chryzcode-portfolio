@@ -57,10 +57,10 @@
     color: #131517;
   }
 
-  .download-cv > img {
-    width: 20px;
-    height: 20px;
+  .download-cv > i {
     margin-right: 5px;
+    font-size: 15px;
+    font-weight: 400;
   }
 
   .about-me {
