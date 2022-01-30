@@ -129,6 +129,14 @@ body {
     overflow: hidden;
   }
 
+  .dynamic-text-2 li {
+    list-style: none;
+    color: #ffc800;
+    position: relative;
+    top: 0;
+    animation: slide-2 15s steps(3) infinite;
+  }
+
   .download-cv:hover {
     background-color: #131517;
     color: #ffc800 !important;
@@ -146,7 +154,6 @@ body {
     line-height: 20px;
     color: rgba(255, 255, 255, 0.7);
   }
-
 
   @keyframes slide {
     100% {

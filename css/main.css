@@ -78,13 +78,7 @@
   margin-bottom: 5px;
 }
 
-.dynamic-text-2 li {
-  list-style: none;
-  color: #ffc800;
-  position: relative;
-  top: 0;
-  animation: slide-2 15s steps(3) infinite;
-}
+
 
 .dynamic-text-2 li span {
   position: relative;
