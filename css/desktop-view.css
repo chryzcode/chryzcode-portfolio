@@ -67,14 +67,13 @@ body {
     background: #ffc800;
     width: 120px;
     height: 120px;
-    /* border-radius: 0%; */
     position: absolute;
-    /* animation: rotate;
+    /* border-radius: 0%;
+  animation: rotate;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-direction: linear;
   border: 2px dotted #131517; */
-
     border-radius: 50%;
   }
 
@@ -141,11 +140,6 @@ body {
     background-color: #131517;
     color: #ffc800 !important;
     border: 1px solid #ffc800;
-    transition: all 0.5s ease-in-out;
-  }
-
-  .socials-logo > span > a:hover {
-    color: #ffc800;
     transition: all 0.5s ease-in-out;
   }
 
