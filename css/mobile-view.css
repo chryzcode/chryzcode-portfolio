@@ -42,6 +42,12 @@
     justify-content: right;
   }
 
+  .download-cv > i {
+    margin-right: 5px;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
   .download-cv-btn > * {
     background-color: #ffc800;
     display: flex;

@@ -3,6 +3,13 @@
   color: #ffc800;
 }
 
+.download-cv:hover {
+  background-color: #131517;
+  color: #ffc800 !important;
+  border: 1px solid #ffc800;
+  transition: all 0.5s ease-in-out;
+}
+
 @keyframes typing {
   40%,
   60% {
