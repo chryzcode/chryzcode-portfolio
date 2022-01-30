@@ -86,6 +86,12 @@
     transition: all 4s ease-in-out;
     margin-top: 0 !important;
   }
+
+  .css-typewriting-container .static-text {
+  font-weight: 400;
+  font-size: 40px;
+  color: #e1e1e1;
+}
 }
 
 @media screen and (max-width: 900px) {
@@ -95,6 +101,7 @@
 
   .my-mobile-image-container {
     display: block !important;
+    margin: 0 auto;
   }
 
   .my-image-container {
