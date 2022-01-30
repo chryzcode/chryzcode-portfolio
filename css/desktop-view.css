@@ -178,4 +178,15 @@
     position: relative;
     margin-top: 5px;
   }
+
+  .socials-logo {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .socials-logo > a {
+    color: #5A5A5A;
+    margin-right: 20px;
+  }
 }
