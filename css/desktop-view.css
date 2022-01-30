@@ -98,16 +98,14 @@ body {
 
   .css-typewriting-container .dynamic-text {
     margin-left: 15px;
-    height: 55px;
-    font-size: 70px;
-    font-weight: 800;
+    height: 58px;
+    font-size: 50px;
+    font-weight: 500;
     overflow: hidden;
   }
 
   .dynamic-text li {
     list-style: none;
-    font-size: 50px;
-    font-weight: 700;
     color: #ffc800;
     position: relative;
     top: 0;
