@@ -1,13 +1,12 @@
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
   nav {
     position: static;
     background-color: #131517;
     padding: 20px 10px 40px 10px;
-    
   }
 
-.main-logo {
-    font-size: 20px;
+  .main-logo {
+    font-size: 30px;
     color: #ffffff;
     text-decoration: none;
     font-family: "Quicksand", sans-serif;
@@ -23,7 +22,6 @@
     z-index: 1000;
     transition: all 3s ease-in-out;
     opacity: 93%;
-
   }
 
   .nav-links > a {
@@ -66,8 +64,10 @@
     color: #ffffff;
     align-items: center;
     cursor: pointer;
+    display: block;
+    font-size: 35px;
   }
-  
+
   #check:checked + label span#bars {
     display: none;
   }
@@ -87,3 +87,18 @@
     margin-top: 0 !important;
   }
 }
+
+@media screen and (max-width: 900px) {
+  .about-me {
+    flex-direction: column;
+  }
+
+  .my-mobile-image-container {
+    display: block !important;
+  }
+
+  .my-image-container {
+    display: none;
+  }
+}
+

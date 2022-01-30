@@ -3,3 +3,134 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
+.about-me {
+  /* background: radial-gradient(37.11% 37.11% at 50% 50%, rgba(19, 21, 23, 0.85) 0%, #131517 100%); */
+  background-color: #131517;
+  padding: 30px 5% 30px 5%;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.my-mobile-image-container {
+  display: none;
+}
+
+.css-typewriting-container {
+  display: inline-flex;
+  margin-bottom: 5px;
+}
+
+.css-typewriting-container .static-text {
+  font-weight: 500;
+  font-size: 50px;
+  color: #e1e1e1;
+}
+
+.css-typewriting-container .dynamic-text {
+  margin-left: 15px;
+  height: 55px;
+  font-size: 70px;
+  font-weight: 800;
+  overflow: hidden;
+}
+
+.dynamic-text li {
+  list-style: none;
+  font-size: 50px;
+  font-weight: 700;
+  color: #ffc800;
+  position: relative;
+  top: 0;
+  animation: slide 7.5s steps(3) infinite;
+}
+
+.dynamic-text li span {
+  position: relative;
+}
+
+.dynamic-text li span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #131517;
+  border-left: 2px solid #ffc800;
+  animation: typing 2.5s steps(10) infinite;
+}
+
+.css-typewriting-container-2 {
+  display: inline-flex;
+  margin-bottom: 5px;
+}
+
+.css-typewriting-container-2 .static-text-2 {
+  font-weight: 300;
+  font-size: 30px;
+  color: #e1e1e1;
+}
+
+.css-typewriting-container-2 .dynamic-text-2 {
+  margin-left: 10px;
+  height: 33px;
+  font-size: 30px;
+  font-weight: 400;
+  overflow: hidden;
+}
+
+.dynamic-text-2 li {
+  list-style: none;
+  color: #ffc800;
+  position: relative;
+  top: 0;
+  animation: slide-2 15s steps(3) infinite;
+}
+
+.dynamic-text-2 li span {
+  position: relative;
+}
+
+.dynamic-text-2 li span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #131517;
+  border-left: 2px solid #ffc800;
+  animation: typing-2 5s steps(20) infinite;
+}
+
+.about-me-content > p {
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.background {
+  background-color: #ffc800;
+  width: 220px;
+  height: 220px;
+  position: absolute;
+  border-radius: 100%;
+  margin-left: 26px;
+}
+
+.my-image {
+  width: 300px;
+  position: relative;
+  margin-top: 5px;
+}
+
+.socials-logo {
+  margin-top: 20px;
+  /* display: flex;
+    justify-content: space-between; */
+}
+
+.socials-logo > span > a {
+  color: #5a5a5a;
+  margin-right: 20px;
+}
