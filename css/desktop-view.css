@@ -140,7 +140,7 @@
     color: #ffc800;
     position: relative;
     top: 0;
-    animation: slide-2 6s steps(3) infinite;
+    animation: slide-2 15s steps(3) infinite;
   }
 
   .dynamic-text-2 li span {
@@ -155,7 +155,7 @@
     width: 100%;
     background: #131517;
     border-left: 2px solid #ffc800;
-    animation: typing-2 2s steps(20) infinite;
+    animation: typing-2 5s steps(20) infinite;
   }
 
   .about-me-content > p {
