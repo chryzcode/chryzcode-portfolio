@@ -1,100 +1,183 @@
-* {
-  border: 0;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Mark-Pro", sans-serif;
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-@font-face {
-  font-family: "Mark Pro", sans-serif;
-  src: url("./fonts/Mark-Pro.ttf");
-}
+@media all and (min-width: 700px) {
+  nav {
+    position: static;
+    background-color: #131517;
+    padding: 20px 5% 20px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-@media screen and (min-width: 700px) {
-nav {
-  position: static;
-  background-color: #131517;
-  padding: 20px 5% 20px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  .main-logo {
+    font-size: 30px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    line-height: 39px;
+  }
 
-.main-logo {
-  font-size: 30px;
-  color: #ffffff;
-  text-decoration: none;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bold;
-  line-height: 39px;
-}
+  .nav-links > a {
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 30px;
+    margin: 0 20px 0 20px;
+    font-weight: normal;
+    font-size: 20px;
+  }
 
-.nav-links > a {
-  color: #ffffff;
-  text-decoration: none;
-  line-height: 30px;
-  margin: 0 20px 0 20px;
-  font-weight: normal;
-  font-size: 20px;
-}
-
-#check,
+  #check,
   #bars,
   #cross,
   .checkbtn {
     display: none;
   }
 
-.download-cv {
-  background-color: #ffc800;
-  border-radius: 10px;
-  text-decoration: none;
-  width: 157px;
-  height: 42px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #131517;
-}
+  .download-cv {
+    background-color: #ffc800;
+    border-radius: 10px;
+    text-decoration: none;
+    width: 157px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #131517;
+  }
 
-.download-cv > i {
-  margin-right: 5px;
-  font-size: 15px;
-  font-weight: 400;
-}
+  .download-cv > i {
+    margin-right: 5px;
+    font-size: 15px;
+    font-weight: 400;
+  }
 
+  .hire-me-section {
+    display: flex;
+    justify-content: center;
+  }
 
-
-.hire-me-section {
-  display: flex;
-  justify-content: center;
-}
-
-.hire-me-rolling-circle {
-  display: inline-block !important;
-  background: #ffc800;
-  width: 120px;
-  height: 120px;
-  border-radius: 0%;
-  position: absolute;
-  animation: rotate;
+  .hire-me-rolling-circle {
+    display: inline-block !important;
+    background: #ffc800;
+    width: 120px;
+    height: 120px;
+    /* border-radius: 0%; */
+    position: absolute;
+    /* animation: rotate;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-direction: linear;
-  border: 2px dotted #131517;
-}
+  border: 2px dotted #131517; */
 
-.hire-me-content {
-  position: relative;
-  margin-top: 50px;
-}
+    border-radius: 50%;
+  }
 
-.hire-me-container {
-  margin-right: 50px;
-}
+  .hire-me-content {
+    position: relative;
+    margin-top: 50px;
+  }
 
-.word-1 {
-  transform: rotate(75deg);
-}
+  .hire-me-container {
+    margin-right: 50px;
+  }
+
+  .my-mobile-image-container {
+    display: none;
+  }
+
+  .css-typewriting-container .static-text {
+    font-weight: 500;
+    font-size: 50px;
+    color: #e1e1e1;
+  }
+
+  .css-typewriting-container .dynamic-text {
+    margin-left: 15px;
+    height: 55px;
+    font-size: 70px;
+    font-weight: 800;
+    overflow: hidden;
+  }
+
+  .dynamic-text li {
+    list-style: none;
+    font-size: 50px;
+    font-weight: 700;
+    color: #ffc800;
+    position: relative;
+    top: 0;
+    animation: slide 7.5s steps(3) infinite;
+  }
+
+  .css-typewriting-container-2 .static-text-2 {
+    font-weight: 300;
+    font-size: 30px;
+    color: #e1e1e1;
+  }
+
+  .css-typewriting-container-2 .dynamic-text-2 {
+    margin-left: 10px;
+    height: 33px;
+    font-size: 30px;
+    font-weight: 400;
+    overflow: hidden;
+  }
+
+  .download-cv:hover {
+    background-color: #131517;
+    color: #ffc800 !important;
+    border: 1px solid #ffc800;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .socials-logo > span > a:hover {
+    color: #ffc800;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .about-me-content > p {
+    font-size: 16px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+
+  @keyframes slide {
+    100% {
+      top: -172px;
+      margin: 0 0 0 0;
+    }
+  }
+
+  @keyframes typing-2 {
+    100% {
+      left: 100%;
+      margin: 0 -30px 0 30px;
+    }
+  }
+
+  @keyframes slide-2 {
+    100% {
+      top: -105px;
+      margin: 0 0 0 0;
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+      border-radius: 100%;
+    }
+
+    100% {
+      transform: rotate(360deg);
+      border-radius: 100%;
+    }
+  }
 }
