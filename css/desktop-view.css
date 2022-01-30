@@ -98,7 +98,7 @@ body {
 
   .css-typewriting-container .dynamic-text {
     margin-left: 15px;
-    height: 57px;
+    height: 56px;
     font-size: 50px;
     font-weight: 600;
     overflow: hidden;
@@ -149,7 +149,7 @@ body {
 
   @keyframes slide {
     100% {
-      top: -176px;
+      top: -180px;
       margin: 0 0 0 0;
     }
   }
