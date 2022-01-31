@@ -13,7 +13,6 @@ body {
   background-color: #131517;
 }
 
-
 @font-face {
   font-family: "Mark Pro", sans-serif;
   src: url("./fonts/Mark-Pro.ttf");
@@ -94,6 +93,39 @@ body {
 
 .my-stacks-container {
   margin-top: 20px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.stacks-animation {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: 100%;
+  animation: stack-animation 15s linear infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.stacks-animation > span {
+  font-weight: normal;
+  font-size: 25.8273px;
+  line-height: 33px;
+}
+
+#a-stack-break {
+  font-size: 15px;
+  margin: 0 8px;
+}
+
+@keyframes stack-animation {
+  100% {
+    margin-left: -180%;
+  }
 }
 
 .my-stacks-container > p {
@@ -101,43 +133,6 @@ body {
   font-size: 30px;
   font-weight: 400;
   text-align: center;
-}
-
-.marquee-w {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 35px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    overflow: hidden;
-    margin-top: 20px;
-}
-.marquee {
-    position: absolute;
-    display: block;
-    margin: auto auto;
-    white-space: nowrap;
-    overflow: hidden;
-    min-width: 100%;
-    height: 100%;
-}
-.marquee span {
-    display: inline-block;
-    padding-left: 100%;
-    text-align: center;
-    white-space: nowrap;
-    min-width: 100%;
-    height: 100%;
-    line-height: 33px;
-    font-size: 35px;
-    font-weight: normal;
-    animation: marquee 10s linear infinite;
-    color: rgba(255, 255, 255, 0.3);
-}
-.marquee2 span {
-    animation-delay: 0.8s;
 }
 
 @keyframes typing {
@@ -156,13 +151,4 @@ body {
     left: 100%;
     margin: 0 -30px 0 30px;
   }
-}
-
-@keyframes marquee {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(-100%, 0);
-    }
 }
