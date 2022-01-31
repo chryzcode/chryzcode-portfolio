@@ -62,12 +62,12 @@ body {
     justify-content: center;
   }
 
-  .hire-me-rolling-circle {
-    display: inline-block !important;
+  .hire-me-circle {
+    display: flex;
     background: #ffc800;
     width: 120px;
     height: 120px;
-    position: absolute;
+    /* position: absolute; */
     /* border-radius: 0%;
   animation: rotate;
   animation-duration: 3s;
@@ -78,12 +78,8 @@ body {
   }
 
   .hire-me-content {
-    position: relative;
     margin-top: 50px;
-  }
-
-  .hire-me-container {
-    margin-right: 50px;
+    margin-left: 25px;
   }
 
   .my-mobile-image-container {
@@ -150,10 +146,6 @@ body {
     font-size: 16px;
     line-height: 20px;
     color: rgba(255, 255, 255, 0.7);
-  }
-
-  .word-1 {
-    transform: rotate(123.19deg);
   }
 
   @keyframes typing-2 {
