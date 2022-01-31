@@ -19,24 +19,6 @@ body {
   src: url("./fonts/Mark-Pro.ttf");
 }
 
-@keyframes typing {
-  40%,
-  60% {
-    left: calc(100% + 20px);
-  }
-  100% {
-    left: 0;
-    margin: 0 -35px 0 20px;
-  }
-}
-
-@keyframes typing-2 {
-  100% {
-    left: 100%;
-    margin: 0 -30px 0 30px;
-  }
-}
-
 .about-me {
   /* background: radial-gradient(37.11% 37.11% at 50% 50%, rgba(19, 21, 23, 0.85) 0%, #131517 100%); */
   padding: 30px 5% 30px 5%;
@@ -110,15 +92,27 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
+.my-stacks-container {
+  margin-top: 20px;
+}
+
+.my-stacks-container > p {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+}
+
 .marquee-w {
     position: relative;
     display: block;
     width: 100%;
-    height: 140px;
+    height: 35px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, 0%);
     overflow: hidden;
+    margin-top: 20px;
 }
 .marquee {
     position: absolute;
@@ -136,14 +130,34 @@ body {
     white-space: nowrap;
     min-width: 100%;
     height: 100%;
-    line-height: 140px;
-    font-size: 85px;
+    line-height: 33px;
+    font-size: 35px;
+    font-weight: normal;
     animation: marquee 10s linear infinite;
-    color: #5a5a5a;
+    color: rgba(255, 255, 255, 0.3);
 }
 .marquee2 span {
-    animation-delay: 5s;
+    animation-delay: 0.8s;
 }
+
+@keyframes typing {
+  40%,
+  60% {
+    left: calc(100% + 20px);
+  }
+  100% {
+    left: 0;
+    margin: 0 -35px 0 20px;
+  }
+}
+
+@keyframes typing-2 {
+  100% {
+    left: 100%;
+    margin: 0 -30px 0 30px;
+  }
+}
+
 @keyframes marquee {
     0% {
         transform: translate(0, 0);
