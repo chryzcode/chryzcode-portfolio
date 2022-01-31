@@ -91,7 +91,6 @@ body {
   }
 
   .css-typewriting-container .static-text {
-    font-weight: 500;
     font-size: 50px;
     color: #e1e1e1;
   }
@@ -100,16 +99,11 @@ body {
     margin-left: 15px;
     height: 56px;
     font-size: 50px;
-    font-weight: 600;
-    overflow: hidden;
   }
 
   .dynamic-text li {
     list-style: none;
     color: #ffc800;
-    position: relative;
-    top: 0;
-    animation: 7.5s steps(1) infinite;
   }
 
   .css-typewriting-container-2 .static-text-2 {

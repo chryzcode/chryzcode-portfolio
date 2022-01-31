@@ -88,7 +88,6 @@
   }
 
   .css-typewriting-container .static-text {
-    font-weight: 400;
     font-size: 40px;
     color: #e1e1e1;
   }
@@ -96,9 +95,7 @@
   .css-typewriting-container .dynamic-text {
     margin-left: 15px;
     height: 43px;
-    font-size: 40px;
-    font-weight: 400;
-    overflow: hidden;
+    font-size: 10px;
   }
 
   .dynamic-text li {
@@ -106,9 +103,6 @@
     font-size: 40px;
     font-weight: 400;
     color: #ffc800;
-    position: relative;
-    top: 0;
-    animation: 7.5s steps(1) infinite;
   }
 
   .css-typewriting-container-2 .static-text-2 {
