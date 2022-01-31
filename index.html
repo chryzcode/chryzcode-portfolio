@@ -7,6 +7,8 @@
     <title><CODE'S/> Portfolio</title>
     <link rel="stylesheet" href="./css/mobile-view.css" />
     <link rel="stylesheet" href="./css/desktop-view.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -15,10 +17,9 @@
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <nav>
+    <nav data-aos="fade-down" data-aos-duration="800">
       <span>
         <a href="" class="main-logo">CODE</a>
       </span>
@@ -48,14 +49,14 @@
       </span>
 
       <span class="about-me-content">
-        <div class="css-typewriting-container">
+        <div data-aos="fade-right"  data-aos-duration="1500" class="css-typewriting-container">
           <div class="static-text">Hi, I'm</div>
           <ul class="dynamic-text">
             <li><span>Olanrewaju</span></li>
           </ul>
         </div>
         <p></p>
-        <div class="css-typewriting-container-2">
+        <div data-aos="fade-right"  data-aos-duration="1500" class="css-typewriting-container-2">
           <div class="static-text-2">I am a</div>
           <ul class="dynamic-text-2">
             <li><span>fullstack developer</span></li>
@@ -63,12 +64,12 @@
             <li><span>opensource enthusiast</span></li>
           </ul>
         </div>
-        <p>
+        <p data-aos="fade-right"  data-aos-duration="1500">
           I'm an experienced fullstack developer experienced in building websites, web applications, relational database
           and models relationships, MVC architecture, User Interfaces and adding utilities(algorithms, APIs) and
           deployment with programming technologies.
         </p>
-        <div class="socials-logo">
+        <div data-aos="fade-up"  data-aos-duration="2000" class="socials-logo">
           <span>
             <a href="http://" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
             <a href="http://" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
@@ -107,13 +108,13 @@
         </div>
       </span>
       <span class="my-image-container">
-        <div class="background"></div>
-        <img class="my-image" src="./images/code's-image.png" alt="code's image" />
+        <div data-aos="fade-left" data-aos-duration="3000" class="background"></div>
+        <img data-aos="zoom-in" data-aos-duration="3000" class="my-image" src="./images/code's-image.png" alt="code's image" />
       </span>
     </div>
     <div class="my-stacks-container">
-      <p>My Stacks</p>
-      <div class="stacks-animation">
+      <p data-aos="flip-up" data-aos-duration="1000">My Stacks</p>
+      <div data-aos="zoom-in" data-aos-duration="2000" class="stacks-animation">
         <span>HTML5</span><span id="a-stack-break" class="material-icons"> circle </span> <span>CSS3</span
         ><span id="a-stack-break" class="material-icons"> circle </span> <span>Boostrap</span
         ><span id="a-stack-break" class="material-icons"> circle </span> <span>Python</span
@@ -211,5 +212,10 @@
         <a href="http://" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
       </span>
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
