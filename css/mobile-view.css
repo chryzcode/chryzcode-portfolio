@@ -168,7 +168,7 @@
   .project-grid {
     display: grid;
     grid-template-columns: 1fr;
-    margin: 20px 100px;
+    margin: 20px 60px;
   }
 
   .projects-section > p {
