@@ -83,7 +83,7 @@
 
   #check:checked ~ .nav-links {
     margin-left: 0 !important;
-    transition: all 4s ease-in-out;
+    transition: all 3s ease-in-out;
     margin-top: 0 !important;
   }
 
@@ -94,8 +94,6 @@
 
   .css-typewriting-container .dynamic-text {
     margin-left: 15px;
-    height: 43px;
-    font-size: 10px;
   }
 
   .dynamic-text li {

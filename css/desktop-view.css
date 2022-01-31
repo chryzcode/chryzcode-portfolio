@@ -152,6 +152,10 @@ body {
     color: rgba(255, 255, 255, 0.7);
   }
 
+  .word-1 {
+    transform: rotate(123.19deg);
+  }
+
   @keyframes typing-2 {
     100% {
       left: 100%;

@@ -62,13 +62,10 @@
   position: relative;
 }
 
-
 .css-typewriting-container-2 {
   display: inline-flex;
   margin-bottom: 5px;
 }
-
-
 
 .dynamic-text-2 li span {
   position: relative;
@@ -101,7 +98,7 @@
   margin-right: 20px;
 }
 
-  .socials-logo > span > a:hover {
-    color: #ffc800;
-    transition: all 0.5s ease-in-out;
-  }
+.socials-logo > span > a:hover {
+  color: #ffc800;
+  transition: all 0.5s ease-in-out;
+}
