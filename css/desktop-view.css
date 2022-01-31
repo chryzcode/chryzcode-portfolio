@@ -142,12 +142,25 @@
     color: rgba(255, 255, 255, 0.7);
   }
 
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 50px;
+    grid-row-gap: 20px;
+    margin: 20px 60px;
+  }
+
   .projects-section > p {
     color: #ffffff;
     text-align: center;
     font-weight: 700;
     font-size: 45px;
     line-height: 60px;
+  }
+
+  .a-project-card {
+    width: 100%;
+    border-radius: 10px;
   }
 
   @keyframes typing-2 {

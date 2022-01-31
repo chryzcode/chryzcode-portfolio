@@ -165,12 +165,24 @@
     margin-left: 25px;
   }
 
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 20px 100px;
+  }
+
   .projects-section > p {
     color: #ffffff;
     text-align: center;
     font-weight: 600;
     font-size: 35px;
     line-height: 50px;
+  }
+
+  .a-project-card {
+    width: 100%;
+    border-radius: 10px;
+    margin: 30px 0;
   }
 
   @keyframes slide-2 {

@@ -126,18 +126,6 @@ body {
   margin-top: 80px;
 }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 100px;
-  grid-row-gap: 20px;
-  margin: 0 100px;
-}
-
-.a-project-card {
-  width: 100%;
-  border-radius: 10px;
-}
 
 .project-image-container {
   overflow: hidden;
