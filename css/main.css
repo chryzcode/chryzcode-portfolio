@@ -93,7 +93,7 @@ body {
 
 .my-stacks-container {
   margin-top: 20px;
-  width: 80%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
@@ -105,7 +105,7 @@ body {
   display: flex;
   align-items: center;
   margin-left: 100%;
-  animation: stack-animation 15s linear infinite;
+  animation: stack-animation 13s linear infinite;
   white-space: nowrap;
   overflow: hidden;
   color: rgba(255, 255, 255, 0.3);
@@ -123,8 +123,10 @@ body {
 }
 
 @keyframes stack-animation {
+
   100% {
-    margin-left: -180%;
+    margin-left: -2000px;
+    display: none;
   }
 }
 
