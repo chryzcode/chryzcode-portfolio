@@ -6,6 +6,14 @@
   font-family: "Mark-Pro", sans-serif;
 }
 
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: #131517;
+}
+
+
 @font-face {
   font-family: "Mark Pro", sans-serif;
   src: url("./fonts/Mark-Pro.ttf");
@@ -31,7 +39,6 @@
 
 .about-me {
   /* background: radial-gradient(37.11% 37.11% at 50% 50%, rgba(19, 21, 23, 0.85) 0%, #131517 100%); */
-  background-color: #131517;
   padding: 30px 5% 30px 5%;
   color: #ffffff;
   display: flex;
@@ -103,3 +110,45 @@
   transition: all 0.5s ease-in-out;
 }
 
+.marquee-w {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    overflow: hidden;
+}
+.marquee {
+    position: absolute;
+    display: block;
+    margin: auto auto;
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: 100%;
+    height: 100%;
+}
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    text-align: center;
+    white-space: nowrap;
+    min-width: 100%;
+    height: 100%;
+    line-height: 140px;
+    font-size: 85px;
+    animation: marquee 10s linear infinite;
+    color: #5a5a5a;
+}
+.marquee2 span {
+    animation-delay: 5s;
+}
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
