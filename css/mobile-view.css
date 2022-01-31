@@ -95,20 +95,20 @@
 
   .css-typewriting-container .dynamic-text {
     margin-left: 15px;
-    height: 45px;
+    height: 43px;
     font-size: 40px;
-    font-weight: 600;
+    font-weight: 400;
     overflow: hidden;
   }
 
   .dynamic-text li {
     list-style: none;
     font-size: 40px;
-    font-weight: 600;
+    font-weight: 400;
     color: #ffc800;
     position: relative;
     top: 0;
-    animation: slide 7.5s steps(3) infinite;
+    animation: 7.5s steps(1) infinite;
   }
 
   .css-typewriting-container-2 .static-text-2 {
@@ -140,15 +140,6 @@
     color: rgba(255, 255, 255, 0.7);
   }
 
-
-
-
-  @keyframes slide {
-    100% {
-      top: -135px;
-      margin: 0 0 0 0;
-    }
-  }
 
   @keyframes slide-2 {
     100% {
