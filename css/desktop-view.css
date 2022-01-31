@@ -145,9 +145,9 @@
   .project-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 50px;
-    grid-row-gap: 20px;
-    margin: 20px 60px;
+    grid-column-gap: 30px;
+    grid-row-gap: 40px;
+    margin: 20px 10%;
   }
 
   .projects-section > p {
@@ -158,9 +158,8 @@
     line-height: 60px;
   }
 
-  .a-project-card {
+  div.a-project-card {
     width: 100%;
-    border-radius: 10px;
   }
 
   @keyframes typing-2 {

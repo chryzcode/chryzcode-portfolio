@@ -126,11 +126,11 @@ body {
   margin-top: 80px;
 }
 
-
 .project-image-container {
   overflow: hidden;
   width: 100%;
-  height: 250px;
+  height: 200px;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .project-image {
@@ -138,6 +138,20 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.project-content {
+  background: #0D0D0D;
+  padding: 32px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.project-content > h3 {
+  color: #ffffff;
+}
+
+.project-content > div {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 @keyframes stack-animation {
