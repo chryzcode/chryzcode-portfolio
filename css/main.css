@@ -146,16 +146,20 @@ body {
   border-radius: 0px 0px 10px 10px;
 }
 
-.project-content > h3 {
+.project-content > p {
   color: #ffffff;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 30px;
 }
 
 .project-content > div {
   color: rgba(255, 255, 255, 0.7);
+  margin-top: 10px;
 }
 
 .check-project {
-  margin-top: 30px;
+  padding-top: 25px;
   display: flex;
   justify-content: space-between;
 }

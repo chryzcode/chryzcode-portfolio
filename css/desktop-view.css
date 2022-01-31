@@ -159,7 +159,16 @@
   }
 
   div.a-project-card:hover{
+  animation: project-card-hover;
+  animation-duration: 1s;
+  }
 
+  @keyframes project-card-hover {
+    100% {
+      margin-top: -10px;
+    }
+  }
+    
   }
 
   @keyframes typing-2 {
