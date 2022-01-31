@@ -199,6 +199,11 @@ body {
   text-decoration: none;
 }
 
+.last-section > a:hover{
+  color: #ffc800;
+  transition: all 0.2s ease-in-out;
+}
+
 .last-section > span {
   display: flex;
   justify-content: center;
@@ -209,6 +214,11 @@ body {
   color: #5A5A5A;
   margin: 0 15px;
   font-size: 20px;
+}
+
+.last-section > span > a:hover{
+  color: #ffc800;
+  transition: all 0.2s ease-in-out;
 }
 
 @keyframes stack-animation {
