@@ -113,7 +113,7 @@ body {
 
 .stacks-animation > span {
   font-weight: normal;
-  font-size: 25.8273px;
+  font-size: 20px;
   line-height: 33px;
 }
 
@@ -122,8 +122,37 @@ body {
   margin: 0 8px;
 }
 
-@keyframes stack-animation {
+.projects-section {
+  margin-top: 80px;
+}
 
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 100px;
+  grid-row-gap: 20px;
+  margin: 0 100px;
+}
+
+.a-project-card {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.project-image-container {
+  overflow: hidden;
+  width: 100%;
+  height: 250px;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@keyframes stack-animation {
   100% {
     margin-left: -2000px;
     display: none;

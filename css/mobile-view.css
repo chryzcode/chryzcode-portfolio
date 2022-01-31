@@ -165,6 +165,14 @@
     margin-left: 25px;
   }
 
+  .projects-section > p {
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 50px;
+  }
+
   @keyframes slide-2 {
     100% {
       top: -70px;
