@@ -186,10 +186,28 @@ body {
 }
 
 .last-section > div {
-  font-weight: 800;
-  font-size: 55.4439px;
-  line-height: 70px;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 60px;
   color: #e1e1e1;
+}
+
+.last-section > a {
+  font-size: 19px;
+  line-height: 37px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.last-section > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.last-section > span > a {
+  color: #5A5A5A;
+  margin: 0 15px;
 }
 
 @keyframes stack-animation {
