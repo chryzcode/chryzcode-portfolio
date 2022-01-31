@@ -106,6 +106,17 @@ body {
     color: #ffc800;
   }
 
+  .dynamic-text li span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background: #131517;
+    border-left: 2px solid #ffc800;
+    animation: typing 2.5s steps(10) infinite;
+  }
+
   .css-typewriting-container-2 .static-text-2 {
     font-weight: 300;
     font-size: 30px;
