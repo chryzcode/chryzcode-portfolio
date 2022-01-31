@@ -158,8 +158,8 @@
     line-height: 60px;
   }
 
-  div.a-project-card {
-    width: 100%;
+  div.a-project-card:hover{
+
   }
 
   @keyframes typing-2 {

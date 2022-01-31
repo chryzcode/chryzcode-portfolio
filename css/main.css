@@ -154,6 +154,23 @@ body {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.check-project {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.check-project > a {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.check-project > a:hover {
+  transition: all 0.2s ease-in;
+  color: #ffc800;
+}
+
 @keyframes stack-animation {
   100% {
     margin-left: -2000px;
