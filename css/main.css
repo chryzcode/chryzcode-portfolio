@@ -84,6 +84,7 @@ body {
 .socials-logo > span > a {
   color: #5a5a5a;
   margin-right: 20px;
+  font-size: 25px;
 }
 
 .socials-logo > span > a:hover {
@@ -141,7 +142,7 @@ body {
 }
 
 .project-content {
-  background: #0D0D0D;
+  background: #0d0d0d;
   padding: 32px;
   border-radius: 0px 0px 10px 10px;
 }
@@ -173,6 +174,22 @@ body {
 .check-project > a:hover {
   transition: all 0.2s ease-in;
   color: #ffc800;
+}
+
+.last-section {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.last-section > * {
+  margin: 30px 0;
+}
+
+.last-section > div {
+  font-weight: 800;
+  font-size: 55.4439px;
+  line-height: 70px;
+  color: #e1e1e1;
 }
 
 @keyframes stack-animation {
