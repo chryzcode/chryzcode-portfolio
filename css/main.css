@@ -208,6 +208,7 @@ body {
 .last-section > span > a {
   color: #5A5A5A;
   margin: 0 15px;
+  font-size: 20px;
 }
 
 @keyframes stack-animation {
