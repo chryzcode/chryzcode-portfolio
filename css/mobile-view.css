@@ -218,3 +218,13 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 355px) {
+  .my-image-background {
+    display: none;
+  }
+
+  .my-mobile-image-container > div > img {
+    width: 100%;
+  }
+}
