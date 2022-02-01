@@ -9,13 +9,18 @@
   }
 
   .main-logo {
-    font-size: 30px;
-    color: #ffffff;
-    text-decoration: none;
-    font-family: "Quicksand", sans-serif;
-    font-weight: bold;
-    line-height: 39px;
+    width: 100px;
+    position: relative;
+    transition-property: transform;
+    transition-duration: 5s;
+    transition-timing-function: linear;
+    transition-delay: 0.6s;
   }
+
+  .main-logo:hover {
+    transform: rotate(360deg);
+  }
+
 
   .nav-links > a {
     color: #ffffff;
