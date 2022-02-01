@@ -199,7 +199,7 @@ body {
   text-decoration: none;
 }
 
-.last-section > a:hover{
+.last-section > a:hover {
   color: #ffc800;
   transition: all 0.2s ease-in-out;
 }
@@ -211,21 +211,14 @@ body {
 }
 
 .last-section > span > a {
-  color: #5A5A5A;
+  color: #5a5a5a;
   margin: 0 15px;
   font-size: 20px;
 }
 
-.last-section > span > a:hover{
+.last-section > span > a:hover {
   color: #ffc800;
   transition: all 0.2s ease-in-out;
-}
-
-@keyframes stack-animation {
-  100% {
-    margin-left: -2000px;
-    display: none;
-  }
 }
 
 .my-stacks-container > p {
@@ -250,5 +243,12 @@ body {
   100% {
     left: 100%;
     margin: 0 -30px 0 30px;
+  }
+}
+
+@keyframes stack-animation {
+  100% {
+    margin-left: -1300px;
+    display: none;
   }
 }
