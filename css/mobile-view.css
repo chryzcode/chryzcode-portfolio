@@ -87,17 +87,18 @@
   }
 
   .css-typewriting-container .static-text {
-    font-size: 40px;
+    font-size: 30px;
     color: #e1e1e1;
   }
 
   .css-typewriting-container .dynamic-text {
-    margin-left: 15px;
+    margin-left: 10px;
+    font-size: 30px;
   }
 
   .dynamic-text li {
     list-style: none;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 400;
     color: #ffc800;
   }
@@ -106,7 +107,7 @@
     content: "";
     position: absolute;
     left: 0;
-    height: 45px;
+    height: 35px;
     width: 100%;
     background: #131517;
     border-left: 2px solid #ffc800;
