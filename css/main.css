@@ -228,6 +228,17 @@ body {
   text-align: center;
 }
 
+div.a-project-card {
+  position: relative;
+  transition-property: margin-top;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+}
+
+div.a-project-card:hover {
+  margin-top: -10px;
+}
+
 @keyframes typing {
   40%,
   60% {
