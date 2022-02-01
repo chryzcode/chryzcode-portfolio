@@ -26,7 +26,7 @@ body {
   justify-content: space-between;
 }
 
-.background {
+.my-image-background {
   background-color: #ffc800;
   width: 220px;
   height: 220px;
@@ -236,6 +236,17 @@ div.a-project-card {
 }
 
 div.a-project-card:hover {
+  margin-top: -10px;
+}
+
+.my-mobile-image-container{
+  position: relative;
+  transition-property: margin-top;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+}
+
+.my-mobile-image-container:hover {
   margin-top: -10px;
 }
 
