@@ -147,7 +147,8 @@
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 30px;
     grid-row-gap: 40px;
-    margin: 20px 15%;
+    width: 80%;
+    margin: 30px auto 0 auto;
   }
 
   .projects-section > p {

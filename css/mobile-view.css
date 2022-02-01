@@ -168,7 +168,8 @@
   .project-grid {
     display: grid;
     grid-template-columns: 1fr;
-    margin: 20px 20%;
+    margin: 20px 13%;
+    grid-gap: 30px;
   }
 
   .projects-section > p {
@@ -182,7 +183,7 @@
   .a-project-card {
     width: 100%;
     border-radius: 10px;
-    margin: 30px 0;
+    /* margin: 30px 0; */
   }
 
   @keyframes slide-2 {
