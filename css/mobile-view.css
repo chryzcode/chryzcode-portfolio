@@ -59,12 +59,13 @@
 
   #bars,
   #cross {
-    float: right;
     color: #ffffff;
     align-items: center;
     cursor: pointer;
-    display: block;
-    font-size: 35px;
+    display: inline-block;
+    font-size: 37px;
+    position: absolute;
+    right: 6px;
   }
 
   #check:checked + label span#bars {
