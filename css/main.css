@@ -153,10 +153,13 @@ body {
   line-height: 30px;
 }
 
-.project-content > div {
+.about-project {
   color: rgba(255, 255, 255, 0.7);
   margin-top: 10px;
   height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .check-project {

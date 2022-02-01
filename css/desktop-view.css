@@ -12,7 +12,7 @@
     width: 100px;
     position: relative;
     transition-property: transform;
-    transition-duration: 5s;
+    transition-duration: 1s;
     transition-timing-function: linear;
     transition-delay: 0.6s;
   }
