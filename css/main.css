@@ -230,16 +230,16 @@ body {
 
 div.a-project-card {
   position: relative;
-  transition-property: margin-top;
-  transition-duration: 0.5s;
-  transition-timing-function: linear;
+  transition-property: margin-top !important;
+  transition-duration: 0.5s !important;
+  transition-timing-function: linear !important;
 }
 
 div.a-project-card:hover {
   margin-top: -10px;
 }
 
-.my-mobile-image-container{
+.my-mobile-image-container {
   position: relative;
   transition-property: margin-top;
   transition-duration: 0.5s;

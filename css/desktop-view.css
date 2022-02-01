@@ -159,17 +159,16 @@
     line-height: 60px;
   }
 
+  .my-image-container {
+    position: relative;
+    transition-property: margin-top;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+  }
 
- .my-image-container {
-  position: relative;
-  transition-property: margin-top;
-  transition-duration: 1s;
-  transition-timing-function: linear;
-}
-
-.my-image-container:hover {
-  margin-top: -20px;
-}
+  .my-image-container:hover {
+    margin-top: -20px;
+  }
 
   @keyframes typing-2 {
     100% {
