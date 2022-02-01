@@ -72,7 +72,7 @@
     font-size: 34px;
     position: absolute;
     right: 6px;
-    padding-top: 27px;
+    padding-top: 30px;
   }
 
   #check:checked + label span#bars {
