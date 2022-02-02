@@ -152,10 +152,6 @@
     color: rgba(255, 255, 255, 0.7);
   }
 
-  .socials-logo {
-    flex-direction: column;
-  }
-
   .rolling-words-container {
     display: block;
     margin: 0 auto;
