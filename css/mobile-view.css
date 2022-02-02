@@ -241,4 +241,12 @@
   .my-mobile-image-container > div > img {
     width: 100%;
   }
+
+  .about-project {
+    height: fit-content !important;
+  }
+
+  .project-content > p {
+    height: fit-content !important;
+  }
 }
