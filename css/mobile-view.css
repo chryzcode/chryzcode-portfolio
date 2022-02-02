@@ -1,6 +1,5 @@
 @media all and (max-width: 700px) {
   nav {
-    position: static;
     background-color: #131517;
     padding: 0px 10px 15px 10px;
   }
@@ -143,7 +142,7 @@
   }
 
   .about-me {
-    margin-top: 30px;
+    margin-top: 30px !important;
   }
 
   .about-me-content > p {
@@ -206,7 +205,7 @@
     font-weight: 500;
   }
 
-  .last-section > div {
+  .contact-me > div {
     font-size: 30px !important;
   }
 

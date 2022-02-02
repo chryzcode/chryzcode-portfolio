@@ -1,11 +1,16 @@
 @media all and (min-width: 700px) {
   nav {
-    position: static;
-    background-color: #131517;
-    padding: 20px 5% 20px 5%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: #131517;
+    padding: 0px 5% 0px 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
+    z-index: 10;
   }
 
   .main-logo {

@@ -24,6 +24,7 @@ body {
   color: #ffffff;
   display: flex;
   justify-content: space-between;
+  margin-top: 110px;
 }
 
 .my-image-background {
@@ -179,47 +180,47 @@ body {
   color: #ffc800;
 }
 
-.last-section {
+.contact-me {
   text-align: center;
   margin-top: 70px;
 }
 
-.last-section > * {
+.contact-me > * {
   margin: 30px 0;
 }
 
-.last-section > div {
+.contact-me > div {
   font-weight: 600;
   font-size: 40px;
   line-height: 60px;
   color: #e1e1e1;
 }
 
-.last-section > a {
+.contact-me > a {
   font-size: 19px;
   line-height: 37px;
   color: #ffffff;
   text-decoration: none;
 }
 
-.last-section > a:hover {
+.contact-me > a:hover {
   color: #ffc800;
   transition: all 0.2s ease-in-out;
 }
 
-.last-section > span {
+.contact-me > span {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.last-section > span > a {
+.contact-me > span > a {
   color: #5a5a5a;
   margin: 0 15px;
   font-size: 20px;
 }
 
-.last-section > span > a:hover {
+.contact-me > span > a:hover {
   color: #ffc800;
   transition: all 0.2s ease-in-out;
 }
