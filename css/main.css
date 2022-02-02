@@ -135,7 +135,7 @@ body {
 
 #a-stack-break {
   font-size: 15px;
-  margin: 0 8px;
+  margin: 0 15px;
 }
 
 .projects-section {
@@ -261,6 +261,16 @@ div.a-project-card:hover {
   margin-top: -10px;
 }
 
+.copyright-container {
+  /* background-color: #5a5a5a; */
+}
+
+.copyright-container > p {
+  text-align: center;
+  color: #e1e1e1;
+  line-height: 30px;
+}
+
 @keyframes typing {
   40%,
   60% {
@@ -281,21 +291,7 @@ div.a-project-card:hover {
 
 @keyframes stack-animation {
   100% {
-    margin-left: -1400px;
+    margin-left: -1570px;
     display: none;
-  }
-}
-
-@keyframes moving-circle {
-  0% {
-    top: 10px;
-  }
-
-  50% {
-    top: 0px;
-  }
-
-  100% {
-    top: 10px;
   }
 }
