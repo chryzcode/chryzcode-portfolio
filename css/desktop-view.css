@@ -21,7 +21,6 @@
     transform: rotate(360deg);
   }
 
-
   .nav-links > a {
     color: #ffffff;
     text-decoration: none;
@@ -66,19 +65,15 @@
     background: #ffc800;
     width: 120px;
     height: 120px;
-    /* position: absolute; */
-    /* border-radius: 0%;
-  animation: rotate;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-direction: linear;
-  border: 2px dotted #131517; */
     border-radius: 50%;
+    animation: moving-circle 2s linear infinite;
   }
 
   .hire-me-content {
     margin-top: 50px;
     margin-left: 25px;
+    color: #000000;
+    text-decoration: none;
   }
 
   .my-mobile-image-container {
