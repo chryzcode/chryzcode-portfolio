@@ -157,9 +157,8 @@ body {
 .about-project {
   color: rgba(255, 255, 255, 0.7);
   margin-top: 10px;
-  height: 100px;
+  height: 80px;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
