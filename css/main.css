@@ -79,7 +79,7 @@ body {
 .socials-logo {
   margin-top: 20px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .socials-logo > span > a {
@@ -91,6 +91,20 @@ body {
 .socials-logo > span > a:hover {
   color: #ffc800;
   transition: all 0.5s ease-in-out;
+}
+
+.hire-me-btn {
+  background-color: #000000;
+  padding: 13px;
+  margin-right: 40px;
+  color: #ffc800;
+  text-decoration: none;
+}
+
+.hire-me-btn:hover {
+  background-color: #ffc800;
+  color: #000000;
+  transition: all 1.5s ease-out;
 }
 
 .my-stacks-container {
@@ -225,13 +239,6 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-.my-stacks-container > p {
-  color: #ffffff;
-  font-size: 30px;
-  font-weight: 400;
-  text-align: center;
-}
-
 div.a-project-card {
   position: relative;
   transition-property: margin-top;
@@ -252,11 +259,6 @@ div.a-project-card:hover {
 
 .my-mobile-image-container:hover {
   margin-top: -10px;
-}
-
-.hire-me-content:hover {
-  font-size: 16.5px;
-  transition: all 1s ease-in-out;
 }
 
 @keyframes typing {

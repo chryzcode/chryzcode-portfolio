@@ -156,28 +156,10 @@
     flex-direction: column;
   }
 
-  .hire-me-circle {
-    display: flex;
-    background: #ffc800;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin: 0 auto;
-    animation: moving-circle 2s linear infinite;
-    position: relative;
-  }
-
   .rolling-words-container {
     display: block;
     margin: 0 auto;
     margin-top: 15px;
-  }
-
-  .hire-me-content {
-    margin-top: 50px;
-    margin-left: 25px;
-    color: #131517;
-    text-decoration: none;
   }
 
   .project-grid {

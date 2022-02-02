@@ -60,28 +60,6 @@
     font-weight: 400;
   }
 
-  .hire-me-section {
-    display: flex;
-    justify-content: center;
-  }
-
-  .hire-me-circle {
-    display: flex;
-    background: #ffc800;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    animation: moving-circle 2s linear infinite;
-    position: relative;
-  }
-
-  .hire-me-content {
-    margin-top: 50px;
-    margin-left: 25px;
-    color: #000000;
-    text-decoration: none;
-  }
-
   .my-mobile-image-container {
     display: none;
   }
