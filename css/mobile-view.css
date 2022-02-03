@@ -1,10 +1,10 @@
 @media all and (max-width: 700px) {
   nav {
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     right: 0;
     left: 0;
-    background: #131517;
+    background: red;
     padding: 0px 5% 0px 5%;
     overflow: hidden;
     z-index: 10;
@@ -17,6 +17,10 @@
   }
 
   .main-logo {
+    display: none;
+  }
+
+  .mobile-nav-logo {
     padding-top: 8px;
     width: 80px;
     position: relative;
@@ -33,18 +37,11 @@
   .flex-container {
     display: block;
     width: 100%;
+    margin-top: -100%;
     margin-right: 0;
     z-index: 1000;
     transition: all 3s ease-in-out;
     opacity: 93%;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .download-cv-btn {
-    display: none;
   }
 
   .nav-links > ul {
@@ -61,11 +58,11 @@
     margin: 20px 0 20px 0;
   }
 
-  /* .download-cv-btn {
+  .download-cv-btn {
     color: #131517;
     display: flex;
     justify-content: right;
-  } */
+  }
 
   .download-cv > i {
     margin-right: 5px;
@@ -73,7 +70,7 @@
     font-weight: 400;
   }
 
-  /* .download-cv-btn > * {
+  .download-cv-btn > * {
     background-color: #ffc800;
     display: flex;
     justify-content: center;
@@ -83,7 +80,7 @@
     border-radius: 8px;
     color: #131517 !important;
     text-decoration: none;
-  } */
+  }
 
   #bars,
   #cross {
@@ -92,9 +89,9 @@
     cursor: pointer;
     display: inline-block;
     font-size: 34px;
-    position: absolute;
     right: 6px;
     padding-top: 30px;
+    position: absolute;
   }
 
   #check:checked + label span#bars {
@@ -110,9 +107,9 @@
     display: none;
   }
 
-  #check:checked ~ .nav-links {
-    /* transition: all 2.5s ease-in;
-    margin-top: 0 !important; */
+  #check:checked ~ .flex-container {
+    transition: all 2.5s ease-in;
+    margin-top: 0 !important;
     display: block;
   }
 

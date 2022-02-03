@@ -54,7 +54,7 @@
   #check,
   #bars,
   #cross,
-  .checkbtn {
+  .checkbtn, .mobile-nav-logo{
     display: none;
   }
 
