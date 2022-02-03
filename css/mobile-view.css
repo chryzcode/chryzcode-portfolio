@@ -22,7 +22,6 @@
   .mobile-nav-logo {
     padding-top: 8px;
     width: 80px;
-    position: relative;
     transition-property: transform;
     transition-duration: 1s;
     transition-timing-function: linear;
