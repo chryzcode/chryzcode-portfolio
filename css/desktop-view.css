@@ -6,11 +6,21 @@
     left: 0;
     background: #131517;
     padding: 0px 5% 0px 5%;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  nav:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .flex-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    overflow: hidden;
-    z-index: 10;
+    flex-direction: row;
   }
 
   .main-logo {
@@ -26,7 +36,13 @@
     transform: rotate(360deg);
   }
 
-  .nav-links > a {
+  .nav-links > ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+  }
+
+  li > a {
     color: #ffffff;
     text-decoration: none;
     line-height: 30px;

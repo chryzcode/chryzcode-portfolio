@@ -71,7 +71,7 @@ body {
   animation: typing-2 5s steps(20) infinite;
 }
 
-.nav-links > a:hover {
+li > a:hover {
   transition: all 0.2s ease-in;
   color: #ffc800;
 }
