@@ -76,11 +76,11 @@ li > a:hover {
   border-bottom: 1px solid #ffc800;
 }
 
-.socials-logo {
+/* .socials-logo {
   margin-top: 20px;
   display: flex;
   align-items: center;
-}
+} */
 
 .socials-logo > span > a {
   color: #5a5a5a;
