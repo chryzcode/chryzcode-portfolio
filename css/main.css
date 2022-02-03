@@ -73,14 +73,14 @@ body {
 
 li > a:hover {
   color: #ffc800;
-  border-bottom: 1px solid #ffc800;
+  transition: all 1s ease-in-out;
 }
 
-/* .socials-logo {
+.socials-logo {
   margin-top: 20px;
   display: flex;
   align-items: center;
-} */
+}
 
 .socials-logo > span > a {
   color: #5a5a5a;

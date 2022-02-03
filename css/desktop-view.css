@@ -41,9 +41,6 @@
     margin: 0 20px 0 20px;
     font-weight: normal;
     font-size: 20px;
-    transition-property: border-bottom;
-    transition-duration: 4s;
-    transition-timing-function: linear;
   }
 
   #check,
