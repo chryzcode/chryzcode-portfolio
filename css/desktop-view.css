@@ -8,19 +8,9 @@
     padding: 0px 5% 0px 5%;
     overflow: hidden;
     z-index: 10;
-  }
-
-  nav:after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-
-  .flex-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row;
   }
 
   .main-logo {
@@ -54,7 +44,7 @@
   #check,
   #bars,
   #cross,
-  .checkbtn, .mobile-nav-logo{
+  .checkbtn {
     display: none;
   }
 

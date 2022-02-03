@@ -261,10 +261,6 @@ div.a-project-card:hover {
   margin-top: -10px;
 }
 
-.copyright-container {
-  /* background-color: #5a5a5a; */
-}
-
 .copyright-container > p {
   text-align: center;
   color: #e1e1e1;

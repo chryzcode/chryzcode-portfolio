@@ -1,27 +1,13 @@
 @media all and (max-width: 700px) {
   nav {
-    top: 0;
-    right: 0;
-    left: 0;
-    background: #131517;
-    padding: 0px 5% 0px 5%;
-    overflow: hidden;
-    z-index: 10;
-  }
-
-  nav:after {
-    content: "";
-    clear: both;
-    display: table;
+    background-color: #131517;
+    padding: 0px 10px 15px 10px;
   }
 
   .main-logo {
-    display: none;
-  }
-
-  .mobile-nav-logo {
     padding-top: 8px;
     width: 80px;
+    position: relative;
     transition-property: transform;
     transition-duration: 1s;
     transition-timing-function: linear;
@@ -31,12 +17,11 @@
   .main-logo:hover {
     transform: rotate(360deg);
   }
-
-  .flex-container {
+  .nav-links {
     display: block;
     width: 100%;
-    margin-top: -100%;
     margin-right: 0;
+    margin-top: -100%;
     z-index: 1000;
     transition: all 3s ease-in-out;
     opacity: 93%;
@@ -105,10 +90,9 @@
     display: none;
   }
 
-  #check:checked ~ .flex-container {
+  #check:checked ~ .nav-links {
     transition: all 2.5s ease-in;
     margin-top: 0 !important;
-    display: block;
   }
 
   .css-typewriting-container .static-text {
