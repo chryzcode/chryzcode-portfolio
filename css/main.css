@@ -72,8 +72,8 @@ body {
 }
 
 li > a:hover {
-  transition: all 0.2s ease-in;
   color: #ffc800;
+  border-bottom: 1px solid #ffc800;
 }
 
 .socials-logo {
