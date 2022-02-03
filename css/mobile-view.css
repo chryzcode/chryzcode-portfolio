@@ -1,10 +1,9 @@
 @media all and (max-width: 700px) {
   nav {
-    /* position: fixed; */
     top: 0;
     right: 0;
     left: 0;
-    background: red;
+    background: #131517;
     padding: 0px 5% 0px 5%;
     overflow: hidden;
     z-index: 10;
