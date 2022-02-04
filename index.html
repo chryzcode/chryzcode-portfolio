@@ -22,11 +22,7 @@
   <body>
     <nav data-aos="fade-down" data-aos-duration="1500" id="main-nav">
       <span class="mini-mobile-nav">
-        <input type="checkbox" id="check" />
-        <label for="check" class="checkbtn">
-          <span id="bars" class="material-icons">menu</span>
-          <span id="cross" class="material-icons">close</span>
-        </label>
+        <div id="toogle"></div>
 
         <span>
           <a href="/"><img src="./images/apple-touch-icon.png" alt="" class="main-logo" /></a>
@@ -83,7 +79,9 @@
           I'm an experienced fullstack developer having built websites, web applications including relational database
           and models relationships, MVC and software architecture, RESTful API, tests and production deployment.
         </p>
-        <p>I'm also a tech writer who writes articles on web development, software development, and opensource.</p>
+        <p data-aos="fade-right" data-aos-duration="1500">
+          I'm also a tech writer who writes articles on web development, software development, and opensource.
+        </p>
         <div data-aos="fade-up" data-aos-duration="2000" class="socials-logo">
           <a class="hire-me-btn" href="mailto:alabaolanrewaju13@gmail.com" target="_blank" class="hire-me-content"
             >Hire Me <i class="fas fa-arrow-right"></i
@@ -388,8 +386,7 @@
     </script>
     <script>
       const navbar = document.getElementById("main-nav");
-      const tooglebar = document.getElementById("bars");
-      const tooglecross = document.getElementById("cross");
+      const toogle = document.getElementById("toogle");
       const navlink = document.getElementById("nav-links");
       const a_nav_link = document.getElementById("a-nav-link");
 
@@ -397,12 +394,9 @@
         if (e.target.id == "a-nav-link") navlink.classList.remove("active");
       };
 
-      tooglebar.onclick = function () {
+      toogle.onclick = function () {
         navlink.classList.toggle("active");
-      };
-
-      tooglecross.onclick = function () {
-        navlink.classList.remove("active");
+        toogle.classList.toggle("active");
       };
     </script>
   </body>

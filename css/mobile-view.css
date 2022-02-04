@@ -14,7 +14,6 @@
   }
 
   .main-logo {
-    padding-top: 8px;
     width: 80px;
     position: relative;
     transition-property: transform;
@@ -78,29 +77,45 @@
     text-decoration: none;
   }
 
-  #bars,
-  #cross {
-    color: #ffffff;
-    align-items: center;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 34px;
-    right: 6px;
-    padding-top: 30px;
+  #toogle {
     position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
   }
 
-  #check:checked + label span#bars {
-    display: none;
+  #toogle::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 28px;
+    background-color: #ffffff;
+    transform: translateY(-5px);
+    transition: 0.2s;
   }
 
-  #check:checked + label span#cross {
-    display: inline-block;
+  #toogle::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 28px;
+    background-color: #ffffff;
+    transform: translateY(5px);
+    transition: 0.2s;
   }
 
-  #cross,
-  #check {
-    display: none;
+  #toogle.active::before {
+    transform: translateY(0px) rotate(45deg);
+  }
+
+  #toogle.active::after {
+    transform: translateY(0px) rotate(-45deg);
   }
 
   #nav-links.active {
