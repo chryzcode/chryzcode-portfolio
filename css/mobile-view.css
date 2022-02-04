@@ -57,6 +57,7 @@
     justify-content: right;
     background-color: #131517;
     transition: all 3s ease-in-out;
+    padding-bottom: 20px;
   }
 
   .download-cv > i {
