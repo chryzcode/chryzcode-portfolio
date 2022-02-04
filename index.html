@@ -391,12 +391,15 @@
       const a_nav_link = document.getElementById("a-nav-link");
 
       document.onclick = function (e) {
-        if (e.target.id == "a-nav-link") navlink.classList.remove("active");
+        if (e.target.id == "a-nav-link") {
+          navlink.classList.remove("active");
+          toogle.classList.remove("active");
+        }
       };
 
       toogle.onclick = function () {
-        navlink.classList.toggle("active");
         toogle.classList.toggle("active");
+        navlink.classList.toggle("active");
       };
     </script>
   </body>
