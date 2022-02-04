@@ -2,6 +2,11 @@
   nav {
     background-color: #131517;
     padding: 0px 10px 15px 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
   }
 
   .main-logo {
@@ -21,7 +26,7 @@
     display: block;
     width: 100%;
     margin-right: 0;
-    margin-top: -100%;
+    margin-top: -250%;
     z-index: 1000;
     transition: all 3s ease-in-out;
     opacity: 93%;
@@ -74,7 +79,7 @@
     font-size: 34px;
     right: 6px;
     padding-top: 30px;
-    position: absolute;
+    position: fixed;
   }
 
   #check:checked + label span#bars {
