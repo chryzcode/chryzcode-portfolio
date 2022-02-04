@@ -106,7 +106,7 @@
     width: 28px;
     background-color: #ffffff;
     transform: translateY(5px);
-    transition: 0.2s;
+    transition: 1s;
   }
 
   #toogle.active::before {
