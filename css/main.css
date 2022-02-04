@@ -49,8 +49,7 @@ body {
 
 .dynamic-text li span {
   position: relative;
-}clas
-
+}
 
 .css-typewriting-container-2 {
   display: inline-flex;
@@ -65,7 +64,8 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  height: 100%;
+  /* height: 40px; */
+  height: fit-content;
   width: 100%;
   background: #131517;
   border-left: 2px solid #ffc800;
