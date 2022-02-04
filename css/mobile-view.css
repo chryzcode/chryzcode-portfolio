@@ -118,7 +118,7 @@
   }
 
   #nav-links.active {
-    transition: all 2.5s ease-in;
+    transition: all 1.7s ease-in;
     margin-top: 0 !important;
   }
 
