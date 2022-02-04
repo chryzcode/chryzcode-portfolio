@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <nav data-aos="fade-down" data-aos-duration="1500">
+    <nav data-aos="fade-down" data-aos-duration="1500" id="main-nav">
       <span class="mini-mobile-nav">
         <input type="checkbox" id="check" />
         <label for="check" class="checkbtn">
@@ -36,10 +36,10 @@
       <span id="nav-links">
         <ul>
           <li>
-            <a href="https://chryzcodez.hashnode.dev/" target="_blank">Blog</a>
+            <a href="https://chryzcodez.hashnode.dev/" target="_blank" id="a-nav-link">Blog</a>
           </li>
-          <li><a href="#projects-section">Portfolio</a></li>
-          <li><a href="#contact-me">Contact me</a></li>
+          <li><a href="#projects-section" id="a-nav-link">Portfolio</a></li>
+          <li><a href="#contact-me" id="a-nav-link">Contact me</a></li>
         </ul>
       </span>
 
@@ -387,9 +387,15 @@
       AOS.init();
     </script>
     <script>
+      const navbar = document.getElementById("main-nav");
       const tooglebar = document.getElementById("bars");
       const tooglecross = document.getElementById("cross");
       const navlink = document.getElementById("nav-links");
+      const a_nav_link = document.getElementById("a-nav-link");
+
+      document.onclick = function (e) {
+        if (e.target.id == "a-nav-link") navlink.classList.remove("active");
+      };
 
       tooglebar.onclick = function () {
         navlink.classList.toggle("active");
