@@ -1,12 +1,17 @@
 @media all and (max-width: 700px) {
   nav {
-    background-color: #131517;
-    padding: 0px 10px 15px 10px;
+    height: 100px;
+    width: 100%;
+    display: block;
+
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     z-index: 10;
+    background-color: #131517;
+    border-bottom: 2px solid #ffc800;
+  }
+
+  .mini-mobile-nav {
+    padding: 0px 10px 15px 10px;
   }
 
   .main-logo {
@@ -22,17 +27,18 @@
   .main-logo:hover {
     transform: rotate(360deg);
   }
-  .nav-links {
+
+  #nav-links {
     display: block;
     width: 100%;
     margin-right: 0;
-    margin-top: -250%;
-    z-index: 1000;
     transition: all 3s ease-in-out;
-    opacity: 93%;
+    margin-top: -100%;
+    background-color: #131517;
+    z-index: 5 !important;
   }
 
-  .nav-links > ul {
+  #nav-links > ul {
     list-style: none;
   }
 
@@ -43,13 +49,15 @@
     align-items: center;
     color: #ffffff;
     line-height: 20px;
-    margin: 20px 0 20px 0;
+    padding: 15px 0 15px 0;
   }
 
   .download-cv-btn {
     color: #131517;
     display: flex;
     justify-content: right;
+    background-color: #131517;
+    transition: all 3s ease-in-out;
   }
 
   .download-cv > i {
@@ -79,7 +87,7 @@
     font-size: 34px;
     right: 6px;
     padding-top: 30px;
-    position: fixed;
+    position: absolute;
   }
 
   #check:checked + label span#bars {
@@ -95,7 +103,7 @@
     display: none;
   }
 
-  #check:checked ~ .nav-links {
+  #nav-links.active {
     transition: all 2.5s ease-in;
     margin-top: 0 !important;
   }

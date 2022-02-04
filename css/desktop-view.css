@@ -27,7 +27,7 @@
     transform: rotate(360deg);
   }
 
-  .nav-links > ul {
+  #nav-links > ul {
     display: flex;
     flex-direction: row;
     list-style: none;

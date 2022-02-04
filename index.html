@@ -21,17 +21,19 @@
   </head>
   <body>
     <nav data-aos="fade-down" data-aos-duration="1500">
-      <input type="checkbox" id="check" />
-      <label for="check" class="checkbtn">
-        <span id="bars" class="material-icons">menu</span>
-        <span id="cross" class="material-icons">close</span>
-      </label>
+      <span class="mini-mobile-nav">
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <span id="bars" class="material-icons">menu</span>
+          <span id="cross" class="material-icons">close</span>
+        </label>
 
-      <span>
-        <a href="/"><img src="./images/apple-touch-icon.png" alt="" class="main-logo" /></a>
+        <span>
+          <a href="/"><img src="./images/apple-touch-icon.png" alt="" class="main-logo" /></a>
+        </span>
       </span>
 
-      <span class="nav-links">
+      <span id="nav-links">
         <ul>
           <li>
             <a href="https://chryzcodez.hashnode.dev/" target="_blank">Blog</a>
@@ -383,6 +385,21 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+    <script>
+      const tooglebar = document.getElementById("bars");
+      const tooglecross = document.getElementById("cross");
+
+      const navlink = document.getElementById("nav-links");
+
+      tooglebar.onclick = function () {
+        navlink.classList.toggle("active");
+      };
+
+      tooglecross.onclick = function () {
+        navlink.classList.remove("active");
+        // remove navlink class to nothing
+      };
     </script>
   </body>
 </html>
