@@ -1,4 +1,4 @@
-# CODE-Portfolio
+# chryzcode portfolio 
 My personal portfolio
 
 ### Stacks 
