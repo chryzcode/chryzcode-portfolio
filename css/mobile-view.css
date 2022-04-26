@@ -158,7 +158,7 @@
 
   .css-typewriting-container-2 .dynamic-text-2 {
     margin-left: 5px;
-    height: 23px;
+    height: 35px;
     font-size: 20px;
     font-weight: 300;
     overflow: hidden;
@@ -232,7 +232,7 @@
 
   @keyframes slide-2 {
     100% {
-      top: -67px;
+      top: -90px;
       margin: 0 0 0 0;
     }
   }
