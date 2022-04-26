@@ -76,7 +76,7 @@
 
   .css-typewriting-container .dynamic-text {
     margin-left: 15px;
-    height: 56px;
+    height: 80px;
     font-size: 55px;
     font-weight: 700;
   }
@@ -90,7 +90,7 @@
     content: "";
     position: absolute;
     left: 0;
-    height: 65px;
+    height: 80px;
     width: 100%;
     background: #131517;
     border-left: 2px solid #ffc800;
@@ -105,7 +105,7 @@
 
   .css-typewriting-container-2 .dynamic-text-2 {
     margin-left: 10px;
-    height: 33px;
+    height: 40px;
     font-size: 30px;
     font-weight: 400;
     overflow: hidden;
@@ -171,7 +171,7 @@
 
   @keyframes slide-2 {
     100% {
-      top: -105px;
+      top: -135px;
       margin: 0 0 0 0;
     }
   }

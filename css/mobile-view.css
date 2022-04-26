@@ -143,7 +143,7 @@
     content: "";
     position: absolute;
     left: 0;
-    height: 35px;
+    height: 45px;
     width: 100%;
     background: #131517;
     border-left: 2px solid #ffc800;
@@ -171,6 +171,18 @@
     top: 0;
     animation: slide-2 15s steps(3) infinite;
   }
+
+  .dynamic-text-2 li span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 40px;
+    height: fit-content;
+    width: 100%;
+    background: #131517;
+    border-left: 2px solid #ffc800;
+    animation: typing-2 5s steps(20) infinite;
+}
 
   .about-me {
     margin-top: 90px !important;
@@ -220,7 +232,7 @@
 
   @keyframes slide-2 {
     100% {
-      top: -70px;
+      top: -67px;
       margin: 0 0 0 0;
     }
   }
