@@ -11,20 +11,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 100px;
   }
 
   .main-logo {
-    width: 100px;
-    position: relative;
-    transition-property: transform;
-    transition-duration: 1s;
-    transition-timing-function: linear;
-    transition-delay: 0.6s;
+    width: 150px;
+    margin-top: 10px;
   }
 
-  .main-logo:hover {
-    transform: rotate(360deg);
-  }
 
   #nav-links > ul {
     display: flex;

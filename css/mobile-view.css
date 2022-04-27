@@ -6,6 +6,7 @@
     position: fixed;
     z-index: 10;
     background-color: #131517;
+    height: 100px;
   }
 
   .mini-mobile-nav {
@@ -13,16 +14,8 @@
   }
 
   .main-logo {
-    width: 80px;
-    position: relative;
-    transition-property: transform;
-    transition-duration: 1s;
-    transition-timing-function: linear;
-    transition-delay: 0.6s;
-  }
-
-  .main-logo:hover {
-    transform: rotate(360deg);
+    width: 120px;
+    margin-top: 35px;
   }
 
   #nav-links {
