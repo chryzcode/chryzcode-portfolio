@@ -70,7 +70,6 @@
     transition-property: margin-top;
     transition-duration: 0.5s;
     transition-timing-function: linear;
-    display: flex;
   }
 
   .css-typewriting-container .static-text {
