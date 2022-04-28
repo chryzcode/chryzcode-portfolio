@@ -223,6 +223,11 @@
     font-size: 30px !important;
   }
 
+  .about-project {
+    height: fit-content !important;
+    font-size: 15px;
+  }
+
   @keyframes slide-2 {
     100% {
       top: -90px;
