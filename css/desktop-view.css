@@ -65,6 +65,26 @@
     display: none;
   }
 
+  .my-image-container {
+    position: relative;
+    transition-property: margin-top;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    display: flex;
+  }
+
+  .my-image-background {
+    margin-top: 30px;
+    background-color: #ffc800;
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    border-radius: 100%;
+    margin-left: 26px;
+    display: flex;
+  }
+
+
   .css-typewriting-container .static-text {
     font-size: 55px;
     color: #e1e1e1;
@@ -124,7 +144,7 @@
   }
 
   .about-me-content > p {
-    font-size: 20px;
+    font-size: 17px;
     line-height: 20px;
     color: rgba(255, 255, 255, 0.7);
     padding: 20px 150px 0px 0px;
@@ -148,16 +168,11 @@
     line-height: 60px;
   }
 
-  .my-image-container {
-    position: relative;
-    transition-property: margin-top;
-    transition-duration: 1s;
-    transition-timing-function: linear;
-    display: flex;
-  }
 
   .my-image-container:hover {
-    margin-top: -20px;
+    margin-top: -10px;
+    transition: all 0.7s ease-in-out;
+
   }
 
   @keyframes typing-2 {

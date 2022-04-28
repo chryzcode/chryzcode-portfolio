@@ -22,16 +22,6 @@ body {
   margin-top: 110px;
 }
 
-.my-image-background {
-  margin-top: 50px;
-  background-color: #ffc800;
-  width: 220px;
-  height: 220px;
-  position: absolute;
-  border-radius: 100%;
-  margin-left: 26px;
-  display: flex;
-}
 
 .my-image {
   width: 300px;

@@ -175,7 +175,7 @@
     background: #131517;
     border-left: 2px solid #ffc800;
     animation: typing-2 5s steps(20) infinite;
-}
+  }
 
   .about-me {
     margin-top: 90px !important;
@@ -241,18 +241,22 @@
     flex-direction: column;
   }
 
+  .my-image-background {
+    margin-top: -10px !important;
+  }
+
   .my-mobile-image-container {
     display: block !important;
     margin: 30px auto 0 auto;
   }
 
   .my-image-container {
-    display: none;
+    display: none !important;
   }
 }
 
 @media screen and (max-width: 355px) {
-  .my-image-background {
+  .my-image-comtainer {
     display: none;
   }
 
