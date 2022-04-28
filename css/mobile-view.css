@@ -256,8 +256,9 @@
 }
 
 @media screen and (max-width: 355px) {
-  .my-image-comtainer {
-    display: none;
+
+  .my-image-background {
+    display: none !important;
   }
 
   .my-mobile-image-container > div > img {

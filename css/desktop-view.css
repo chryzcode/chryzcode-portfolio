@@ -73,18 +73,6 @@
     display: flex;
   }
 
-  .my-image-background {
-    margin-top: 30px;
-    background-color: #ffc800;
-    width: 220px;
-    height: 220px;
-    position: absolute;
-    border-radius: 100%;
-    margin-left: 26px;
-    display: flex;
-  }
-
-
   .css-typewriting-container .static-text {
     font-size: 55px;
     color: #e1e1e1;
