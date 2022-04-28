@@ -20,6 +20,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 110px;
+  align-items: center;
 }
 
 .my-image-background {
