@@ -15,8 +15,10 @@
   }
 
   .main-logo {
-    width: 150px;
+    width: 120px;
     margin-top: 10px;
+    height: 150px;
+    object-fit: contain;
   }
 
 
@@ -33,7 +35,7 @@
     line-height: 30px;
     margin: 0 20px 0 20px;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 17px;
   }
 
   #toogle {
@@ -50,6 +52,7 @@
     justify-content: center;
     align-items: center;
     color: #131517;
+    font-size: 14px;
   }
 
   .download-cv > i {
@@ -150,6 +153,7 @@
     transition-property: margin-top;
     transition-duration: 1s;
     transition-timing-function: linear;
+    display: flex;
   }
 
   .my-image-container:hover {
