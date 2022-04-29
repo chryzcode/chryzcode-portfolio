@@ -1,5 +1,5 @@
 # chryzcode portfolio 
-My personal portfolio
+My portfolio
 
 ### Stacks 
 - HTML
