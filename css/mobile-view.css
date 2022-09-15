@@ -277,8 +277,13 @@
 @media screen and (min-width: 700px) and (max-width: 850px) {
 
   .about-project {
-    overflow: scroll !important;
+    overflow-y: scroll !important;
     display: block !important;
+
   }
 
+ .about-project::-webkit-scrollbar {
+  width: 2px;
+  background: white;
+}
 }

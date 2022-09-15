@@ -134,12 +134,15 @@ li > a:hover {
   overflow: hidden;
   width: 100%;
   border-radius: 10px 10px 0px 0px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .project-image {
   width: 100%;
   object-fit: cover;
   object-position: center;
+  height: 100%;
 }
 
 .project-content {
