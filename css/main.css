@@ -25,20 +25,24 @@ body {
 
 .my-image-background {
     background-color: #ffc800;
-    width: 220px;
-    height: 220px;
+    width: 250px;
+    height: 250px;
     position: absolute;
     border-radius: 100%;
-    margin-left: 26px;
+    margin-left: 47px;
     display: flex;
+    margin-top: 30px;
   }
 
 
 .my-image {
-  width: 300px;
+  width: 350px;
   position: relative;
   margin-top: 5px;
   object-fit: contain;
+  display: block;
+  bottom: 70px;
+
 }
 
 .css-typewriting-container {
