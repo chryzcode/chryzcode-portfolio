@@ -428,7 +428,7 @@
     </div>
 
     <div class="copyright-container">
-      <p>&copy; 2023 chryzcode</p>
+      <p>&copy; <span id="currentYear"></span> chryzcode</p>
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -453,5 +453,16 @@
         navlink.classList.toggle("active");
       };
     </script>
+    <script>
+  // Get the current year
+  let currentDate = new Date();
+  let currentYear = currentDate.getFullYear();
+
+  // Find the element with the id "currentYear"
+  let currentYearElement = document.getElementById("currentYear");
+
+  // Update the content of the element with the current year
+  currentYearElement.textContent = currentYear;
+</script>
   </body>
 </html>
