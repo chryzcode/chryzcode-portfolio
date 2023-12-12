@@ -162,7 +162,7 @@
     color: #ffc800;
     position: relative;
     top: 0;
-    animation: slide-2 15s steps(3) infinite;
+    animation: slide-2 15s steps(2) infinite;
   }
 
   .dynamic-text-2 li span::after {
@@ -230,7 +230,7 @@
 
   @keyframes slide-2 {
     100% {
-      top: -90px;
+      top: -60px;
       margin: 0 0 0 0;
     }
   }
