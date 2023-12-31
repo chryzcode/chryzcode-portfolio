@@ -113,7 +113,7 @@ li > a:hover {
   display: flex;
   align-items: center;
   margin-left: 100%;
-  animation: stack-animation 13s linear infinite;
+  animation: stack-animation 16s linear infinite;
   white-space: nowrap;
   overflow: hidden;
   color: rgba(255, 255, 255, 0.3);
@@ -283,7 +283,7 @@ div.a-project-card:hover {
 
 @keyframes stack-animation {
   100% {
-    margin-left: -2000px;
+    margin-left: -2200px;
     display: none;
   }
 }
