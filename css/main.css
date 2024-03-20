@@ -283,7 +283,7 @@ div.a-project-card:hover {
 
 @keyframes stack-animation {
   100% {
-    margin-left: -2300px;
+    margin-left: -2470px;
     display: none;
   }
 }
