@@ -120,7 +120,7 @@
     color: #ffc800;
     position: relative;
     top: 0;
-    animation: slide-2 15s steps(2) infinite;
+    animation: slide-2 15s steps(3) infinite;
   }
 
   .download-cv:hover {
@@ -171,7 +171,7 @@
 
   @keyframes slide-2 {
     100% {
-      top: -88px;
+      top: -135px;
       margin: 0 0 0;
     }
   }
