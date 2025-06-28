@@ -115,6 +115,20 @@
     margin-top: 0 !important;
   }
 
+  .css-typewriting-container {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-bottom: 1.2rem;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .css-typewriting-container .static-text,
+  .css-typewriting-container .dynamic-text {
+    white-space: nowrap;
+  }
+
   .css-typewriting-container .static-text {
     font-size: 30px;
     color: #e1e1e1;
@@ -234,6 +248,24 @@
       margin: 0 0 0 0;
     }
   }
+
+  .socials-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2rem;
+  }
+
+  .socials-logo > span {
+    margin-bottom: 14px;
+  }
+
+  .button-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+  }
 }
 
 @media screen and (max-width: 950px) {
@@ -286,4 +318,10 @@
   width: 2px;
   background: white;
 }
+}
+
+@media (max-width: 1000px) {
+  .css-typewriting-container {
+    white-space: normal;
+  }
 }

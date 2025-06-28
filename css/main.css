@@ -23,35 +23,47 @@ body {
   align-items: center;
 }
 
+.about-me-content {
+  margin-top: 40px;
+}
+
 .about-me-content > p {
   font-size: 15px;
 }
 
 .my-image-background {
-    background-color: #ffc800;
-    width: 250px;
-    height: 250px;
-    position: absolute;
-    border-radius: 100%;
-    margin-left: 47px;
-    display: flex;
-    margin-top: 30px;
-  }
-
+  background-color: #ffc800;
+  width: 270px;
+  height: 270px;
+  position: absolute;
+  border-radius: 100%;
+  margin-left: 47px;
+  display: flex;
+  margin-top: 30px;
+}
 
 .my-image {
-  width: 350px;
+  width: 370px;
   position: relative;
   margin-top: 5px;
   object-fit: contain;
   display: block;
   bottom: 70px;
-
 }
 
 .css-typewriting-container {
-  display: inline-flex;
-  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  white-space: nowrap;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.css-typewriting-container .static-text,
+.css-typewriting-container .dynamic-text {
+  white-space: nowrap;
+  font-size: 45px;
 }
 
 .dynamic-text li span {
@@ -73,9 +85,21 @@ li > a:hover {
 }
 
 .socials-logo {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2.5rem;
+}
+
+.socials-logo > span {
+  margin-bottom: 18px;
+}
+
+.button-group {
   display: flex;
   align-items: center;
+  /* gap: 6px; */
+  margin-top: 18px;
 }
 
 .socials-logo > span > a {
@@ -89,7 +113,7 @@ li > a:hover {
   transition: all 0.5s ease-in-out;
 }
 
-.hire-me-btn {
+.hire-me-btn, .schedule-me-btn {
   background-color: #000000;
   padding: 13px;
   margin-right: 40px;
@@ -97,7 +121,7 @@ li > a:hover {
   text-decoration: none;
 }
 
-.hire-me-btn:hover {
+.hire-me-btn:hover, .schedule-me-btn:hover {
   background-color: #ffc800;
   color: #000000;
   transition: all 1.5s ease-out;
@@ -175,6 +199,8 @@ li > a:hover {
   font-size: 15px;
   display: flex;
   align-items: center;
+  max-height: 100px;
+  overflow-y: auto;
 }
 
 .check-project {
@@ -261,6 +287,22 @@ div.a-project-card:hover {
   margin-top: -10px;
 }
 
+.contact-links > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 19px;
+  line-height: 37px;
+}
+
+.contact-links > a:hover {
+  color: #ffc800;
+  transition: all 0.2s ease-in-out;
+}
+
 .copyright-container > p {
   text-align: center;
   color: #e1e1e1;
@@ -289,5 +331,11 @@ div.a-project-card:hover {
   100% {
     margin-left: -2990px;
     display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .css-typewriting-container {
+    white-space: normal;
   }
 }
