@@ -125,8 +125,9 @@
   }
 
   .css-typewriting-container .static-text,
-  .css-typewriting-container .dynamic-text {
-    white-space: nowrap;
+  .css-typewriting-container .dynamic-text,
+  .css-typewriting-container .dynamic-text li {
+    font-size: 20px !important;
   }
 
   .css-typewriting-container .static-text {
@@ -157,6 +158,12 @@
     animation: typing 2.5s steps(10) infinite;
   }
 
+  .css-typewriting-container-2 .static-text-2,
+  .css-typewriting-container-2 .dynamic-text-2,
+  .dynamic-text-2 li {
+    font-size: 16px !important;
+  }
+
   .css-typewriting-container-2 .static-text-2 {
     font-weight: 200;
     font-size: 20px;
@@ -165,10 +172,11 @@
 
   .css-typewriting-container-2 .dynamic-text-2 {
     margin-left: 5px;
-    height: 35px;
-    font-size: 20px;
+    height: 24px;
+    font-size: 16px;
     font-weight: 300;
     overflow: hidden;
+    position: relative;
   }
 
   .dynamic-text-2 li {
@@ -176,7 +184,8 @@
     color: #ffc800;
     position: relative;
     top: 0;
-    animation: slide-2 15s steps(3) infinite;
+    line-height: 24px;
+    animation: slide-2 6s steps(3) infinite;
   }
 
   .dynamic-text-2 li span::after {
@@ -244,7 +253,7 @@
 
   @keyframes slide-2 {
     100% {
-      top: -90px;
+      top: -72px;
       margin: 0 0 0 0;
     }
   }
@@ -260,11 +269,44 @@
     margin-bottom: 14px;
   }
 
+  .about-me-content {
+    max-width: 95vw;
+    margin: 0 auto;
+    padding: 0 16px 24px 16px;
+  }
+
   .button-group {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    flex-direction: column;
+    /* align-items: center; */
+    align-items: flex-start;
+    gap: 16px;
     margin-top: 14px;
+    margin-bottom: 12px;
+  }
+
+  .button-group a {
+    width: auto;
+    min-width: unset;
+    text-align: left;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: #000000;
+    color: #ffc800;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .button-group a:hover {
+    background: #ffc800;
+    color: #000000;
   }
 }
 

@@ -97,7 +97,7 @@ li > a:hover {
 
 .button-group {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   /* gap: 6px; */
   margin-top: 18px;
 }
@@ -116,7 +116,7 @@ li > a:hover {
 .hire-me-btn, .schedule-me-btn {
   background-color: #000000;
   padding: 13px;
-  margin-right: 40px;
+  margin-right: 25px;
   color: #ffc800;
   text-decoration: none;
 }
