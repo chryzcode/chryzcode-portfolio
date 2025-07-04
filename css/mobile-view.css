@@ -116,12 +116,14 @@
   }
 
   .css-typewriting-container {
+    white-space: normal !important;
+    width: auto !important;
+    overflow-x: visible !important;
+    word-break: break-word;
     display: flex;
     flex-direction: row;
     align-items: baseline;
     margin-bottom: 1.2rem;
-    width: 100%;
-    overflow-x: auto;
   }
 
   .css-typewriting-container .static-text,
