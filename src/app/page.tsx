@@ -18,6 +18,7 @@ import {
   Linkedin,
   Twitter,
   CheckCircle,
+  Copy,
 } from "lucide-react"
 
 
@@ -122,8 +123,6 @@ export default function Home() {
         "A comprehensive analytics solution that leverages machine learning to provide actionable insights from complex data sets.",
       category: "AI/ML",
       technologies: ["Python", "TensorFlow", "React", "Node.js", "PostgreSQL"],
-      year: "2024",
-      impact: "Increased client ROI by 40%",
       link: "#",
       github: "#",
       image: "/api/placeholder/1200/800/1a1a1a/6366f1?text=AI+Analytics",
@@ -134,8 +133,6 @@ export default function Home() {
         "A decentralized finance protocol built on Ethereum that enables automated yield farming and liquidity provision.",
       category: "Blockchain",
       technologies: ["Solidity", "React", "Web3.js", "Hardhat", "TypeScript"],
-      year: "2023",
-      impact: "$2M+ in TVL within 3 months",
       link: "#",
       github: "#",
       image: "/api/placeholder/1200/800/1a1a1a/8b5cf6?text=DeFi+Protocol",
@@ -146,8 +143,6 @@ export default function Home() {
         "A web-based collaboration platform with real-time editing, video conferencing, and project management features.",
       category: "Web App",
       technologies: ["React", "Socket.io", "Node.js", "MongoDB", "WebRTC"],
-      year: "2023",
-      impact: "Used by 10,000+ teams globally",
       link: "#",
       github: "#",
       image: "/api/placeholder/1200/800/1a1a1a/ec4899?text=Collaboration+Tool",
@@ -157,44 +152,14 @@ export default function Home() {
   const skills = [
     {
       category: "Frontend",
-      items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      items: ["React", "Next.js", "TypeScript", "Tailwind CSS", ""],
     },
-    { category: "Backend", items: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Redis"] },
-    { category: "AI/ML", items: ["TensorFlow", "PyTorch", "OpenAI API", "LangChain", "Pandas"] },
-    { category: "Blockchain", items: ["Solidity", "Web3.js", "Hardhat", "Ethereum", "DeFi Protocols"] },
+    { category: "Backend", items: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Redis", "Django", "Django Rest Framework", "FastAPI"] },
+    { category: "Blockchain", items: ["Solidity", "Web3.js", "Hardhat", "Ethereum", "DeFi Protocols", "Ether.js"] },
+    { category: "Tools", items: ["AWS", "Docker", "Digital Ocean", "Vercel", "Netlify", "Render", "Heroku"] },
   ]
 
-  // Percentage levels for animated progress bars
-  const skillLevels: Record<string, number> = {
-    React: 95,
-    "Next.js": 92,
-    TypeScript: 90,
-    "Tailwind CSS": 90,
-    "Framer Motion": 88,
-    "Node.js": 90,
-    Python: 93,
-    PostgreSQL: 85,
-    MongoDB: 82,
-    Redis: 78,
-    TensorFlow: 80,
-    PyTorch: 76,
-    "OpenAI API": 92,
-    LangChain: 86,
-    Pandas: 88,
-    Solidity: 74,
-    "Web3.js": 78,
-    Hardhat: 75,
-    Ethereum: 80,
-    "DeFi Protocols": 77,
-  }
-
-  const achievements = [
-    "Led development of AI platform serving 100K+ users",
-    "Built DeFi protocol with $2M+ in TVL",
-    "Mentored 50+ developers in emerging technologies",
-    "Speaker at major tech conferences (React Conf, PyCon)",
-    "Open source contributor with 500+ stars on GitHub",
-  ]
+  
 
   const testimonials = [
     {
@@ -261,11 +226,11 @@ export default function Home() {
             "alternateName": "chryzcode",
             "jobTitle": "Full Stack Developer & Blockchain Expert",
             "description": "Freelance full-stack developer with 5+ years of experience in frontend, backend, blockchain development, and smart contracts",
-            "url": "https://chryzcode.com",
+            "url": "https://chryzcode.netlify.app/",
             "sameAs": [
               "https://cal.com/chryzcode",
               "https://github.com/chryzcode",
-              "https://linkedin.com/in/chryzcode",
+              "https://www.linkedin.com/in/olanrewaju-alaba",
               "https://twitter.com/chryzcode"
             ],
             "knowsAbout": [
@@ -276,6 +241,15 @@ export default function Home() {
               "Smart Contracts",
               "React",
               "Node.js",
+              "Python",
+              "PostgreSQL",
+              "MongoDB",
+              "Redis",
+              "Django",
+              "Django Rest Framework",
+              "TypeScript",
+              "Tailwind CSS",
+              "Next.js",
               "Solidity",
               "Web3",
               "DeFi",
@@ -292,7 +266,7 @@ export default function Home() {
             "worksFor": {
               "@type": "Organization",
               "name": "chryzcode",
-              "url": "https://chryzcode.com"
+              "url": "https://chryzcode.netlify.app/"
             }
           })
         }}
@@ -744,7 +718,7 @@ export default function Home() {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                Technologist
+                Developer
               </motion.span>
               
 
@@ -844,10 +818,10 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6 text-gray-300 leading-relaxed text-center">
               <p>
-                Hi, I'm <span className="text-white font-semibold">Olanrewaju Alaba</span>, a creative technologist and the founder of <span className="text-white font-semibold">chryzcode</span>. I believe that the best digital experiences come from the perfect marriage of innovative technology and thoughtful design.
+                Hi, I'm <span className="text-white font-semibold">Olanrewaju Alaba</span> -  <span className="text-white font-semibold">chryzcode</span>, a creative developer. I believe that the best digital experiences come from the perfect marriage of innovative technology and thoughtful design.
               </p>
               <p>
-                As a <span className="text-white font-semibold">freelance full-stack developer</span> with over <span className="text-white font-semibold">5 years of experience</span>, I specialize in <span className="text-white font-semibold">frontend development</span>, <span className="text-white font-semibold">backend development</span>, <span className="text-white font-semibold">blockchain development</span>, and <span className="text-white font-semibold">smart contracts</span>. I also have experience with <span className="text-white font-semibold">DevOps</span> practices to ensure seamless deployment and maintenance.
+                As a <span className="text-white font-semibold">full-stack developer</span> with over <span className="text-white font-semibold">5 years of experience</span>, I specialize in <span className="text-white font-semibold">frontend development</span>, <span className="text-white font-semibold">backend development</span>, <span className="text-white font-semibold">blockchain development</span>, and <span className="text-white font-semibold">smart contracts</span>. I also have experience with <span className="text-white font-semibold">DevOps</span> practices to ensure seamless deployment and maintenance.
               </p>
               <div className="pt-4 pb-16">
                 <Link 
@@ -1080,15 +1054,9 @@ export default function Home() {
                 <div className="p-8">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-sm text-indigo-400 font-medium">{project.category}</span>
-                    <span className="text-sm text-zinc-500">{project.year}</span>
                   </div>
                   <h3 className="text-2xl font-semibold mb-3 group-hover:text-white transition-colors">{project.title}</h3>
-                  <p className="text-zinc-400 leading-relaxed mb-4">{project.description}</p>
-                  <div className="flex items-center gap-2 text-sm text-green-400 mb-6">
-                    <CheckCircle size={16} />
-                    {project.impact}
-                  </div>
-                  
+                  <p className="text-zinc-400 leading-relaxed mb-4">{project.description}</p>                
                     <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span key={tech} className="px-3 py-1 bg-zinc-800/50 text-zinc-300 text-xs rounded-full border border-zinc-700/50">
@@ -1189,13 +1157,25 @@ export default function Home() {
                 <div>
                   <div className="text-lg font-semibold">Email</div>
                   <button
-                    onClick={() => navigator.clipboard.writeText("hello@chryzcode.com")}
+                    onClick={() => navigator.clipboard.writeText("alabaolanrewaju13@gmail.com")}
                     className="text-sm text-gray-300 hover:text-white transition-colors"
                   >
-                    hello@chryzcode.com (copy)
+                    alabaolanrewaju13@gmail.com <Copy size={16} className="ml-2" />
                   </button>
                 </div>
               </div>
+
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                  <Github size={22} className="text-white" />
+              </div>
+                <div>
+                  <div className="text-lg font-semibold text-white">GitHub</div>
+                  <a href="https://www.github.com/chryzcode" className="text-sm text-gray-300 hover:text-white transition-colors">chryzcode</a>
+            </div>
+        </div>
+
+              
               
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
@@ -1203,7 +1183,7 @@ export default function Home() {
               </div>
                 <div>
                   <div className="text-lg font-semibold text-white">LinkedIn</div>
-                  <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">@chryzcode</a>
+                  <a href="https://www.linkedin.com/in/olanrewaju-alaba" className="text-sm text-gray-300 hover:text-white transition-colors">Olanrewaju Alaba</a>
             </div>
         </div>
 
@@ -1213,12 +1193,8 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="text-lg font-semibold text-white">Twitter</div>
-                  <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">@chryzcode</a>
+                  <a href="https://x.com/chryzcode" className="text-sm text-gray-300 hover:text-white transition-colors">@chryzcode</a>
               </div>
-            </div>
-            
-              <div className="mt-8 p-4 rounded-xl border border-white/20 bg-white/5">
-                <p className="text-sm text-gray-400">Prefer Calendly? I've linked my calendar above! I'll respond within 24–48h.</p>
             </div>
             </motion.div>
 
@@ -1241,12 +1217,14 @@ export default function Home() {
                 </div>
                 </div>
               <div className="mt-6">
-                <label className="text-sm text-gray-400">Project Type</label>
+                <label className="text-sm text-gray-400">Purpose</label>
                 <select className="mt-2 w-full px-4 py-3 rounded-lg bg-zinc-900 border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-white">
-                  <option>Web App</option>
-                  <option>AI/ML</option>
-                  <option>Blockchain</option>
+                  <option>Development</option>
+                  <option>Maintenance</option>
+                  <option>Collaboration</option>
+                  <option>Deployment</option>
                   <option>Consulting</option>
+                  <option>Others</option>
                 </select>
               </div>
               <div className="mt-6">
@@ -1256,7 +1234,7 @@ export default function Home() {
               <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} type="submit" className="mt-8 w-full px-6 py-3 bg-white text-black hover:bg-gray-100 rounded-none font-medium transition-all duration-300 shadow-lg hover:shadow-xl border border-white">
                 Start Your Project
               </motion.button>
-              <p className="mt-3 text-xs text-zinc-500">By submitting, you agree to be contacted about your project. No spam—ever.</p>
+              
             </form>
           </div>
         </div>

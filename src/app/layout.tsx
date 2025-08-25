@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://chryzcode.com'),
+  metadataBase: new URL('https://chryzcode.netlify.app/'),
   title: "Olanrewaju Alaba - Full Stack Developer & Blockchain Expert | chryzcode",
   description: "Olanrewaju Alaba is a freelance full-stack developer with 5+ years of experience in frontend, backend, blockchain development, and smart contracts. Expert in React, Node.js, Solidity, and Web3 technologies.",
   keywords: [
@@ -20,6 +20,15 @@ export const metadata: Metadata = {
     "React developer",
     "Node.js developer",
     "Solidity developer",
+    "Django developer",
+    "Django Rest Framework developer",
+    "TypeScript developer",
+    "Tailwind CSS developer",
+    "Framer Motion developer",
+    "Next.js developer",
+    "React developer",
+    "Python developer",
+    "PostgreSQL developer",
     "Web3 developer",
     "DeFi developer",
     "smart contract developer",
@@ -35,7 +44,7 @@ export const metadata: Metadata = {
   publisher: "chryzcode",
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   alternates: {
-    canonical: "https://chryzcode.com"
+    canonical: "https://chryzcode.netlify.app/"
   },
   openGraph: {
     title: "Olanrewaju Alaba - Full Stack Developer & Blockchain Expert | chryzcode",
@@ -43,7 +52,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "chryzcode Portfolio",
-    url: "https://chryzcode.com",
+    url: "https://chryzcode.netlify.app/",
     images: [
       {
         url: "/og-image.jpg",

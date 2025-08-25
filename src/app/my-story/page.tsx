@@ -33,13 +33,6 @@ export default function MyStory() {
     }
   ]
 
-  const personalDetails = [
-    { label: "Full Name", value: "Olanrewaju Alaba", icon: <Users className="w-4 h-4" /> },
-    { label: "Location", value: "Lagos, Nigeria", icon: <MapPin className="w-4 h-4" /> },
-    { label: "Experience", value: "5+ Years", icon: <Calendar className="w-4 h-4" /> },
-    { label: "Education", value: "Computer Science", icon: <GraduationCap className="w-4 h-4" /> }
-  ]
-
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
@@ -75,40 +68,12 @@ export default function MyStory() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-gray-400 max-w-2xl mx-auto mb-12"
           >
-            The journey of how I became a creative technologist and built chryzcode
+            The journey of how I became a creative self-taught developer.
           </motion.p>
         </div>
       </section>
 
-      {/* Personal Details */}
-      <section className="py-16 px-8 bg-zinc-900/20">
-        <div className="max-w-4xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          >
-            {personalDetails.map((detail, index) => (
-              <motion.div
-                key={detail.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="text-center p-6 bg-zinc-900/50 border border-zinc-800/50 rounded-xl"
-              >
-                <div className="flex justify-center mb-3 text-white/60">
-                  {detail.icon}
-                </div>
-                <div className="text-sm text-gray-400 mb-1">{detail.label}</div>
-                <div className="text-lg font-semibold text-white">{detail.value}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      
 
       {/* Story Sections */}
       <section className="py-20 px-8">

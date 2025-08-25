@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://chryzcode.com/sitemap.xml
+Sitemap: https://chryzcode.netlify.app/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
