@@ -16,7 +16,7 @@ import {
   Star,
   Mail,
   Linkedin,
-  Twitter,
+  X,
   CheckCircle,
   Copy,
 } from "lucide-react"
@@ -110,10 +110,11 @@ export default function Home() {
   }, [])
 
   const sections = [
-    { id: "work", title: "Work", icon: Code2, refIndex: 1 },
-    { id: "about", title: "About", icon: Palette, refIndex: 2 },
-    { id: "testimonials", title: "Testimonials", icon: Quote, refIndex: 3 },
-    { id: "faq", title: "FAQ", icon: Quote, refIndex: 4 },
+    { id: "about", title: "About", icon: Palette, refIndex: 1 },
+    { id: "skills", title: "Skills", icon: Code2, refIndex: 2 },
+    { id: "services", title: "Services", icon: Code2, refIndex: 3 },
+    { id: "testimonials", title: "Testimonials", icon: Quote, refIndex: 4 },
+    { id: "faq", title: "FAQ", icon: Quote, refIndex: 5 },
   ]
 
   const projects = [
@@ -152,11 +153,11 @@ export default function Home() {
   const skills = [
     {
       category: "Frontend",
-      items: ["React", "Next.js", "TypeScript", "Tailwind CSS", ""],
+      items: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     },
-    { category: "Backend", items: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Redis", "Django", "Django Rest Framework", "FastAPI"] },
-    { category: "Blockchain", items: ["Solidity", "Web3.js", "Hardhat", "Ethereum", "DeFi Protocols", "Ether.js"] },
-    { category: "Tools", items: ["AWS", "Docker", "Digital Ocean", "Vercel", "Netlify", "Render", "Heroku"] },
+    { category: "Backend", items: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Redis", "Django", "Django Rest Framework", "FastAPI", "Express.js", "NestJS"] },
+    { category: "Blockchain", items: ["Solidity", "Web3.js", "Hardhat", "Ethereum", "DeFi Protocols", "Ether.js", "IPFS", "Polygon", "BSC"] },
+    { category: "DevOps", items: ["AWS", "Docker", "Digital Ocean", "Vercel", "Netlify", "Render", "Heroku"] },
   ]
 
   
@@ -231,7 +232,7 @@ export default function Home() {
               "https://cal.com/chryzcode",
               "https://github.com/chryzcode",
               "https://www.linkedin.com/in/olanrewaju-alaba",
-              "https://twitter.com/chryzcode"
+              "https://x.com/chryzcode"
             ],
             "knowsAbout": [
               "Frontend Development",
@@ -545,7 +546,7 @@ export default function Home() {
                 whileHover={{ y: -1 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => {
-                  const contactSection = sectionsRef.current[5]
+                  const contactSection = sectionsRef.current[6]
                   if (contactSection) {
                     contactSection.scrollIntoView({ behavior: "smooth", block: "start" })
                   }
@@ -620,20 +621,20 @@ export default function Home() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
-                  onClick={() => {
-                    const contactSection = sectionsRef.current[5]
-                    if (contactSection) {
-                      // Close mobile menu first
-                      setMobileMenuOpen(false)
-                      // Use setTimeout to ensure menu closes before scrolling
-                      setTimeout(() => {
-                        contactSection.scrollIntoView({ 
-                          behavior: "smooth", 
-                          block: "start" 
-                        })
-                      }, 100)
-                    }
-                  }}
+                                onClick={() => {
+                const contactSection = sectionsRef.current[6]
+                if (contactSection) {
+                  // Close mobile menu first
+                  setMobileMenuOpen(false)
+                  // Use setTimeout to ensure menu closes before scrolling
+                  setTimeout(() => {
+                    contactSection.scrollIntoView({ 
+                      behavior: "smooth", 
+                      block: "start" 
+                    })
+                  }, 100)
+                }
+              }}
                   className="w-full mt-4 px-6 py-3 bg-white text-black hover:bg-gray-100 rounded-none text-sm font-medium transition-all duration-300 border border-white"
                 >
                   Contact
@@ -739,8 +740,8 @@ export default function Home() {
                 <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </motion.button>
               
-              <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} onClick={() => {
-                const contactSection = sectionsRef.current[5]
+              <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}               onClick={() => {
+                const contactSection = sectionsRef.current[6]
                 if (contactSection) {
                   contactSection.scrollIntoView({ behavior: "smooth", block: "start" })
                 }
@@ -798,32 +799,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section with Skills */}
+      {/* About Section */}
       <motion.section 
         ref={(el) => { if (el) sectionsRef.current[1] = el as HTMLDivElement }} 
         variants={sectionVariants} 
         initial="hidden" 
         whileInView="show" 
             viewport={{ once: true }}
-        className="min-h-screen py-20 px-8 bg-zinc-900/20 scroll-mt-28 pt-28"
+        className="py-16 px-8 bg-zinc-900/20 scroll-mt-28 pt-28"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-light mb-6">
+          <div className="text-center mb-8">
+            <h2 className="text-5xl md:text-6xl font-light mb-4">
               About <span className="text-white">Me</span>
             </h2>
-
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="space-y-6 text-gray-300 leading-relaxed text-center">
+            <div className="space-y-4 text-gray-300 leading-relaxed text-center">
               <p>
                 Hi, I'm <span className="text-white font-semibold">Olanrewaju Alaba</span> -  <span className="text-white font-semibold">chryzcode</span>, a creative developer. I believe that the best digital experiences come from the perfect marriage of innovative technology and thoughtful design.
               </p>
               <p>
                 As a <span className="text-white font-semibold">full-stack developer</span> with over <span className="text-white font-semibold">5 years of experience</span>, I specialize in <span className="text-white font-semibold">frontend development</span>, <span className="text-white font-semibold">backend development</span>, <span className="text-white font-semibold">blockchain development</span>, and <span className="text-white font-semibold">smart contracts</span>. I also have experience with <span className="text-white font-semibold">DevOps</span> practices to ensure seamless deployment and maintenance.
               </p>
-              <div className="pt-4 pb-16">
+              
+              <div className="pt-2 pb-8">
                 <Link 
                   href="/my-story"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/30 hover:border-white/50 text-white font-medium rounded-none transition-all duration-300 group"
@@ -833,185 +834,212 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            
-                        {/* Skills Section with proper spacing */}
-            <div className="mt-40">
-              <div className="text-center mb-16">
-                <h2 className="text-5xl md:text-6xl font-light mb-6 text-white">
-                  Skills & <span className="text-white">Expertise</span>
-                </h2>
-                <p className="text-xl text-gray-400 max-w-2xl mx-auto">A comprehensive overview of my technical capabilities across multiple domains.</p>
-              </div>
-              
-              {/* Skills Grid - 2x2 Layout */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 max-w-6xl mx-auto">
-                {/* Frontend Skills */}
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="space-y-4"
-                >
-                  <h4 className="text-lg font-medium text-white mb-6 flex items-center justify-center gap-3">
-                    <div className="w-1 h-6 bg-white" />
-                    Frontend
-                  </h4>
-                                     <div className="grid grid-cols-2 gap-3">
-                     {skills[0].items.slice(0, 4).map((skill, skillIndex) => (
-                       <motion.div
-                         key={skill}
-                         initial={{ opacity: 0, scale: 0.8 }}
-                         whileInView={{ opacity: 1, scale: 1 }}
-                         transition={{ delay: 0.2 + skillIndex * 0.1, duration: 0.5 }}
-                         viewport={{ once: true }}
-                         whileHover={{ scale: 1.02, x: 3 }}
-                         className="group cursor-pointer"
-                       >
-                         <div className="p-4 border border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10 transition-all duration-300">
-                           <div className="flex items-center gap-3">
-                             <div className="w-10 h-10 border border-white/20 bg-white/5 flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/40 transition-all duration-300">
-                               <span className="text-sm font-bold text-white">
-                                 {skill.charAt(0).toUpperCase()}
-                               </span>
-                             </div>
-                             <span className="text-sm text-gray-300 group-hover:text-white transition-colors font-medium">
-                               {skill}
-                             </span>
-                           </div>
-                         </div>
-                       </motion.div>
-                     ))}
-                   </div>
-                </motion.div>
+          </div>
+        </div>
+      </motion.section>
 
-                {/* Backend Skills */}
-                <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4, duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="space-y-4"
-                >
-                  <h4 className="text-lg font-medium text-white mb-6 flex items-center justify-center gap-3">
-                    <div className="w-1 h-6 bg-white" />
-                    Backend
-                  </h4>
-                                     <div className="grid grid-cols-2 gap-3">
-                     {skills[1].items.slice(0, 4).map((skill, skillIndex) => (
-                       <motion.div
-                         key={skill}
-                         initial={{ opacity: 0, scale: 0.8 }}
-                         whileInView={{ opacity: 1, scale: 1 }}
-                         transition={{ delay: 0.4 + skillIndex * 0.1, duration: 0.5 }}
-                         viewport={{ once: true }}
-                         whileHover={{ scale: 1.02, x: 3 }}
-                         className="group cursor-pointer"
-                       >
-                         <div className="p-4 border border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10 transition-all duration-300">
-                           <div className="flex items-center gap-3">
-                             <div className="w-10 h-10 border border-white/20 bg-white/5 flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/40 transition-all duration-300">
-                               <span className="text-sm font-bold text-white">
-                                 {skill.charAt(0).toUpperCase()}
-                               </span>
-                             </div>
-                             <span className="text-sm text-gray-300 group-hover:text-white transition-colors font-medium">
-                               {skill}
-                             </span>
-                           </div>
-                         </div>
-                       </motion.div>
-                     ))}
-                   </div>
-                </motion.div>
+      {/* Skills Section - Separate and Beautiful */}
+      <motion.section 
+        ref={(el) => { if (el) sectionsRef.current[2] = el as HTMLDivElement }} 
+        variants={sectionVariants} 
+        initial="hidden" 
+        whileInView="show" 
+        viewport={{ once: true }} 
+        className="min-h-screen py-16 px-8 scroll-mt-28 pt-28"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-6xl font-light mb-8 text-white"
+            >
+              Skills & <span className="text-white">Expertise</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-xl text-gray-400 max-w-3xl mx-auto"
+            >
+              A comprehensive showcase of my technical capabilities across multiple domains.
+            </motion.p>
+          </div>
+          
+                    {/* Horizontal Scrolling Skills Bar - Ultra Compact */}
+          <div className="space-y-8">
+            {skills.map((skillCategory, categoryIndex) => (
+              <motion.div 
+                key={skillCategory.category}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: categoryIndex * 0.15, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                {/* Minimal Category Header */}
+                <div className="flex items-center gap-3 mb-4 relative z-0">
+                  <motion.h3 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: categoryIndex * 0.15 + 0.1, duration: 0.4 }}
+                    viewport={{ once: true }}
+                    className="text-xl font-medium text-white whitespace-nowrap"
+                  >
+                    {skillCategory.category}
+                  </motion.h3>
+                  <motion.div 
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    transition={{ delay: categoryIndex * 0.15 + 0.2, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="h-0.5 bg-white/60 flex-1"
+                  />
+                </div>
+                
+                {/* Horizontal Scrolling Skills */}
+                <div className="relative group z-20">
+                  {/* Scrollable wrapper that doesn't clip hover effects */}
+                  <div className="overflow-x-auto scrollbar-hide">
+                    <div className="flex gap-2 pb-8 w-max">
+                      {skillCategory.items.map((skill, skillIndex) => (
+                        <motion.div
+                          key={skill}
+                          initial={{ opacity: 0, x: 20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ 
+                            delay: (categoryIndex * 0.15) + (skillIndex * 0.03), 
+                            duration: 0.3
+                          }}
+                          viewport={{ once: true }}
+                                                  whileHover={{ 
+                        }}
+                          className="group/skill cursor-pointer flex-shrink-0 relative z-10"
+                        >
+                          {/* Compact Skill Badge */}
+                          <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/20 rounded-full hover:border-white/40 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-2xl hover:bg-white/15">
+                            {/* Skill Icon */}
+                            <div className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center group-hover/skill:bg-white/30 transition-all duration-300">
+                              <span className="text-xs font-bold text-white">
+                                {skill.charAt(0).toUpperCase()}
+                              </span>
+                            </div>
+                            
+                            {/* Skill Name */}
+                            <span className="text-sm text-gray-300 group-hover/skill:text-white transition-colors duration-300 font-medium whitespace-nowrap">
+                              {skill}
+                            </span>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Scroll Indicator */}
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 bg-gradient-to-l from-black/80 to-transparent rounded-l-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
-                {/* AI/ML Skills */}
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="space-y-4"
-                >
-                  <h4 className="text-lg font-medium text-white mb-6 flex items-center justify-center gap-3">
-                    <div className="w-1 h-6 bg-white" />
-                    AI/ML
-                  </h4>
-                                     <div className="grid grid-cols-2 gap-3">
-                     {skills[2].items.slice(0, 4).map((skill, skillIndex) => (
-                       <motion.div
-                         key={skill}
-                         initial={{ opacity: 0, scale: 0.8 }}
-                         whileInView={{ opacity: 1, scale: 1 }}
-                         transition={{ delay: 0.6 + skillIndex * 0.1, duration: 0.5 }}
-                         viewport={{ once: true }}
-                         whileHover={{ scale: 1.02, x: 3 }}
-                         className="group cursor-pointer"
-                       >
-                         <div className="p-4 border border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10 transition-all duration-300">
-                           <div className="flex items-center gap-3">
-                             <div className="w-10 h-10 border border-white/20 bg-white/5 flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/40 transition-all duration-300">
-                               <span className="text-sm font-bold text-white">
-                                 {skill.charAt(0).toUpperCase()}
-                               </span>
-                             </div>
-                             <span className="text-sm text-gray-300 group-hover:text-white transition-colors font-medium">
-                               {skill}
-                             </span>
-                           </div>
-                         </div>
-                       </motion.div>
-                     ))}
-                   </div>
-                </motion.div>
-
-                {/* Blockchain Skills */}
-                <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.8, duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="space-y-4"
-                >
-                  <h4 className="text-lg font-medium text-white mb-6 flex items-center justify-center gap-3">
-                    <div className="w-1 h-6 bg-white" />
-                    Blockchain
-                  </h4>
-                                     <div className="grid grid-cols-2 gap-3">
-                     {skills[3].items.slice(0, 4).map((skill, skillIndex) => (
-                       <motion.div
-                         key={skill}
-                         initial={{ opacity: 0, scale: 0.8 }}
-                         whileInView={{ opacity: 1, scale: 1 }}
-                         transition={{ delay: 0.8 + skillIndex * 0.1, duration: 0.5 }}
-                         viewport={{ once: true }}
-                         whileHover={{ scale: 1.02, x: 3 }}
-                         className="group cursor-pointer"
-                       >
-                         <div className="p-4 border border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10 transition-all duration-300">
-                           <div className="flex items-center gap-3">
-                             <div className="w-10 h-10 border border-white/20 bg-white/5 flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/40 transition-all duration-300">
-                               <span className="text-sm font-bold text-white">
-                                 {skill.charAt(0).toUpperCase()}
-                               </span>
-                             </div>
-                             <span className="text-sm text-gray-300 group-hover:text-white transition-colors font-medium">
-                               {skill}
-                             </span>
-                           </div>
-                         </div>
-                       </motion.div>
-                     ))}
-                   </div>
-                </motion.div>
-              </div>
-            </div>
+      {/* What I Do Section */}
+      <motion.section 
+        ref={(el) => { if (el) sectionsRef.current[3] = el as HTMLDivElement }} 
+        variants={sectionVariants} 
+        initial="hidden" 
+        whileInView="show" 
+        viewport={{ once: true }} 
+        className="min-h-screen py-20 px-8 scroll-mt-28 pt-28"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-light mb-6 text-white">
+              What I <span className="text-white">Do</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">Comprehensive development services to bring your digital vision to life.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Frontend Development",
+                description: "Creating responsive, interactive user interfaces with modern frameworks like React, Next.js, and Vue.js. Focus on performance, accessibility, and user experience.",
+                icon: "🎨",
+                technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
+              },
+              {
+                title: "Backend Development", 
+                description: "Building robust server-side applications, APIs, and databases. Expertise in Node.js, Python, and various database technologies.",
+                icon: "⚙️",
+                technologies: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Redis"]
+              },
+              {
+                title: "Custom Web Applications",
+                description: "End-to-end web application development from concept to deployment. Full-stack solutions tailored to your specific business needs.",
+                icon: "🌐",
+                technologies: ["Full Stack", "Custom Solutions", "Business Logic", "User Management", "API Integration"]
+              },
+              {
+                title: "Website Development",
+                description: "Professional websites that convert visitors into customers. SEO-optimized, fast-loading, and mobile-responsive designs.",
+                icon: "💻",
+                technologies: ["WordPress", "Custom CMS", "SEO", "Performance", "Mobile-First"]
+              },
+              {
+                title: "Blockchain Smart Contract Development",
+                description: "Developing secure, audited smart contracts for DeFi protocols, NFTs, and blockchain applications. Expert in Solidity and Web3 technologies.",
+                icon: "⛓️",
+                technologies: ["Solidity", "Web3.js", "Hardhat", "DeFi", "NFTs"]
+              },
+              {
+                title: "Ongoing Support",
+                description: "Comprehensive maintenance, updates, and technical support to keep your applications running smoothly and securely. Regular backups, security patches, and performance monitoring.",
+                icon: "🔧",
+                technologies: ["Maintenance", "Updates", "Security", "Monitoring", "Backups"]
+              }
+            ].map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 50, rotateY: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                whileHover={{ 
+                  y: -8, 
+                  rotateY: 5,
+                  scale: 1.02,
+                  boxShadow: "0 25px 50px rgba(0,0,0,0.5)"
+                }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                viewport={{ once: true }}
+                className="group bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-2xl p-8 hover:border-white/30 transition-all duration-500 overflow-hidden transform-gpu"
+              >
+                <div className="text-4xl mb-4">{service.icon}</div>
+                <h3 className="text-2xl font-semibold mb-4 group-hover:text-white transition-colors">{service.title}</h3>
+                <p className="text-zinc-400 leading-relaxed mb-6">{service.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {service.technologies.map((tech) => (
+                    <span key={tech} className="px-3 py-1 bg-zinc-800/50 text-zinc-300 text-xs rounded-full border border-zinc-700/50">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </motion.section>
 
       {/* Work Section */}
-      <motion.section ref={(el) => { if (el) sectionsRef.current[2] = el as HTMLDivElement }} variants={sectionVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="min-h-screen py-20 px-8 scroll-mt-28 pt-28">
+      <motion.section ref={(el) => { if (el) sectionsRef.current[3] = el as HTMLDivElement }} variants={sectionVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="min-h-screen py-20 px-8 scroll-mt-28 pt-28">
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionVariants} className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-light mb-6 text-white">
@@ -1072,7 +1100,7 @@ export default function Home() {
       </motion.section>
 
       {/* Testimonials Section */}
-      <motion.section ref={(el) => { if (el) sectionsRef.current[3] = el as HTMLDivElement }} variants={sectionVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="min-h-screen py-20 px-8 scroll-mt-28 pt-28">
+      <motion.section ref={(el) => { if (el) sectionsRef.current[4] = el as HTMLDivElement }} variants={sectionVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="min-h-screen py-20 px-8 scroll-mt-28 pt-28">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
                          <h2 className="text-5xl md:text-6xl font-light mb-6">
@@ -1103,7 +1131,7 @@ export default function Home() {
       </motion.section>
 
       {/* FAQ Section (Accordion) */}
-      <motion.section ref={(el) => { if (el) sectionsRef.current[4] = el as HTMLDivElement }} variants={sectionVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="min-h-screen py-20 px-8 bg-zinc-900/20 scroll-mt-28 pt-28">
+      <motion.section ref={(el) => { if (el) sectionsRef.current[5] = el as HTMLDivElement }} variants={sectionVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="min-h-screen py-20 px-8 bg-zinc-900/20 scroll-mt-28 pt-28">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
                          <h2 className="text-5xl md:text-6xl font-light mb-6">
@@ -1138,7 +1166,7 @@ export default function Home() {
       </motion.section>
 
       {/* Contact Section (Enhanced) */}
-      <motion.section ref={(el) => { if (el) sectionsRef.current[5] = el as HTMLDivElement }} variants={sectionVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="min-h-screen py-20 px-8 scroll-mt-28 pt-28">
+      <motion.section ref={(el) => { if (el) sectionsRef.current[6] = el as HTMLDivElement }} variants={sectionVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="min-h-screen py-20 px-8 scroll-mt-28 pt-28">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
                          <h2 className="text-5xl md:text-6xl font-light mb-6">
@@ -1156,12 +1184,15 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="text-lg font-semibold">Email</div>
-                  <button
-                    onClick={() => navigator.clipboard.writeText("alabaolanrewaju13@gmail.com")}
-                    className="text-sm text-gray-300 hover:text-white transition-colors"
-                  >
-                    alabaolanrewaju13@gmail.com <Copy size={16} className="ml-2" />
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => navigator.clipboard.writeText("alabaolanrewaju13@gmail.com")}
+                      className="text-sm text-gray-300 hover:text-white transition-colors"
+                    >
+                      alabaolanrewaju13@gmail.com
+                    </button>
+                    <Copy size={16} className="text-gray-400 hover:text-white cursor-pointer" onClick={() => navigator.clipboard.writeText("alabaolanrewaju13@gmail.com")} />
+                  </div>
                 </div>
               </div>
 
@@ -1189,10 +1220,10 @@ export default function Home() {
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                  <Twitter size={22} className="text-white" />
+                  <X size={22} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-lg font-semibold text-white">Twitter</div>
+                  <div className="text-lg font-semibold text-white">X (Twitter)</div>
                   <a href="https://x.com/chryzcode" className="text-sm text-gray-300 hover:text-white transition-colors">@chryzcode</a>
               </div>
             </div>
@@ -1249,8 +1280,8 @@ export default function Home() {
                <p className="text-gray-400 text-sm">Crafting digital experiences that inspire and innovate.</p>
              </div>
  
-             <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} onClick={() => {
-               const contactSection = sectionsRef.current[5]
+             <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}              onClick={() => {
+               const contactSection = sectionsRef.current[6]
                if (contactSection) {
                  contactSection.scrollIntoView({ behavior: "smooth", block: "start" })
                }
@@ -1260,7 +1291,7 @@ export default function Home() {
            </div>
  
            <div className="mt-8 pt-8 border-t border-white/10 text-center">
-             <p className="text-gray-400 text-sm">© 2024 chryzcode. All rights reserved.</p>
+             <p className="text-gray-400 text-sm">© {new Date().getFullYear()} chryzcode. All rights reserved.</p>
           </div>
         </div>
       </footer>

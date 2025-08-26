@@ -70,15 +70,15 @@ export const metadata: Metadata = {
     site: "@chryzcode"
   },
   verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code"
+    google: "", // Add your Google Search Console verification code here
+    yandex: "", // Add your Yandex Webmaster verification code here
+    yahoo: "" // Add your Yahoo Site Explorer verification code here
   },
   category: "technology",
   classification: "Portfolio Website",
   other: {
-    "google-site-verification": "your-google-verification-code",
-    "msvalidate.01": "your-bing-verification-code"
+    "google-site-verification": "", // Add your Google Search Console verification code here
+    "msvalidate.01": "" // Add your Bing Webmaster Tools verification code here
   }
 };
 
