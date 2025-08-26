@@ -42,39 +42,61 @@ export default function Home() {
     if (typeof window === "undefined") return
 
     const handleScroll = () => {
-      const scrollY = window.scrollY
-      const windowHeight = window.innerHeight
+      try {
+        const scrollY = window.scrollY || 0
+        const windowHeight = window.innerHeight || 0
 
-      // Calculate scroll progress
-      const documentHeight = document.documentElement.scrollHeight
-      const progress = scrollY / (documentHeight - windowHeight)
-      setScrollYProgress(progress)
+        // Calculate scroll progress
+        const documentHeight = document.documentElement?.scrollHeight || 0
+        const progress = documentHeight > windowHeight ? scrollY / (documentHeight - windowHeight) : 0
+        setScrollYProgress(progress)
 
-      // Update current section based on actual section positions
-      let newSection = 0
-      sectionsRef.current.forEach((section, index) => {
-        if (!section) return
-        const rect = section.getBoundingClientRect()
-        if (rect.top <= windowHeight * 0.5 && rect.bottom >= windowHeight * 0.5) {
-          newSection = index
+        // Update current section based on actual section positions
+        let newSection = 0
+        if (sectionsRef.current && Array.isArray(sectionsRef.current)) {
+          sectionsRef.current.forEach((section, index) => {
+            if (!section) return
+            try {
+              const rect = section.getBoundingClientRect()
+              if (rect && rect.top <= windowHeight * 0.5 && rect.bottom >= windowHeight * 0.5) {
+                newSection = index
+              }
+            } catch (error) {
+              console.warn('Error getting bounding rect for section:', error)
+            }
+          })
         }
-      })
-      setCurrentSection(newSection)
+        setCurrentSection(newSection)
 
-      // Add parallax effects to background elements
-      const backgroundElements = document.querySelectorAll('.parallax-bg')
-      backgroundElements.forEach((el, index) => {
-        const speed = 0.5 + (index * 0.1)
-        const yPos = -(scrollY * speed)
-        ;(el as HTMLElement).style.transform = `translateY(${yPos}px)`
-      })
+        // Add parallax effects to background elements
+        try {
+          const backgroundElements = document.querySelectorAll('.parallax-bg')
+          backgroundElements.forEach((el, index) => {
+            if (el && 'style' in el) {
+              const speed = 0.5 + (index * 0.1)
+              const yPos = -(scrollY * speed)
+              ;(el as HTMLElement).style.transform = `translateY(${yPos}px)`
+            }
+          })
+        } catch (error) {
+          console.warn('Error applying parallax effects:', error)
+        }
 
-      // Add rotation effects based on scroll
-      const rotateElements = document.querySelectorAll('.rotate-on-scroll')
-      rotateElements.forEach((el, index) => {
-        const rotation = scrollY * 0.1 + (index * 45)
-        ;(el as HTMLElement).style.transform = `rotate(${rotation}deg)`
-      })
+        // Add rotation effects based on scroll
+        try {
+          const rotateElements = document.querySelectorAll('.rotate-on-scroll')
+          rotateElements.forEach((el, index) => {
+            if (el && 'style' in el) {
+              const rotation = scrollY * 0.1 + (index * 45)
+              ;(el as HTMLElement).style.transform = `rotate(${rotation}deg)`
+            }
+          })
+        } catch (error) {
+          console.warn('Error applying rotation effects:', error)
+        }
+      } catch (error) {
+        console.warn('Error in handleScroll:', error)
+      }
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -87,13 +109,22 @@ export default function Home() {
     if (typeof window === "undefined") return
 
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-      
-      // Update cursor trail
-      setCursorTrail(prev => {
-        const newTrail = [...prev, { x: e.clientX, y: e.clientY }]
-        return newTrail.slice(-10) // Keep last 10 positions
-      })
+      try {
+        if (e && typeof e.clientX === 'number' && typeof e.clientY === 'number') {
+          setMousePosition({ x: e.clientX, y: e.clientY })
+          
+          // Update cursor trail
+          setCursorTrail(prev => {
+            if (Array.isArray(prev)) {
+              const newTrail = [...prev, { x: e.clientX, y: e.clientY }]
+              return newTrail.slice(-10) // Keep last 10 positions
+            }
+            return [{ x: e.clientX, y: e.clientY }]
+          })
+        }
+      } catch (error) {
+        console.warn('Error in handleMouseMove:', error)
+      }
     }
 
     window.addEventListener("mousemove", handleMouseMove)
@@ -526,9 +557,13 @@ export default function Home() {
                   whileTap={{ scale: 0.98 }}
                   key={section.id}
                   onClick={() => {
-                    const element = sectionsRef.current[section.refIndex]
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth", block: "start" })
+                    try {
+                      const element = sectionsRef.current?.[section.refIndex]
+                      if (element && typeof element.scrollIntoView === 'function') {
+                        element.scrollIntoView({ behavior: "smooth", block: "start" })
+                      }
+                    } catch (error) {
+                      console.warn('Error scrolling to section:', error)
                     }
                   }}
                   className={`text-sm tracking-wide transition-colors duration-300 ${
@@ -546,9 +581,13 @@ export default function Home() {
                 whileHover={{ y: -1 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => {
-                  const contactSection = sectionsRef.current[6]
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth", block: "start" })
+                  try {
+                    const contactSection = sectionsRef.current?.[6]
+                    if (contactSection && typeof contactSection.scrollIntoView === 'function') {
+                      contactSection.scrollIntoView({ behavior: "smooth", block: "start" })
+                    }
+                  } catch (error) {
+                    console.warn('Error scrolling to contact section:', error)
                   }
                 }}
                 className="px-6 py-2 bg-white text-black hover:bg-gray-100 rounded-none text-sm font-medium transition-all duration-300 border border-white"
@@ -597,17 +636,25 @@ export default function Home() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 }}
                     onClick={() => {
-                      const element = sectionsRef.current[section.refIndex]
-                      if (element) {
-                        // Close mobile menu first
-                        setMobileMenuOpen(false)
-                        // Use setTimeout to ensure menu closes before scrolling
-                        setTimeout(() => {
-                          element.scrollIntoView({ 
-                            behavior: "smooth", 
-                            block: "start" 
-                          })
-                        }, 100)
+                      try {
+                        const element = sectionsRef.current?.[section.refIndex]
+                        if (element && typeof element.scrollIntoView === 'function') {
+                          // Close mobile menu first
+                          setMobileMenuOpen(false)
+                          // Use setTimeout to ensure menu closes before scrolling
+                          setTimeout(() => {
+                            try {
+                              element.scrollIntoView({ 
+                                behavior: "smooth", 
+                                block: "start" 
+                              })
+                            } catch (error) {
+                              console.warn('Error scrolling to section in mobile menu:', error)
+                            }
+                          }, 100)
+                        }
+                      } catch (error) {
+                        console.warn('Error in mobile menu click handler:', error)
                       }
                     }}
                     className={`block w-full text-left py-3 px-4 text-sm tracking-wide transition-colors duration-300 ${
@@ -622,17 +669,25 @@ export default function Home() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
                                 onClick={() => {
-                const contactSection = sectionsRef.current[6]
-                if (contactSection) {
-                  // Close mobile menu first
-                  setMobileMenuOpen(false)
-                  // Use setTimeout to ensure menu closes before scrolling
-                  setTimeout(() => {
-                    contactSection.scrollIntoView({ 
-                      behavior: "smooth", 
-                      block: "start" 
-                    })
-                  }, 100)
+                try {
+                  const contactSection = sectionsRef.current?.[6]
+                  if (contactSection && typeof contactSection.scrollIntoView === 'function') {
+                    // Close mobile menu first
+                    setMobileMenuOpen(false)
+                    // Use setTimeout to ensure menu closes before scrolling
+                    setTimeout(() => {
+                      try {
+                        contactSection.scrollIntoView({ 
+                          behavior: "smooth", 
+                          block: "start" 
+                        })
+                      } catch (error) {
+                        console.warn('Error scrolling to contact section in mobile menu:', error)
+                      }
+                    }, 100)
+                  }
+                } catch (error) {
+                  console.warn('Error in mobile menu contact click handler:', error)
                 }
               }}
                   className="w-full mt-4 px-6 py-3 bg-white text-black hover:bg-gray-100 rounded-none text-sm font-medium transition-all duration-300 border border-white"
@@ -731,9 +786,13 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} onClick={() => {
-                const workSection = sectionsRef.current[1]
-                if (workSection) {
-                  workSection.scrollIntoView({ behavior: "smooth", block: "start" })
+                try {
+                  const workSection = sectionsRef.current?.[1]
+                  if (workSection && typeof workSection.scrollIntoView === 'function') {
+                    workSection.scrollIntoView({ behavior: "smooth", block: "start" })
+                  }
+                } catch (error) {
+                  console.warn('Error scrolling to work section:', error)
                 }
               }} className="group px-8 py-4 bg-white text-black rounded-none font-medium tracking-wide flex items-center gap-3 hover:bg-gray-100 transition-all duration-300 border border-white">
                 View My Work
@@ -741,9 +800,13 @@ export default function Home() {
               </motion.button>
               
               <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}               onClick={() => {
-                const contactSection = sectionsRef.current[6]
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: "smooth", block: "start" })
+                try {
+                  const contactSection = sectionsRef.current?.[6]
+                  if (contactSection && typeof contactSection.scrollIntoView === 'function') {
+                    contactSection.scrollIntoView({ behavior: "smooth", block: "start" })
+                  }
+                } catch (error) {
+                  console.warn('Error scrolling to contact section:', error)
                 }
               }} className="px-8 py-4 border border-white/30 hover:border-white text-white font-medium tracking-wide transition-all duration-300">
                 Get In Touch
@@ -920,7 +983,7 @@ export default function Home() {
                           className="group/skill cursor-pointer flex-shrink-0 relative z-10"
                         >
                           {/* Compact Skill Badge */}
-                          <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/20 rounded-full hover:border-white/40 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-2xl hover:bg-white/15">
+                          <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/20 rounded-full hover:border-white/40 hover:bg-white/15 transition-all duration-300 shadow-lg hover:shadow-2xl">
                             {/* Skill Icon */}
                             <div className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center group-hover/skill:bg-white/30 transition-all duration-300">
                               <span className="text-xs font-bold text-white">
@@ -1186,12 +1249,28 @@ export default function Home() {
                   <div className="text-lg font-semibold">Email</div>
                   <div className="flex items-center gap-2">
                     <button
-                      onClick={() => navigator.clipboard.writeText("alabaolanrewaju13@gmail.com")}
+                      onClick={() => {
+                        try {
+                          if (navigator?.clipboard?.writeText) {
+                            navigator.clipboard.writeText("alabaolanrewaju13@gmail.com")
+                          }
+                        } catch (error) {
+                          console.warn('Error copying email to clipboard:', error)
+                        }
+                      }}
                       className="text-sm text-gray-300 hover:text-white transition-colors"
                     >
                       alabaolanrewaju13@gmail.com
                     </button>
-                    <Copy size={16} className="text-gray-400 hover:text-white cursor-pointer" onClick={() => navigator.clipboard.writeText("alabaolanrewaju13@gmail.com")} />
+                    <Copy size={16} className="text-gray-400 hover:text-white cursor-pointer" onClick={() => {
+                      try {
+                        if (navigator?.clipboard?.writeText) {
+                          navigator.clipboard.writeText("alabaolanrewaju13@gmail.com")
+                        }
+                      } catch (error) {
+                        console.warn('Error copying email to clipboard:', error)
+                      }
+                    }} />
                   </div>
                 </div>
               </div>
@@ -1281,9 +1360,13 @@ export default function Home() {
              </div>
  
              <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}              onClick={() => {
-               const contactSection = sectionsRef.current[6]
-               if (contactSection) {
-                 contactSection.scrollIntoView({ behavior: "smooth", block: "start" })
+               try {
+                 const contactSection = sectionsRef.current?.[6]
+                 if (contactSection && typeof contactSection.scrollIntoView === 'function') {
+                   contactSection.scrollIntoView({ behavior: "smooth", block: "start" })
+                 }
+               } catch (error) {
+                 console.warn('Error scrolling to contact section from footer:', error)
                }
              }} className="px-8 py-3 bg-white text-black hover:bg-gray-100 rounded-none font-medium transition-all duration-300 border border-white">
                Let's Build Something Amazing
@@ -1300,7 +1383,15 @@ export default function Home() {
       <motion.button 
         whileHover={{ y: -2, scale: 1.1 }} 
         whileTap={{ scale: 0.95 }} 
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} 
+        onClick={() => {
+          try {
+            if (typeof window !== 'undefined' && window.scrollTo) {
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            }
+          } catch (error) {
+            console.warn('Error scrolling to top:', error)
+          }
+        }} 
         className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-white text-black hover:bg-gray-100 rounded-none shadow-2xl flex items-center justify-center transition-all duration-300 border-2 border-white"
       >
         <ChevronDown size={24} className="rotate-180" />
