@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial']
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chryzcode.netlify.app/'),
@@ -89,6 +94,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Preload critical resources for faster LCP */}
+        <link rel="preload" href="/api/placeholder/1200/800/1a1a1a/6366f1?text=AI+Analytics" as="image" />
+        <link rel="preload" href="/api/placeholder/1200/800/1a1a1a/8b5cf6?text=DeFi+Protocol" as="image" />
+        <link rel="preload" href="/api/placeholder/1200/800/1a1a1a/ec4899?text=Collaboration+Tool" as="image" />
+        
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://cal.com" />
+        <link rel="preconnect" href="https://github.com" />
+        <link rel="preconnect" href="https://www.linkedin.com" />
+        <link rel="preconnect" href="https://x.com" />
+        
+        {/* DNS prefetch for performance */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        
+        {/* Preload critical fonts */}
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+      </head>
       <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         {children}
       </body>

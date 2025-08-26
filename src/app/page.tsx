@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import PerformanceMonitor from "@/components/PerformanceMonitor"
+import CustomCursor from "@/components/CustomCursor"
 
 import { 
   ArrowUpRight,
@@ -28,114 +30,115 @@ export default function Home() {
   const [scrollYProgress, setScrollYProgress] = useState(0)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [cursorTrail, setCursorTrail] = useState<Array<{ x: number; y: number }>>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [showBackgroundAnimations, setShowBackgroundAnimations] = useState(false)
 
   const containerRef = useRef<HTMLDivElement>(null)
   const sectionsRef = useRef<HTMLDivElement[]>([])
 
 
 
-  // Handle scroll with enhanced animations
+  // Handle scroll with enhanced animations (optimized with debouncing)
   useEffect(() => {
     if (typeof window === "undefined") return
 
+    let ticking = false
+    let lastScrollY = 0
+
     const handleScroll = () => {
-      try {
-        const scrollY = window.scrollY || 0
-        const windowHeight = window.innerHeight || 0
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          try {
+            const scrollY = window.scrollY || 0
+            const windowHeight = window.innerHeight || 0
 
-        // Calculate scroll progress
-        const documentHeight = document.documentElement?.scrollHeight || 0
-        const progress = documentHeight > windowHeight ? scrollY / (documentHeight - windowHeight) : 0
-        setScrollYProgress(progress)
+            // Only update if scroll position changed significantly (performance optimization)
+            if (Math.abs(scrollY - lastScrollY) < 5) {
+              ticking = false
+              return
+            }
+            lastScrollY = scrollY
 
-        // Update current section based on actual section positions
-        let newSection = 0
-        if (sectionsRef.current && Array.isArray(sectionsRef.current)) {
-          sectionsRef.current.forEach((section, index) => {
-            if (!section) return
+            // Calculate scroll progress
+            const documentHeight = document.documentElement?.scrollHeight || 0
+            const progress = documentHeight > windowHeight ? scrollY / (documentHeight - windowHeight) : 0
+            setScrollYProgress(progress)
+
+            // Update current section based on actual section positions
+            let newSection = 0
+            if (sectionsRef.current && Array.isArray(sectionsRef.current)) {
+              sectionsRef.current.forEach((section, index) => {
+                if (!section) return
+                try {
+                  const rect = section.getBoundingClientRect()
+                  if (rect && rect.top <= windowHeight * 0.5 && rect.bottom >= windowHeight * 0.5) {
+                    newSection = index
+                  }
+                } catch (error) {
+                  console.warn('Error getting bounding rect for section:', error)
+                }
+              })
+            }
+            setCurrentSection(newSection)
+
+            // Add parallax effects to background elements (throttled)
             try {
-              const rect = section.getBoundingClientRect()
-              if (rect && rect.top <= windowHeight * 0.5 && rect.bottom >= windowHeight * 0.5) {
-                newSection = index
-              }
+              const backgroundElements = document.querySelectorAll('.parallax-bg')
+              backgroundElements.forEach((el, index) => {
+                if (el && 'style' in el) {
+                  const speed = 0.5 + (index * 0.1)
+                  const yPos = -(scrollY * speed)
+                  ;(el as HTMLElement).style.transform = `translate3d(0, ${yPos}px, 0)`
+                }
+              })
             } catch (error) {
-              console.warn('Error getting bounding rect for section:', error)
+              console.warn('Error applying parallax effects:', error)
             }
-          })
-        }
-        setCurrentSection(newSection)
 
-        // Add parallax effects to background elements
-        try {
-          const backgroundElements = document.querySelectorAll('.parallax-bg')
-          backgroundElements.forEach((el, index) => {
-            if (el && 'style' in el) {
-              const speed = 0.5 + (index * 0.1)
-              const yPos = -(scrollY * speed)
-              ;(el as HTMLElement).style.transform = `translateY(${yPos}px)`
+            // Add rotation effects based on scroll (throttled)
+            try {
+              const rotateElements = document.querySelectorAll('.rotate-on-scroll')
+              rotateElements.forEach((el, index) => {
+                if (el && 'style' in el) {
+                  const rotation = scrollY * 0.1 + (index * 45)
+                  ;(el as HTMLElement).style.transform = `rotate(${rotation}deg)`
+                }
+              })
+            } catch (error) {
+              console.warn('Error applying rotation effects:', error)
             }
-          })
-        } catch (error) {
-          console.warn('Error applying parallax effects:', error)
-        }
 
-        // Add rotation effects based on scroll
-        try {
-          const rotateElements = document.querySelectorAll('.rotate-on-scroll')
-          rotateElements.forEach((el, index) => {
-            if (el && 'style' in el) {
-              const rotation = scrollY * 0.1 + (index * 45)
-              ;(el as HTMLElement).style.transform = `rotate(${rotation}deg)`
-            }
-          })
-        } catch (error) {
-          console.warn('Error applying rotation effects:', error)
-        }
-      } catch (error) {
-        console.warn('Error in handleScroll:', error)
+            ticking = false
+          } catch (error) {
+            console.warn('Error in handleScroll:', error)
+            ticking = false
+          }
+        })
+        ticking = true
       }
     }
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Mouse tracking and cursor trail
-  useEffect(() => {
-    if (typeof window === "undefined") return
+  // Mouse tracking removed - now handled by optimized CustomCursor component
 
-    const handleMouseMove = (e: MouseEvent) => {
-      try {
-        if (e && typeof e.clientX === 'number' && typeof e.clientY === 'number') {
-          setMousePosition({ x: e.clientX, y: e.clientY })
-          
-          // Update cursor trail
-          setCursorTrail(prev => {
-            if (Array.isArray(prev)) {
-              const newTrail = [...prev, { x: e.clientX, y: e.clientY }]
-              return newTrail.slice(-10) // Keep last 10 positions
-            }
-            return [{ x: e.clientX, y: e.clientY }]
-          })
-        }
-      } catch (error) {
-        console.warn('Error in handleMouseMove:', error)
-      }
-    }
-
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
-
-  // Handle loading
+  // Handle loading (optimized for faster LCP)
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 2000) // Show loading for 2 seconds
+    }, 400) // Further reduced to 400ms for excellent LCP
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  // Delay background animations to improve LCP
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowBackgroundAnimations(true)
+    }, 1000) // Show background animations after 1 second
 
     return () => clearTimeout(timer)
   }, [])
@@ -321,17 +324,17 @@ export default function Home() {
             >
 
               <motion.h1
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
                 className="text-4xl font-bold text-white mb-4"
               >
                 chryzcode
               </motion.h1>
               <motion.p
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
                 className="text-gray-400 text-lg"
               >
                 Loading creative portfolio...
@@ -341,87 +344,78 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      <div ref={containerRef} className="min-h-screen bg-black text-white overflow-x-hidden relative z-0">
-      {/* Cursor Trail Effect */}
-      <div className="fixed inset-0 pointer-events-none z-50">
-        {cursorTrail.map((pos, index) => (
-          <motion.div
-            key={index}
-            initial={{ scale: 1, opacity: 0.8 }}
-            animate={{ scale: 0, opacity: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.05 }}
-            className="absolute w-2 h-2 bg-white/60 rounded-full"
-            style={{
-              left: pos.x - 4,
-              top: pos.y - 4,
-            }}
-          />
-        ))}
-      </div>
+      <div ref={containerRef} className="min-h-screen bg-black text-white overflow-x-hidden relative z-0 cursor-none" style={{ willChange: 'scroll-position' }}>
+      {/* Cursor Trail Effect - Removed in favor of optimized CustomCursor */}
 
       {/* CRAZY Animated Background - Multiple Layers */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute inset-0 bg-black" />
         
-        {/* Layer 1: Floating Geometric Shapes */}
+        {/* Layer 1: Floating Geometric Shapes (Optimized) */}
+        {showBackgroundAnimations && (
         <div className="absolute inset-0 parallax-bg">
-          {/* Crazy rotating triangles */}
-          <motion.div
-            animate={{
-              rotate: [0, 360, 720],
-              scale: [1, 1.2, 1],
-              x: [0, 50, -50, 0],
-            }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute w-20 h-20 border border-white/20 bg-white/5 rotate-on-scroll"
-            style={{ 
-              top: '15%', 
-              left: '5%',
-              clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'
-            }}
-          />
-          
-          {/* Bouncing squares */}
-          <motion.div
-            animate={{
-              y: [0, -100, 0],
-              rotate: [0, 180, 360],
-              scale: [1, 0.8, 1.2, 1],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute w-16 h-16 border border-white/15 bg-white/5"
-            style={{ top: '25%', right: '10%' }}
-          />
-          
-          {/* Spinning hexagon */}
+          {/* Optimized rotating triangles */}
           <motion.div
             animate={{
               rotate: [0, 360],
-              x: [0, 80, 0],
+              scale: [1, 1.1, 1],
             }}
             transition={{
               duration: 12,
               repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute w-16 h-16 border border-white/15 bg-white/5 rotate-on-scroll"
+            style={{ 
+              top: '15%', 
+              left: '5%',
+              clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+              willChange: 'transform'
+            }}
+          />
+          
+          {/* Optimized bouncing squares */}
+          <motion.div
+            animate={{
+              y: [0, -80, 0],
+              scale: [1, 0.9, 1.1, 1],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute w-12 h-12 border border-white/12 bg-white/5"
+            style={{ 
+              top: '25%', 
+              right: '10%',
+              willChange: 'transform'
+            }}
+          />
+          
+          {/* Optimized spinning hexagon */}
+          <motion.div
+            animate={{
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
               ease: "linear"
             }}
-            className="absolute w-24 h-24 border border-white/20 bg-white/5"
+            className="absolute w-20 h-20 border border-white/15 bg-white/5"
             style={{ 
               top: '70%', 
               left: '20%',
-              clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'
+              clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)',
+              willChange: 'transform'
             }}
           />
             </div>
+        )}
 
         {/* Layer 2: Moving Lines and Grids */}
+        {showBackgroundAnimations && (
         <div className="absolute inset-0 parallax-bg" style={{ transform: 'translateZ(-10px)' }}>
           {/* Animated grid */}
           <motion.div
@@ -472,34 +466,37 @@ export default function Home() {
             style={{ top: '60%', right: '30%' }}
           />
         </div>
+        )}
         
-        {/* Layer 3: Particle Effects */}
+        {/* Layer 3: Particle Effects (Optimized) */}
+        {showBackgroundAnimations && (
         <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(12)].map((_, i) => (
         <motion.div
               key={i}
               animate={{
-                y: [0, -1000],
-                x: [0, Math.sin(i) * 100],
-                opacity: [0, 1, 0],
+                y: [0, -800],
+                opacity: [0, 0.6, 0],
                 scale: [0, 1, 0],
               }}
               transition={{
-                duration: 10 + i * 0.5,
+                duration: 8 + i * 0.3,
                 repeat: Infinity,
-                delay: i * 0.3,
+                delay: i * 0.4,
                 ease: "easeInOut"
               }}
-              className="absolute w-2 h-2 bg-white/40 rounded-full"
+              className="absolute w-1.5 h-1.5 bg-white/30 rounded-full"
               style={{
-                left: `${20 + (i * 4)}%`,
-                top: `${30 + (i * 3)}%`,
+                left: `${25 + (i * 6)}%`,
+                top: `${35 + (i * 4)}%`,
               }}
             />
           ))}
         </div>
+        )}
 
         {/* Layer 4: Glitch Effect */}
+        {showBackgroundAnimations && (
         <motion.div
           animate={{
             opacity: [0, 1, 0],
@@ -512,33 +509,36 @@ export default function Home() {
           }}
           className="absolute inset-0 bg-white/5"
         />
+        )}
 
 
 
-        {/* Layer 6: Matrix Rain Effect */}
+        {/* Layer 6: Matrix Rain Effect (Optimized) */}
+        {showBackgroundAnimations && (
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(15)].map((_, i) => (
+          {[...Array(8)].map((_, i) => (
           <motion.div
               key={`matrix-${i}`}
               animate={{
-                y: [0, 1000],
+                y: [0, 800],
               }}
               transition={{
-                duration: 8 + (i % 4),
+                duration: 6 + (i % 3),
                 repeat: Infinity,
-                delay: i * 0.3,
+                delay: i * 0.5,
                 ease: "linear"
               }}
-              className="absolute text-green-400/30 font-mono text-sm"
+              className="absolute text-green-400/20 font-mono text-xs"
               style={{
-                left: `${(i * 7) % 100}%`,
+                left: `${(i * 12) % 100}%`,
                 top: '-20px',
               }}
             >
-              {String.fromCharCode(0x30A0 + (i % 96))}
+              {String.fromCharCode(0x30A0 + (i % 32))}
           </motion.div>
           ))}
         </div>
+        )}
       </div>
 
       {/* Navigation */}
@@ -566,7 +566,7 @@ export default function Home() {
                       console.warn('Error scrolling to section:', error)
                     }
                   }}
-                  className={`text-sm tracking-wide transition-colors duration-300 ${
+                  className={`text-sm tracking-wide transition-colors duration-300 cursor-pointer ${
                     currentSection === section.refIndex ? "text-white" : "text-gray-400 hover:text-white"
                   }`}
                 >
@@ -748,9 +748,9 @@ export default function Home() {
             </motion.div>
             
             <motion.h1 
-              initial={{ opacity: 0, y: 20 }} 
+              initial={{ opacity: 0, y: 5 }} 
               animate={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.9, delay: 0.1 }} 
+              transition={{ duration: 0.4, delay: 0.02 }} 
               className="text-6xl md:text-8xl font-light tracking-tight mb-8 leading-none relative"
             >
               <motion.span 
@@ -780,7 +780,7 @@ export default function Home() {
 
             </motion.h1>
 
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+            <motion.p initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.05 }} className="text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
               Crafting digital experiences that push the boundaries of what's possible. Full-stack developer specializing in AI, blockchain, and cutting-edge web technologies.
             </motion.p>
 
@@ -794,7 +794,7 @@ export default function Home() {
                 } catch (error) {
                   console.warn('Error scrolling to work section:', error)
                 }
-              }} className="group px-8 py-4 bg-white text-black rounded-none font-medium tracking-wide flex items-center gap-3 hover:bg-gray-100 transition-all duration-300 border border-white">
+              }} className="group px-8 py-4 bg-white text-black rounded-none font-medium tracking-wide flex items-center gap-3 hover:bg-gray-100 transition-all duration-300 border border-white cursor-pointer">
                 View My Work
                 <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </motion.button>
@@ -808,7 +808,7 @@ export default function Home() {
                 } catch (error) {
                   console.warn('Error scrolling to contact section:', error)
                 }
-              }} className="px-8 py-4 border border-white/30 hover:border-white text-white font-medium tracking-wide transition-all duration-300">
+              }} className="px-8 py-4 border border-white/30 hover:border-white text-white font-medium tracking-wide transition-all duration-300 cursor-pointer">
                 Get In Touch
               </motion.button>
                 </div>
@@ -835,31 +835,31 @@ export default function Home() {
               </div>
             </motion.div>
 
-        {/* Crazy floating elements around hero */}
+        {/* Optimized floating elements around hero */}
+        {showBackgroundAnimations && (
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(6)].map((_, i) => (
+          {[...Array(4)].map((_, i) => (
             <motion.div
               key={i}
               animate={{
-                y: [0, -50, 0],
-                x: [0, Math.sin(i) * 30, 0],
-                rotate: [0, 180, 360],
-                scale: [1, 1.2, 1],
+                y: [0, -40, 0],
+                scale: [1, 1.1, 1],
               }}
               transition={{
-                duration: 8 + i,
+                duration: 6 + i,
                 repeat: Infinity,
-                delay: i * 0.5,
+                delay: i * 0.8,
                 ease: "easeInOut"
               }}
-              className="absolute w-2 h-2 bg-white/30 rounded-full"
+              className="absolute w-1.5 h-1.5 bg-white/25 rounded-full"
               style={{
-                left: `${20 + (i * 15)}%`,
-                top: `${40 + (i * 10)}%`,
+                left: `${25 + (i * 20)}%`,
+                top: `${45 + (i * 12)}%`,
               }}
             />
           ))}
         </div>
+        )}
       </section>
 
       {/* About Section */}
@@ -1132,10 +1132,18 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="group bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-2xl p-0 hover:border-white/30 transition-all duration-500 overflow-hidden transform-gpu"
               >
-                {/* Project Image with hover effects */}
+                {/* Project Image with hover effects (optimized) */}
                 <div className="relative">
-                  <motion.img src={project.image} alt={project.title} className="w-full h-52 object-cover" initial={{ scale: 1 }} whileHover={{ scale: 1.05 }} transition={{ duration: 0.6 }} />
-                  <motion.div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0" whileHover={{ opacity: 1 }} transition={{ duration: 0.4 }} />
+                  <motion.img 
+                    src={project.image} 
+                    alt={`${project.title} - ${project.category} project`}
+                    loading="lazy"
+                    className="w-full h-52 object-cover" 
+                    initial={{ scale: 1 }} 
+                    whileHover={{ scale: 1.03 }} 
+                    transition={{ duration: 0.4 }} 
+                  />
+                  <motion.div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0" whileHover={{ opacity: 1 }} transition={{ duration: 0.3 }} />
                   <motion.div className="absolute right-4 top-4 flex gap-2" initial={{ opacity: 0, y: -10 }} whileHover={{ opacity: 1, y: 0 }}>
                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="px-3 py-1 text-xs rounded-full bg-white/10 backdrop-blur border border-white/20 hover:bg-white/20 transition">Live</a>
                     <a href={project.github} target="_blank" rel="noopener noreferrer" className="px-3 py-1 text-xs rounded-full bg-white/10 backdrop-blur border border-white/20 hover:bg-white/20 transition">Code</a>
@@ -1396,6 +1404,12 @@ export default function Home() {
       >
         <ChevronDown size={24} className="rotate-180" />
       </motion.button>
+
+      {/* Performance Monitor (Development Only) */}
+      <PerformanceMonitor />
+      
+      {/* Custom Cursor */}
+      <CustomCursor />
     </div>
     </>
   )
