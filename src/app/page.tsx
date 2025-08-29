@@ -20,7 +20,6 @@ import {
   Linkedin,
   X,
   CheckCircle,
-  Copy,
 } from "lucide-react"
 
 
@@ -32,6 +31,14 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [showBackgroundAnimations, setShowBackgroundAnimations] = useState(false)
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    purpose: 'Development',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const containerRef = useRef<HTMLDivElement>(null)
   const sectionsRef = useRef<HTMLDivElement[]>([])
@@ -193,7 +200,7 @@ export default function Home() {
       description:
         "An innovative e-commerce platform designed to empower merchants with efficient tools to establish and grow their digital presence, streamlining the process of selling products online.",
       category: "E-Commerce",
-      technologies: ["CSS", "Heroku", "Django", "PostgreSQL", "Python", "jQuery", "JavaScript", "Payment Gateways", "HTML", "AJAX", "Git", "Payment Systems"],
+      technologies: ["CSS", "Django", "PostgreSQL", "JavaScript", "Payment Gateways", "HTML", "Paystack", "Flutterwave"],
       link: "https://shopit-t07j.onrender.com/",
       image: "/shopit.png",
     },
@@ -327,6 +334,38 @@ export default function Home() {
   const sectionVariants = {
     hidden: { opacity: 0, y: 60 },
     show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  }
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...contactForm,
+          to: 'alabaolanrewaju13@gmail.com'
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setContactForm({ name: '', email: '', purpose: 'Development', message: '' })
+        setTimeout(() => setSubmitStatus('idle'), 5000)
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      console.error('Contact form error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -832,7 +871,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 5 }} 
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.4, delay: 0.02 }} 
-              className="text-6xl md:text-8xl font-light tracking-tight mb-8 leading-none relative"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight mb-6 md:mb-8 leading-none relative px-4"
             >
               <motion.span 
                 className="text-white inline-block"
@@ -861,7 +900,7 @@ export default function Home() {
 
             </motion.h1>
 
-            <motion.p initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.05 }} className="text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+            <motion.p initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.05 }} className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed px-4">
               Crafting digital experiences that push the boundaries of what's possible. Full-stack developer specializing in AI, blockchain, and cutting-edge web technologies.
             </motion.p>
 
@@ -875,9 +914,9 @@ export default function Home() {
                 } catch (error) {
                   console.warn('Error scrolling to work section:', error)
                 }
-              }} className="group px-8 py-4 bg-white text-black rounded-none font-medium tracking-wide flex items-center gap-3 hover:bg-gray-100 transition-all duration-300 border border-white cursor-pointer">
+              }} className="group px-6 md:px-8 py-3 md:py-4 bg-white text-black rounded-none font-medium tracking-wide flex items-center gap-2 md:gap-3 hover:bg-gray-100 transition-all duration-300 border border-white cursor-pointer text-sm md:text-base">
                 View My Work
-                <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <ArrowUpRight size={18} className="md:w-5 md:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </motion.button>
               
               <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}               onClick={() => {
@@ -889,7 +928,7 @@ export default function Home() {
                 } catch (error) {
                   console.warn('Error scrolling to contact section:', error)
                 }
-              }} className="px-8 py-4 border border-white/30 hover:border-white text-white font-medium tracking-wide transition-all duration-300 cursor-pointer">
+              }} className="px-6 md:px-8 py-3 md:py-4 border border-white/30 hover:border-white text-white font-medium tracking-wide transition-all duration-300 cursor-pointer text-sm md:text-base">
                 Get In Touch
               </motion.button>
                 </div>
@@ -897,11 +936,16 @@ export default function Home() {
                 </div>
 
         {/* Scroll Indicator */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+        <motion.div 
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }} 
+          transition={{ delay: 1 }} 
+          className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 z-10"
+        >
           <div className="text-zinc-500 text-center flex flex-col items-center">
             <motion.div
               animate={{
-                y: [0, 10, 0],
+                y: [0, 8, 0],
               }}
               transition={{
                 duration: 2,
@@ -910,11 +954,13 @@ export default function Home() {
               }}
               className="flex justify-center"
             >
-              <ChevronDown size={24} />
+              <ChevronDown size={20} className="md:w-6 md:h-6" />
             </motion.div>
-            <div className="text-sm mt-2 tracking-wide text-center">Scroll to explore</div>
-              </div>
-            </motion.div>
+            <div className="text-xs md:text-sm mt-1 md:mt-2 tracking-wide text-center px-2">
+              Scroll to explore
+            </div>
+          </div>
+        </motion.div>
 
         {/* Optimized floating elements around hero */}
         {showBackgroundAnimations && (
@@ -923,19 +969,19 @@ export default function Home() {
             <motion.div
               key={i}
               animate={{
-                y: [0, -40, 0],
-                scale: [1, 1.1, 1],
+                y: [0, -20, 0],
+                scale: [1, 1.05, 1],
               }}
               transition={{
-                duration: 6 + i,
+                duration: 8 + i,
                 repeat: Infinity,
-                delay: i * 0.8,
+                delay: i * 1.2,
                 ease: "easeInOut"
               }}
-              className="absolute w-1.5 h-1.5 bg-white/25 rounded-full"
+              className="absolute w-1 h-1 md:w-1.5 md:h-1.5 bg-white/25 rounded-full hidden sm:block"
               style={{
-                left: `${25 + (i * 20)}%`,
-                top: `${45 + (i * 12)}%`,
+                left: `${15 + (i * 15)}%`,
+                top: `${50 + (i * 10)}%`,
               }}
             />
           ))}
@@ -1339,29 +1385,12 @@ export default function Home() {
                 <div>
                   <div className="text-lg font-semibold">Email</div>
                   <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => {
-                        try {
-                          if (navigator?.clipboard?.writeText) {
-                            navigator.clipboard.writeText("alabaolanrewaju13@gmail.com")
-                          }
-                        } catch (error) {
-                          console.warn('Error copying email to clipboard:', error)
-                        }
-                      }}
+                    <a
+                      href="mailto:alabaolanrewaju13@gmail.com"
                       className="text-sm text-gray-300 hover:text-white transition-colors"
                     >
                       alabaolanrewaju13@gmail.com
-                    </button>
-                    <Copy size={16} className="text-gray-400 hover:text-white cursor-pointer" onClick={() => {
-                      try {
-                        if (navigator?.clipboard?.writeText) {
-                          navigator.clipboard.writeText("alabaolanrewaju13@gmail.com")
-                        }
-                      } catch (error) {
-                        console.warn('Error copying email to clipboard:', error)
-                      }
-                    }} />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1399,41 +1428,94 @@ export default function Home() {
             </div>
             </motion.div>
 
-            {/* Contact Form (non-functional demo) */}
+            {/* Contact Form */}
             <form
-              onSubmit={(e) => {
-                e.preventDefault()
-                alert("Thanks! This demo form doesn't submit yet—wire it to your API or service.")
-              }}
+              onSubmit={handleContactSubmit}
               className="p-8 rounded-2xl bg-zinc-900/50 border border-white/20 backdrop-blur"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
+                <div>
                   <label className="text-sm text-gray-400">Name</label>
-                  <motion.input whileFocus={{ scale: 1.01 }} type="text" required className="mt-2 w-full px-4 py-3 rounded-lg bg-zinc-900 border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-white" />
+                  <motion.input 
+                    whileFocus={{ scale: 1.01 }} 
+                    type="text" 
+                    required 
+                    value={contactForm.name}
+                    onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
+                    className="mt-2 w-full px-4 py-3 rounded-lg bg-zinc-900 border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-white" 
+                  />
                 </div>
                 <div>
                   <label className="text-sm text-gray-400">Email</label>
-                  <motion.input whileFocus={{ scale: 1.01 }} type="email" required className="mt-2 w-full px-4 py-3 rounded-lg bg-zinc-900 border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-white" />
+                  <motion.input 
+                    whileFocus={{ scale: 1.01 }} 
+                    type="email" 
+                    required 
+                    value={contactForm.email}
+                    onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
+                    className="mt-2 w-full px-4 py-3 rounded-lg bg-zinc-900 border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-white" 
+                  />
                 </div>
-                </div>
+              </div>
               <div className="mt-6">
                 <label className="text-sm text-gray-400">Purpose</label>
-                <select className="mt-2 w-full px-4 py-3 rounded-lg bg-zinc-900 border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-white">
-                  <option>Development</option>
-                  <option>Maintenance</option>
-                  <option>Collaboration</option>
-                  <option>Deployment</option>
-                  <option>Consulting</option>
-                  <option>Others</option>
+                <select 
+                  value={contactForm.purpose}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, purpose: e.target.value }))}
+                  className="mt-2 w-full px-4 py-3 rounded-lg bg-zinc-900 border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-white"
+                >
+                  <option value="Development">Development</option>
+                  <option value="Maintenance">Maintenance</option>
+                  <option value="Collaboration">Collaboration</option>
+                  <option value="Deployment">Deployment</option>
+                  <option value="Consulting">Consulting</option>
+                  <option value="Others">Others</option>
                 </select>
               </div>
               <div className="mt-6">
                 <label className="text-sm text-gray-400">Message</label>
-                <motion.textarea whileFocus={{ scale: 1.01 }} rows={6} className="mt-2 w-full px-4 py-3 rounded-lg bg-zinc-900 border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-white" />
-            </div>
-              <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} type="submit" className="mt-8 w-full px-6 py-3 bg-white text-black hover:bg-gray-100 rounded-none font-medium transition-all duration-300 shadow-lg hover:shadow-xl border border-white">
-                Start Your Project
+                <motion.textarea 
+                  whileFocus={{ scale: 1.01 }} 
+                  rows={6} 
+                  value={contactForm.message}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
+                  className="mt-2 w-full px-4 py-3 rounded-lg bg-zinc-900 border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-white" 
+                />
+              </div>
+              
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 p-3 bg-green-500/20 border border-green-500/30 rounded-lg text-green-400 text-sm"
+                >
+                  ✓ Message sent successfully! I'll get back to you soon.
+                </motion.div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 p-3 bg-red-500/20 border border-red-500/30 rounded-lg text-red-400 text-sm"
+                >
+                  ✗ Something went wrong. Please try again or email me directly.
+                </motion.div>
+              )}
+              
+              <motion.button 
+                whileHover={{ y: -2 }} 
+                whileTap={{ scale: 0.98 }} 
+                type="submit" 
+                disabled={isSubmitting}
+                className={`mt-8 w-full px-6 py-3 rounded-none font-medium transition-all duration-300 shadow-lg hover:shadow-xl border ${
+                  isSubmitting 
+                    ? 'bg-gray-600 text-gray-300 border-gray-600 cursor-not-allowed' 
+                    : 'bg-white text-black hover:bg-gray-100 border-white'
+                }`}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </motion.button>
               
             </form>
