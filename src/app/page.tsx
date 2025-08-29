@@ -153,34 +153,94 @@ export default function Home() {
 
   const projects = [
     {
-      title: "AI-Powered Analytics Platform",
+      title: "CVBuild",
       description:
-        "A comprehensive analytics solution that leverages machine learning to provide actionable insights from complex data sets.",
-      category: "AI/ML",
-      technologies: ["Python", "TensorFlow", "React", "Node.js", "PostgreSQL"],
-      link: "#",
-      github: "#",
-      image: "/api/placeholder/1200/800/1a1a1a/6366f1?text=AI+Analytics",
+        "A free, user-friendly platform that empowers individuals to create modern resumes and minimalist personal portfolios, showcasing their skills and achievements with style.",
+      category: "Web Platform",
+      technologies: ["CSS", "Django", "PostgreSQL", "Python", "jQuery", "JavaScript", "HTML", "Django REST Framework", "AJAX", "SQLite", "Render"],
+      link: "https://cvbuild.onrender.com/",
+      image: "/cvbuild-project.png",
     },
     {
-      title: "Blockchain DeFi Protocol",
+      title: "AssetFlow",
       description:
-        "A decentralized finance protocol built on Ethereum that enables automated yield farming and liquidity provision.",
+        "AssetFlow leverages blockchain to streamline asset management, ensuring secure transactions, transparent ownership transfers, real-time pricing, and hassle-free listings.",
       category: "Blockchain",
-      technologies: ["Solidity", "React", "Web3.js", "Hardhat", "TypeScript"],
-      link: "#",
-      github: "#",
-      image: "/api/placeholder/1200/800/1a1a1a/8b5cf6?text=DeFi+Protocol",
+      technologies: ["Next.js", "Firebase", "Solidity", "Tailwind CSS", "Vercel"],
+      link: "https://assetflow-site.vercel.app/",
+      image: "/assetflow-proj.png",
     },
     {
-      title: "Real-time Collaboration Tool",
+      title: "NexaPay",
       description:
-        "A web-based collaboration platform with real-time editing, video conferencing, and project management features.",
-      category: "Web App",
-      technologies: ["React", "Socket.io", "Node.js", "MongoDB", "WebRTC"],
-      link: "#",
-      github: "#",
-      image: "/api/placeholder/1200/800/1a1a1a/ec4899?text=Collaboration+Tool",
+        "NexaPay is a secure platform that provides everything you need to seamlessly send, accept and manage cryptocurrency payments.",
+      category: "Blockchain",
+      technologies: ["Next.js", "TypeScript", "Solidity", "Blockchain", "Smart Contracts"],
+      link: "https://nexapay.vercel.app/",
+      image: "/nexapay-proj.png",
+    },
+    {
+      title: "MathPoint",
+      description:
+        "MathPoint is a comprehensive platform designed to enhance mathematical learning and problem-solving skills. It offers a range of features to help users master mathematical concepts.",
+      category: "E-Learning",
+      technologies: ["TypeScript", "Next.js", "MongoDB", "Tailwind CSS", "Stripe"],
+      link: "https://www.mathpoint.io/",
+      image: "/mathpoint-proj.png",
+    },
+    {
+      title: "Shopit",
+      description:
+        "An innovative e-commerce platform designed to empower merchants with efficient tools to establish and grow their digital presence, streamlining the process of selling products online.",
+      category: "E-Commerce",
+      technologies: ["CSS", "Heroku", "Django", "PostgreSQL", "Python", "jQuery", "JavaScript", "Payment Gateways", "HTML", "AJAX", "Git", "Payment Systems"],
+      link: "https://shopit-t07j.onrender.com/",
+      image: "/shopit.png",
+    },
+    {
+      title: "PenPages",
+      description:
+        "A versatile, all-in-one platform designed for poets, bloggers, and authors to create and share content seamlessly. PenPages simplifies content creation, making it accessible and enjoyable for all writers.",
+      category: "Content Platform",
+      technologies: ["React.js", "MongoDB", "Express.js", "Node.js"],
+      link: "https://penpages.netlify.app/",
+      image: "/penpages.png",
+    },
+    {
+      title: "E-Learn",
+      description:
+        "An innovative ed-tech platform empowering users to create video content, learn new skills, teach others, and earn—all for free. E-Learn fosters a collaborative and accessible digital learning environment.",
+      category: "E-Learning",
+      technologies: ["TypeScript", "Next.js", "MongoDB", "Stripe"],
+      link: "https://e-learn-app.vercel.app/",
+      image: "/e-learn-proj.png",
+    },
+    {
+      title: "Topspot",
+      description:
+        "A user-centric platform designed to streamline property management. Enables users to find or offer property management services with ease.",
+      category: "Property Management",
+      technologies: ["React.js", "Stripe", "Node.js", "MongoDB", "Express.js"],
+      link: "https://properties.topspothub.com/",
+      image: "/topsot-proj.png",
+    },
+    {
+      title: "TokenForge",
+      description:
+        "A comprehensive Web3 token project built with modern tools and best practices. TokenForge provides a complete ERC-20 token implementation with advanced features, a beautiful React frontend, and comprehensive testing.",
+      category: "Web3",
+      technologies: ["Solidity", "OpenZeppelin", "Hardhat", "Ethers.js", "React 18", "Vite", "TypeScript"],
+      link: "https://token-forge-app.vercel.app/",
+      image: "/tokenforge.png",
+    },
+    {
+      title: "Next Play Recovery",
+      description:
+        "A comprehensive youth sports injury tracking platform designed for parents to monitor their children's sports injuries, track recovery progress, and access expert resources for safe return to play.",
+      category: "Health Tech",
+      technologies: ["Next.js", "Stripe", "TypeScript", "MongoDB", "OpenAI API"],
+      link: "https://www.nextplayrecovery.com/",
+      image: "/nextplayrecovery.png",
     },
   ]
 
@@ -198,26 +258,47 @@ export default function Home() {
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      role: "CTO at TechFlow",
+      name: "DynastyCorp",
+      role: "Canada",
       content:
-        "Working with chryzcode was transformative. Their technical expertise and creative problem-solving delivered results beyond our expectations.",
+        "It was a pleasure working with Olanrewaju on the design prototype. He demonstrated strong communication skills and a great ability to follow design direction. Most importantly, we collaborated effectively to achieve our client's vision and objectives for the website. I highly recommend him as a freelancer.",
       rating: 5,
     },
     {
-      name: "Marcus Rodriguez",
-      role: "Founder of DeFi Labs",
+      name: "SimpleGameMaker - Website Project",
+      role: "United States",
       content:
-        "The blockchain protocol chryzcode built for us is not just technically sound but also user-friendly. They understand both the tech and user experience.",
+        "Olanrewaju's work is helping my business grow, and I recommend his work to any business that wants a full-fledged website. He is amazing!",
       rating: 5,
     },
     {
-      name: "Dr. Emily Watson",
-      role: "AI Research Lead",
+      name: "SirRelbert",
+      role: "United States",
       content:
-        "chryzcode's AI implementation was crucial to our research success. They have a rare combination of technical depth and practical application skills.",
+        "Was able to solve my coding problem that I had with my ideal and smart contract very knowledgeable would recommend him and will continue to use him for all present and future projects. Thank you.",
       rating: 5,
     },
+    {
+      name: "SimpleGameMaker - General Development",
+      role: "United States",
+      content:
+        "Chryzcode is a fantastic developer. I've done a few projects with him, which turned out fabulous. I do recommend his services to anyone looking for top-notch developers.",
+      rating: 5,
+    },
+    {
+      name: "SimpleGameMaker - Tutoring Platform",
+      role: "United States",
+      content:
+        "Chryzcode did a spectacular job creating my tutoring company's website with student and tutor dashboards, which made the business much more effective. I highly recommend him to anyone who's looking for a web developer.",
+      rating: 5,
+    },
+    {
+      name: "SaintOsFrog - Website Project",
+      role: "Canada",
+      content:
+        "Good programmer that I can count on. - Fast to reply / Fast delivery - Easy to communicate Would hire him again.",
+      rating: 5,
+    }
   ]
 
   const faqs = [
@@ -1111,10 +1192,13 @@ export default function Home() {
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">A showcase of projects that demonstrate innovation, technical excellence, and real-world impact.</p>
           </motion.div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <motion.div
+              <motion.a
                 key={project.title}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 50, rotateY: -15, boxShadow: "0 0px 0px rgba(0,0,0,0)" }}
                 whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
                 whileHover={{ 
@@ -1130,7 +1214,7 @@ export default function Home() {
                   stiffness: 100
                 }}
                 viewport={{ once: true }}
-                className="group bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-2xl p-0 hover:border-white/30 transition-all duration-500 overflow-hidden transform-gpu"
+                className="group bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-2xl p-0 hover:border-white/30 transition-all duration-500 overflow-hidden transform-gpu cursor-pointer"
               >
                 {/* Project Image with hover effects (optimized) */}
                 <div className="relative">
@@ -1145,8 +1229,7 @@ export default function Home() {
                   />
                   <motion.div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0" whileHover={{ opacity: 1 }} transition={{ duration: 0.3 }} />
                   <motion.div className="absolute right-4 top-4 flex gap-2" initial={{ opacity: 0, y: -10 }} whileHover={{ opacity: 1, y: 0 }}>
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="px-3 py-1 text-xs rounded-full bg-white/10 backdrop-blur border border-white/20 hover:bg-white/20 transition">Live</a>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="px-3 py-1 text-xs rounded-full bg-white/10 backdrop-blur border border-white/20 hover:bg-white/20 transition">Code</a>
+                    <div className="px-3 py-1 text-xs rounded-full bg-white/10 backdrop-blur border border-white/20">Live</div>
                   </motion.div>
                     </div>
 
@@ -1164,7 +1247,7 @@ export default function Home() {
                       ))}
                   </div>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>
