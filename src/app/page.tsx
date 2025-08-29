@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import PerformanceMonitor from "@/components/PerformanceMonitor"
+
 import CustomCursor from "@/components/CustomCursor"
 
 import { 
@@ -1488,9 +1488,6 @@ export default function Home() {
         <ChevronDown size={24} className="rotate-180" />
       </motion.button>
 
-      {/* Performance Monitor (Development Only) */}
-      <PerformanceMonitor />
-      
       {/* Custom Cursor */}
       <CustomCursor />
     </div>
