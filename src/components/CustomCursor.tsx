@@ -9,7 +9,7 @@ export default function CustomCursor() {
   const [isClicking, setIsClicking] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   
-  const rafRef = useRef<number>()
+  const rafRef = useRef<number | null>(null)
   const lastMouseTime = useRef(0)
   const isHoveringRef = useRef(false)
 
