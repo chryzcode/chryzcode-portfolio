@@ -312,7 +312,7 @@ export default function Home() {
     {
       question: "What technologies do you specialize in?",
       answer:
-        "I specialize in modern web technologies (React, Next.js, Node.js), AI/ML (OpenAI), and blockchain development (Solidity, DeFi protocols).",
+        "I specialize in modern web technologies (React, Next.js, Node.js), AI (OpenAI), and blockchain development (Solidity, DeFi protocols).",
     },
     {
       question: "Do you work with startups or only enterprise clients?",
