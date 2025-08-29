@@ -60,10 +60,10 @@ export const metadata: Metadata = {
     url: "https://chryzcode.netlify.app/",
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Olanrewaju Alaba - Full Stack Developer & Blockchain Expert"
+        url: "/website-image.png",
+        width: 1425,
+        height: 800,
+        alt: "Olanrewaju Alaba - Full Stack Developer & Blockchain Expert | chryzcode Portfolio"
       }
     ]
   },
@@ -72,7 +72,8 @@ export const metadata: Metadata = {
     title: "Olanrewaju Alaba - Full Stack Developer & Blockchain Expert | chryzcode",
     description: "Olanrewaju Alaba is a freelance full-stack developer with 5+ years of experience in frontend, backend, blockchain development, and smart contracts.",
     creator: "@chryzcode",
-    site: "@chryzcode"
+    site: "@chryzcode",
+    images: ["/website-image.png"]
   },
   verification: {
     google: "", // Add your Google Search Console verification code here
@@ -83,7 +84,9 @@ export const metadata: Metadata = {
   classification: "Portfolio Website",
   other: {
     "google-site-verification": "", // Add your Google Search Console verification code here
-    "msvalidate.01": "" // Add your Bing Webmaster Tools verification code here
+    "msvalidate.01": "", // Add your Bing Webmaster Tools verification code here
+    "theme-color": "#000000",
+    "msapplication-TileColor": "#000000"
   }
 };
 
@@ -96,9 +99,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         {/* Preload critical resources for faster LCP */}
-        <link rel="preload" href="/api/placeholder/1200/800/1a1a1a/6366f1?text=AI+Analytics" as="image" />
-        <link rel="preload" href="/api/placeholder/1200/800/1a1a1a/8b5cf6?text=DeFi+Protocol" as="image" />
-        <link rel="preload" href="/api/placeholder/1200/800/1a1a1a/ec4899?text=Collaboration+Tool" as="image" />
+        <link rel="preload" href="/website-image.png" as="image" />
         
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://cal.com" />
