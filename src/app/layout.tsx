@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   publisher: "chryzcode",
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   alternates: {
-    canonical: "https://chryzcode.netlify.app/"
+    canonical: "https://chryzcode.netlify.app"
   },
   openGraph: {
     title: "Olanrewaju Alaba - Full Stack Developer & Blockchain Expert | chryzcode",
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
     url: "https://chryzcode.netlify.app/",
     images: [
       {
-        url: "/website-image.png",
-        width: 1425,
-        height: 800,
+        url: "https://chryzcode.netlify.app/website-image.png?v=1",
+        width: 2876,
+        height: 1590,
         alt: "Olanrewaju Alaba - Full Stack Developer & Blockchain Expert | chryzcode Portfolio"
       }
     ]
@@ -71,20 +71,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Olanrewaju Alaba - Full Stack Developer & Blockchain Expert | chryzcode",
     description: "Olanrewaju Alaba is a freelance full-stack developer with 5+ years of experience in frontend, backend, blockchain development, and smart contracts.",
-    creator: "@chryzcode",
-    site: "@chryzcode",
-    images: ["/website-image.png"]
-  },
-  verification: {
-    google: "", // Add your Google Search Console verification code here
-    yandex: "", // Add your Yandex Webmaster verification code here
-    yahoo: "" // Add your Yahoo Site Explorer verification code here
+    images: ["https://chryzcode.netlify.app/website-image.png?v=1"]
   },
   category: "technology",
-  classification: "Portfolio Website",
   other: {
-    "google-site-verification": "", // Add your Google Search Console verification code here
-    "msvalidate.01": "", // Add your Bing Webmaster Tools verification code here
     "theme-color": "#000000",
     "msapplication-TileColor": "#000000"
   }
@@ -107,17 +97,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.linkedin.com" />
         <link rel="preconnect" href="https://x.com" />
         
-        {/* DNS prefetch for performance */}
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-        
-        {/* Preload critical fonts */}
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-        
         {/* Favicon */}
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
+        
+        {/* Additional social media meta tags */}
+        <meta property="og:image:width" content="2876" />
+        <meta property="og:image:height" content="1590" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:secure_url" content="https://chryzcode.netlify.app/website-image.png?v=1" />
       </head>
       <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         {children}
