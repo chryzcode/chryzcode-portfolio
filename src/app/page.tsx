@@ -1008,9 +1008,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="space-y-4 text-gray-300 leading-relaxed text-center">
               <p>
-                Hi, I'm <span className="text-white font-semibold">Olanrewaju Alaba</span> -  <span className="text-white font-semibold">chryzcode</span>, a creative developer. I believe that the best digital experiences come from the perfect marriage of innovative technology and thoughtful design.
-              </p>
-              <p>
+                Hi, I'm <span className="text-white font-semibold">Olanrewaju Alaba</span> -  <span className="text-white font-semibold">chryzcode</span>, a creative developer.
                 As a <span className="text-white font-semibold">full-stack developer</span> with over <span className="text-white font-semibold">5 years of experience</span>, I specialize in <span className="text-white font-semibold">frontend development</span>, <span className="text-white font-semibold">backend development</span>, <span className="text-white font-semibold">blockchain development</span>, and <span className="text-white font-semibold">smart contracts</span>. I also have experience with <span className="text-white font-semibold">DevOps</span> practices to ensure seamless deployment and maintenance.
               </p>
               
