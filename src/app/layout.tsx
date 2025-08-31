@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     url: "https://chryzcode.netlify.app/",
     images: [
       {
-        url: "https://chryzcode.netlify.app/website-image.png?v=1",
+        url: "https://res.cloudinary.com/chryzhub/image/upload/v1756671778/website-image_dadlju.png",
         width: 2876,
         height: 1590,
         alt: "Olanrewaju Alaba - Full Stack Developer & Blockchain Expert | chryzcode Portfolio"
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Olanrewaju Alaba - Full Stack Developer & Blockchain Expert | chryzcode",
     description: "Olanrewaju Alaba is a freelance full-stack developer with 5+ years of experience in frontend, backend, blockchain development, and smart contracts.",
-    images: ["https://chryzcode.netlify.app/website-image.png?v=1"]
+    images: ["https://res.cloudinary.com/chryzhub/image/upload/v1756671778/website-image_dadlju.png"]
   },
   category: "technology",
   other: {
@@ -105,7 +105,7 @@ export default function RootLayout({
         <meta property="og:image:width" content="2876" />
         <meta property="og:image:height" content="1590" />
         <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:secure_url" content="https://chryzcode.netlify.app/website-image.png?v=1" />
+        <meta property="og:image:secure_url" content="https://res.cloudinary.com/chryzhub/image/upload/v1756671778/website-image_dadlju.png" />
       </head>
       <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         {children}
