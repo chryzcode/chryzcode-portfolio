@@ -234,9 +234,9 @@ export default function Home() {
     {
       title: "TokenForge",
       description:
-        "A comprehensive Web3 token project built with modern tools and best practices. TokenForge provides a complete ERC-20 token implementation with advanced features, a beautiful React frontend, and comprehensive testing.",
+        "A Web3 token, TokenForge provides a complete ERC-20 token implementation with advanced features. The project is deployed on Sepolia testnet for testing and demonstration purposes.",
       category: "Web3",
-      technologies: ["Solidity", "OpenZeppelin", "Hardhat", "Ethers.js", "React 18", "Vite", "TypeScript"],
+      technologies: ["Solidity", "OpenZeppelin", "Hardhat", "Ethers.js", "React", "TypeScript"],
       link: "https://token-forge-app.vercel.app/",
       image: "/tokenforge.png",
     },
