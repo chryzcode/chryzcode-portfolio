@@ -823,8 +823,8 @@ export default function Home() {
       {/* Hero Section */}
       <section ref={(el) => {
         if (el) sectionsRef.current[0] = el as HTMLDivElement
-      }} className="relative min-h-screen flex items-center justify-center px-8">
-        <div className="absolute inset-0 flex items-center justify-center">
+      }} className="relative min-h-screen flex flex-col justify-between px-8 py-20">
+        <div className="flex-1 flex items-center justify-center">
           <div className="text-center max-w-4xl mx-auto">
                         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="mb-8">
               <motion.a 
@@ -907,7 +907,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} onClick={() => {
                 try {
-                  const workSection = sectionsRef.current?.[1]
+                  const workSection = sectionsRef.current?.[3]
                   if (workSection && typeof workSection.scrollIntoView === 'function') {
                     workSection.scrollIntoView({ behavior: "smooth", block: "start" })
                   }
@@ -931,16 +931,16 @@ export default function Home() {
               }} className="px-6 md:px-8 py-3 md:py-4 border border-white/30 hover:border-white text-white font-medium tracking-wide transition-all duration-300 cursor-pointer text-sm md:text-base">
                 Get In Touch
               </motion.button>
-                </div>
-                </div>
-                </div>
+            </div>
+          </div>
+        </div>
 
         {/* Scroll Indicator */}
         <motion.div 
           initial={{ opacity: 0 }} 
           animate={{ opacity: 1 }} 
           transition={{ delay: 1 }} 
-          className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 z-10"
+          className="flex justify-center pt-8 pb-8"
         >
           <div className="text-zinc-500 text-center flex flex-col items-center">
             <motion.div
@@ -1227,7 +1227,7 @@ export default function Home() {
       </motion.section>
 
       {/* Work Section */}
-      <motion.section ref={(el) => { if (el) sectionsRef.current[3] = el as HTMLDivElement }} variants={sectionVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="min-h-screen py-20 px-8 scroll-mt-28 pt-28">
+      <motion.section id="work" ref={(el) => { if (el) sectionsRef.current[3] = el as HTMLDivElement }} variants={sectionVariants} initial="hidden" whileInView="show" viewport={{ once: true }} className="min-h-screen py-20 px-8 scroll-mt-28 pt-28">
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionVariants} className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-light mb-6 text-white">
