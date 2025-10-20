@@ -1309,16 +1309,16 @@ export default function Home() {
                   
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div key={testimonial.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-2xl p-8 hover:border-zinc-700/50 transition-all duration-500">
+              <motion.div key={testimonial.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-2xl p-8 hover:border-zinc-700/50 transition-all duration-500 flex flex-col h-full">
                 <div className="flex items-center gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} size={16} className="text-yellow-400 fill-current" />
                     ))}
                   </div>
                   
-                <blockquote className="text-zinc-300 leading-relaxed mb-6 italic">"{testimonial.content}"</blockquote>
+                <blockquote className="text-zinc-300 leading-relaxed mb-6 italic flex-grow">"{testimonial.content}"</blockquote>
 
-                <div>
+                <div className="mt-auto">
                   <div className="font-semibold text-white">{testimonial.name}</div>
                   <div className="text-sm text-indigo-400">{testimonial.role}</div>
                 </div>
