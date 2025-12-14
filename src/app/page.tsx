@@ -250,7 +250,7 @@ export default function Home() {
       image: "/nextplayrecovery.png",
     },
     {
-      title: "FIFA 2026 Business Advantage",
+      title: "FWC26 Website",
       description:
         "A business consulting platform designed to help entrepreneurs and small businesses capitalize on FIFA World Cup 2026 opportunities in Toronto and Vancouver.",
       category: "Business Consulting",
