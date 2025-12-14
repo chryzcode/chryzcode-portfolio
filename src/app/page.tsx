@@ -249,6 +249,24 @@ export default function Home() {
       link: "https://www.nextplayrecovery.com/",
       image: "/nextplayrecovery.png",
     },
+    {
+      title: "FIFA 2026 Business Advantage",
+      description:
+        "A business consulting platform designed to help entrepreneurs and small businesses capitalize on FIFA World Cup 2026 opportunities in Toronto and Vancouver.",
+      category: "Business Consulting",
+      technologies: ["Next.js", "TypeScript", "Stripe", "MongoDB", "Calendly", "OpenAI API", "Mailchimp"],
+      link: "https://fwc26-project.vercel.app/",
+      image: "/fwc26-proj.png",
+    },
+    {
+      title: "YCSYH",
+      description:
+        "A modern e-commerce platform for selling beats with automatic file delivery, PDF license generation, and Stripe checkout integration.",
+      category: "E-Commerce",
+      technologies: ["Next.js", "Stripe", "TypeScript", "File Delivery", "PDF Generation"],
+      link: "https://www.heardmusicycsyh.com/",
+      image: "/ycsyh-proj.png",
+    },
   ]
 
   const skills = [
@@ -272,10 +290,10 @@ export default function Home() {
       rating: 5,
     },
     {
-      name: "SimpleGameMaker - Website Project",
-      role: "United States",
+      name: "merrelhurd",
+      role: "United Kingdom",
       content:
-        "Olanrewaju's work is helping my business grow, and I recommend his work to any business that wants a full-fledged website. He is amazing!",
+        "I couldn't be happier with the work this developer delivered. From start to finish, communication was clear, professional, and consistent. They went above and beyond to solve unexpected challenges, explained solutions clearly, and made sure everything worked exactly as promised. The website looks clean, performs smoothly, and matches my vision perfectly. Very patient, knowledgeable, and committed to delivering quality. I would 100% recommend them to anyone looking for a reliable and skilled developer, and I'll definitely be working with them again",
       rating: 5,
     },
     {
@@ -1309,16 +1327,16 @@ export default function Home() {
                   
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div key={testimonial.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-2xl p-8 hover:border-zinc-700/50 transition-all duration-500 flex flex-col h-full">
-                <div className="flex items-center gap-1 mb-4">
+              <motion.div key={testimonial.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-2xl p-8 hover:border-zinc-700/50 transition-all duration-500 flex flex-col h-[400px]">
+                <div className="flex items-center gap-1 mb-4 flex-shrink-0">
                     {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} size={16} className="text-yellow-400 fill-current" />
                     ))}
                   </div>
                   
-                <blockquote className="text-zinc-300 leading-relaxed mb-6 italic flex-grow">"{testimonial.content}"</blockquote>
+                <blockquote className="text-zinc-300 leading-relaxed mb-6 italic flex-grow overflow-y-auto pr-2 scrollbar-thin">"{testimonial.content}"</blockquote>
 
-                <div className="mt-auto">
+                <div className="mt-auto flex-shrink-0">
                   <div className="font-semibold text-white">{testimonial.name}</div>
                   <div className="text-sm text-indigo-400">{testimonial.role}</div>
                 </div>
