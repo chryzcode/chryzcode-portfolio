@@ -267,6 +267,14 @@ export default function Home() {
       link: "https://www.heardmusicycsyh.com/",
       image: "/ycsyh-proj.png",
     },
+    {
+      title: "AI-powered MLA draft tool",
+      description: "MLA Research Paper Draft Generator. Generate an MLA-style research paper draft in minutes. Preview free, then unlock the full draft and download a DOCX.",
+      category: "AI & Academic Tool",
+      technologies: ["Next.js", "MongoDB", "Stripe", "Open API", "Vercel"],
+      link: "https://aja-pro-tools.vercel.app/",
+      image: "/ai_powered_mla_proj.png",
+    },
   ]
 
   const skills = [
