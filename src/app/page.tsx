@@ -268,6 +268,15 @@ export default function Home() {
       image: "/ycsyh-proj.png",
     },
     {
+      title: "ClearPeak Trading",
+      description:
+        "ClearPeak Trading is a performance analytics platform for professional traders. Track, analyse, and optimise your strategies with high-probability indicators to maximise profitability and minimize risk.",
+      category: "Trading Analytics",
+      technologies: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS", "Neon"],
+      link: "#",
+      image: "/clearpeak-trading-proj.png",
+    },
+    {
       title: "AI-powered MLA draft tool",
       description: "MLA Research Paper Draft Generator. Generate an MLA-style research paper draft in minutes. Preview free, then unlock the full draft and download a DOCX.",
       category: "AI & Academic Tool",
@@ -279,12 +288,29 @@ export default function Home() {
 
   const skills = [
     {
-      category: "Frontend",
-      items: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      category: "Web & Shopify Development",
+      items: ["Shopify", "Liquid", "Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     },
-    { category: "Backend", items: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Redis", "Django", "Django Rest Framework", "FastAPI", "Express.js", "NestJS"] },
-    { category: "Blockchain", items: ["Solidity", "Web3.js", "Hardhat", "Ethereum", "DeFi Protocols", "Ether.js", "IPFS", "Polygon", "BSC"] },
-    { category: "DevOps", items: ["AWS", "Docker", "Digital Ocean", "Vercel", "Netlify", "Render", "Heroku"] },
+    {
+      category: "Automation & AI Workflows",
+      items: ["Python", "Web Scraping", "APIs", "Bots", "Automation", "OpenAI", "AI Workflows"],
+    },
+    {
+      category: "Technical Writing & Docs",
+      items: ["API Documentation", "Developer Guides", "Technical Articles", "Markdown", "OpenAPI/Swagger"],
+    },
+    {
+      category: "Blockchain & Smart Contracts",
+      items: ["Solidity", "Web3.js", "Hardhat", "Ethers.js", "DeFi Protocols", "NFTs", "IPFS"],
+    },
+    {
+      category: "Infrastructure & Deployment",
+      items: ["Vercel", "Netlify", "Render", "AWS", "Digital Ocean", "Docker", "Heroku"],
+    },
+    {
+      category: "Backend & Databases",
+      items: ["Node.js", "FastAPI", "Django", "Django REST Framework", "JavaScript", "PostgreSQL", "SQLite", "MongoDB", "Neon", "Firebase", "Supabase"],
+    },
   ]
 
   
@@ -1181,16 +1207,16 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Frontend Development",
-                description: "Creating responsive, interactive user interfaces with modern frameworks like React, Next.js, and Vue.js. Focus on performance, accessibility, and user experience.",
-                icon: "🎨",
-                technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
+                title: "High-Converting Shopify Stores",
+                description: "Designing, building, and optimizing Shopify stores that load fast, look premium, and convert visitors into customers with data-driven CRO and seamless UX.",
+                icon: "🛒",
+                technologies: ["Shopify", "Liquid", "Theme Customization", "Conversion Optimization", "A/B Testing"]
               },
               {
-                title: "Backend Development", 
-                description: "Building robust server-side applications, APIs, and databases. Expertise in Node.js, Python, and various database technologies.",
-                icon: "⚙️",
-                technologies: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Redis"]
+                title: "Technical Writing & Documentation", 
+                description: "Writing clear, developer-friendly API documentation, technical articles, and implementation guides that reduce support load and help teams ship faster.",
+                icon: "📚",
+                technologies: ["API Docs", "Developer Guides", "Technical Articles", "Docs-as-Code", "Markdown"]
               },
               {
                 title: "Custom Web Applications",
@@ -1211,10 +1237,10 @@ export default function Home() {
                 technologies: ["Solidity", "Web3.js", "Hardhat", "DeFi", "NFTs"]
               },
               {
-                title: "Ongoing Support",
-                description: "Comprehensive maintenance, updates, and technical support to keep your applications running smoothly and securely. Regular backups, security patches, and performance monitoring.",
-                icon: "🔧",
-                technologies: ["Maintenance", "Updates", "Security", "Monitoring", "Backups"]
+                title: "Automation, Bots & AI Workflows",
+                description: "Automating repetitive tasks with Python scripts, web scraping, custom bots, and AI-powered workflows that save time, reduce errors, and unlock new capabilities.",
+                icon: "🤖",
+                technologies: ["Python", "Web Scraping", "Automation", "AI Workflows", "APIs"]
               }
             ].map((service, index) => (
               <motion.div
