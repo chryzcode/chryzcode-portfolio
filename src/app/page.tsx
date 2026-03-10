@@ -273,7 +273,7 @@ export default function Home() {
         "ClearPeak Trading is a performance analytics platform for professional traders. Track, analyse, and optimise your strategies with high-probability indicators to maximise profitability and minimize risk.",
       category: "Trading Analytics",
       technologies: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS", "Neon"],
-      link: "#",
+      link: "https://www.clearpeaktrading.com/",
       image: "/clearpeak-trading-proj.png",
     },
     {
