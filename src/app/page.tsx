@@ -19,6 +19,9 @@ import {
   Mail,
   Linkedin,
   X,
+  Youtube,
+  Instagram,
+  Music,
   CheckCircle,
 } from "lucide-react"
 
@@ -438,7 +441,10 @@ export default function Home() {
               "https://cal.com/chryzcode",
               "https://github.com/chryzcode",
               "https://www.linkedin.com/in/olanrewaju-alaba",
-              "https://x.com/chryzcode"
+              "https://x.com/chryzcode",
+              "https://www.tiktok.com/@chryzcode",
+              "https://www.instagram.com/chryzcode/",
+              "https://www.youtube.com/@chryzcode"
             ],
             "knowsAbout": [
               "Frontend Development",
@@ -1467,13 +1473,43 @@ export default function Home() {
             </div>
         </div>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
                   <X size={22} className="text-white" />
                 </div>
                 <div>
                   <div className="text-lg font-semibold text-white">X (Twitter)</div>
-                  <a href="https://x.com/chryzcode" className="text-sm text-gray-300 hover:text-white transition-colors">@chryzcode</a>
+                  <a href="https://x.com/chryzcode" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">@chryzcode</a>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                  <Youtube size={22} className="text-white" />
+                </div>
+                <div>
+                  <div className="text-lg font-semibold text-white">YouTube</div>
+                  <a href="https://www.youtube.com/@chryzcode" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">@chryzcode</a>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                  <Instagram size={22} className="text-white" />
+                </div>
+                <div>
+                  <div className="text-lg font-semibold text-white">Instagram</div>
+                  <a href="https://www.instagram.com/chryzcode/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">@chryzcode</a>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                  <Music size={22} className="text-white" />
+                </div>
+                <div>
+                  <div className="text-lg font-semibold text-white">TikTok</div>
+                  <a href="https://www.tiktok.com/@chryzcode" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">@chryzcode</a>
               </div>
             </div>
             </motion.div>
