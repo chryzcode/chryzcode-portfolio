@@ -195,7 +195,7 @@ export default function Home() {
         "MathPoint is a comprehensive platform designed to enhance mathematical learning and problem-solving skills. It offers a range of features to help users master mathematical concepts.",
       category: "E-Learning",
       technologies: ["TypeScript", "Next.js", "MongoDB", "Tailwind CSS", "Stripe"],
-      link: "https://www.mathpoint.io/",
+      link: "https://math-point.vercel.app/",
       image: "/mathpoint-proj.png",
     },
     {
