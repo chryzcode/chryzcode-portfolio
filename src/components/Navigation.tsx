@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Code } from 'lucide-react';
+import { Menu, X, Code, FileText } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,12 +18,9 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'FAQ', href: '#faq' },
+    { name: 'Work', href: '#work' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -41,23 +38,18 @@ const Navigation = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-slate-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        scrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10 shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
             className="flex items-center space-x-2 cursor-pointer"
             onClick={() => scrollToSection('#home')}
           >
-            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-0.5">
-              <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
-                <Code className="w-5 h-5 text-white" />
-              </div>
-            </div>
-            <span className="text-xl font-bold gradient-text">Chryzcode</span>
+            <span className="text-xl font-bold text-white tracking-wider">chryzcode</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -66,25 +58,27 @@ const Navigation = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-300 hover:text-white transition-colors duration-300 font-medium"
+                className="text-gray-400 hover:text-white transition-colors duration-300 font-medium text-sm tracking-wide"
               >
                 {item.name}
               </button>
             ))}
             
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium text-white shadow-lg hover:shadow-xl transition-all duration-300"
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2 border border-white text-black bg-white hover:bg-zinc-200 transition-all duration-300 font-semibold text-xs tracking-wider"
             >
-              Hire Me
-            </motion.button>
+              <FileText size={14} />
+              RESUME
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg glass-effect"
+            className="md:hidden p-2 rounded-lg text-white"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -99,28 +93,28 @@ const Navigation = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-slate-900/95 backdrop-blur-md border-t border-slate-700"
+            className="md:hidden bg-black/95 border-t border-white/10 overflow-hidden"
           >
-            <div className="container-custom py-4">
-              <div className="flex flex-col space-y-4">
-                {navItems.map((item) => (
-                  <button
-                    key={item.name}
-                    onClick={() => scrollToSection(item.href)}
-                    className="text-left text-gray-300 hover:text-white transition-colors duration-300 font-medium py-2"
-                  >
-                    {item.name}
-                  </button>
-                ))}
-                
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium text-white shadow-lg text-center"
+            <div className="px-6 py-6 space-y-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className="block w-full text-left text-gray-300 hover:text-white transition-colors duration-300 font-medium py-2 text-sm tracking-wide"
                 >
-                  Hire Me
-                </motion.button>
-              </div>
+                  {item.name}
+                </button>
+              ))}
+              
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 border border-white text-black bg-white hover:bg-zinc-200 transition-all duration-300 font-semibold text-sm tracking-wider"
+              >
+                <FileText size={16} />
+                Download Resume
+              </a>
             </div>
           </motion.div>
         )}
