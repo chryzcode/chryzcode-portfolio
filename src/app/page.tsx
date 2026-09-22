@@ -9,39 +9,38 @@ import CustomCursor from "@/components/CustomCursor"
 import { 
   ArrowUpRight,
   ChevronDown,
-  Sparkles,
+  ChevronUp,
   Code2,
-  Quote,
   ExternalLink,
   Github,
   Mail,
   Linkedin,
-  X,
-  Youtube,
   Star,
-  CheckCircle,
-  FileText,
+  CheckCircle2,
   Terminal,
   Database,
   Layers,
   Cpu,
   HelpCircle,
-  BookOpen
+  FolderGit2,
+  BookOpen,
+  ArrowRight,
+  ShieldCheck,
+  Zap,
+  Globe
 } from "lucide-react"
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState(0)
   const [scrollYProgress, setScrollYProgress] = useState(0)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [showBackgroundAnimations, setShowBackgroundAnimations] = useState(false)
-  const [activeProjectTab, setActiveProjectTab] = useState<'featured' | 'additional'>('featured')
-  const [expandedProjectDetails, setExpandedProjectDetails] = useState<string | null>(null)
+  const [openFaq, setOpenFaq] = useState<number | null>(0)
   
   const [contactForm, setContactForm] = useState({
     name: '',
     email: '',
-    purpose: 'Job Opportunity',
+    purpose: 'Backend Engineering',
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -98,14 +97,14 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 400)
+    }, 350)
     return () => clearTimeout(timer)
   }, [])
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowBackgroundAnimations(true)
-    }, 800)
+    }, 700)
     return () => clearTimeout(timer)
   }, [])
 
@@ -128,7 +127,7 @@ export default function Home() {
 
       if (response.ok) {
         setSubmitStatus('success')
-        setContactForm({ name: '', email: '', purpose: 'Job Opportunity', message: '' })
+        setContactForm({ name: '', email: '', purpose: 'Backend Engineering', message: '' })
         setTimeout(() => setSubmitStatus('idle'), 5000)
       } else {
         setSubmitStatus('error')
@@ -141,215 +140,267 @@ export default function Home() {
     }
   }
 
-  // Refined Skills Categorization
-  const skillCategories = [
+  // 8 Exact Technical Skills Categories
+  const technicalSkills = [
     {
-      title: "Backend Engineering",
+      category: "Backend Engineering",
       icon: <Database size={16} className="text-white" />,
-      skills: ["Python", "Django", "Django REST Framework", "PostgreSQL", "Node.js", "Express.js", "FastAPI", "REST APIs"]
+      skills: ["Python", "Django", "Django REST Framework", "FastAPI", "Node.js", "Express.js"]
     },
     {
-      title: "Frontend Engineering",
-      icon: <Code2 size={16} className="text-white" />,
-      skills: ["TypeScript", "React", "Next.js", "JavaScript", "Tailwind CSS"]
-    },
-    {
-      title: "Cloud & Infrastructure",
-      icon: <Cpu size={16} className="text-white" />,
-      skills: ["AWS", "Docker", "Vercel", "Render", "DigitalOcean", "Git", "CI/CD"]
-    },
-    {
-      title: "Payments & SaaS",
-      icon: <Terminal size={16} className="text-white" />,
-      skills: ["Stripe", "Payment Systems", "Subscriptions", "Webhooks", "API Integrations"]
-    },
-    {
-      title: "AI & Blockchain",
+      category: "Databases & Data",
       icon: <Layers size={16} className="text-white" />,
-      skills: ["OpenAI", "AI Applications", "Solidity", "Smart Contracts", "Web3"]
+      skills: ["PostgreSQL", "MongoDB", "SQLite", "Prisma", "Mongoose", "Redis"]
+    },
+    {
+      category: "Frontend Engineering",
+      icon: <Code2 size={16} className="text-white" />,
+      skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS"]
+    },
+    {
+      category: "Cloud & Infrastructure",
+      icon: <Cpu size={16} className="text-white" />,
+      skills: ["AWS", "Docker", "Celery", "Vercel", "Render", "Netlify", "DigitalOcean"]
+    },
+    {
+      category: "Payments & Integrations",
+      icon: <Terminal size={16} className="text-white" />,
+      skills: ["Stripe", "PayPal", "Paystack", "REST APIs", "Webhooks", "OAuth"]
+    },
+    {
+      category: "AI & Automation",
+      icon: <Zap size={16} className="text-white" />,
+      skills: ["OpenAI APIs", "AI integrations", "Python automation", "Web scraping"]
+    },
+    {
+      category: "Blockchain",
+      icon: <Globe size={16} className="text-white" />,
+      skills: ["Solidity", "Smart Contracts", "Web3", "Ethers.js", "Hardhat", "DeFi integrations"]
+    },
+    {
+      category: "Documentation & Collaboration",
+      icon: <BookOpen size={16} className="text-white" />,
+      skills: ["OpenAPI", "Swagger", "Postman", "Git", "Technical Documentation", "Jira"]
     }
   ]
 
-  // Curation of Engineering Focus (Competencies)
-  const competencies = [
-    {
-      title: "Backend Engineering",
-      description: "Building reliable APIs, backend services, authentication systems, business logic, and database-driven applications.",
-      stack: "Python · Django · DRF · PostgreSQL",
-      icon: <Database size={24} className="text-white" />
-    },
-    {
-      title: "Full-Stack Applications",
-      description: "Building production web applications from backend architecture and APIs through responsive React and Next.js interfaces.",
-      stack: "React · Next.js · TypeScript",
-      icon: <Layers size={24} className="text-white" />
-    },
-    {
-      title: "Payments & SaaS",
-      description: "Building checkout flows, subscription systems, payment integrations, webhooks, and SaaS functionality around real business requirements.",
-      stack: "Stripe · Payments · Subscriptions · Webhooks",
-      icon: <Terminal size={24} className="text-white" />
-    },
-    {
-      title: "AI & Automation",
-      description: "Integrating AI and automation into applications, APIs, and business workflows to create practical product experiences.",
-      stack: "Python · OpenAI · APIs · Automation",
-      icon: <Cpu size={24} className="text-white" />
-    },
-    {
-      title: "Cloud & DevOps",
-      description: "Deploying and maintaining production applications using cloud platforms, containers, CI/CD, and modern deployment workflows.",
-      stack: "AWS · Docker · Vercel · Render",
-      icon: <Code2 size={24} className="text-white" />
-    },
-    {
-      title: "Blockchain",
-      description: "Building blockchain applications and smart-contract integrations for payments, asset management, and decentralized applications.",
-      stack: "Solidity · Smart Contracts · Web3",
-      icon: <Layers size={24} className="text-white" />
-    }
-  ]
-
-  // Curated list of Projects
+  // 6 Primary Featured Projects (Instasew #1)
   const featuredProjects = [
     {
-      id: "clearpeak",
-      title: "ClearPeak Trading",
-      category: "SaaS / Trading Analytics",
-      description: "Problem → Professional traders lacked a unified performance analytics system with high-probability indicators. Engineering → Built a scalable SaaS platform using Next.js, PostgreSQL, Prisma, Stripe, and Auth.js, with webhook-driven state machines for payment cycles. Result → Enabled real-time trade logs and visual statistics while protecting proprietary calculations under strict API guards.",
-      details: {
-        architecture: `Client (Next.js) ──► Serverless APIs ──► Prisma (ORM) ──► PostgreSQL (Neon DB)
-                               │
-                               └──► Stripe API (Webhooks) ──► DB Sync`,
-        challenges: [
-          "Secure execution and isolation of mathematical models for trade analysis.",
-          "Preventing double-billing and data drift under race conditions via transactional Postgres updates.",
-          "Processing high-frequency Webhook payloads securely and idempotently."
-        ],
-        decisions: [
-          "Chose PostgreSQL with Prisma for type-safe relational mappings and reliable transactions.",
-          "Implemented signature-verified Stripe webhooks paired with database locks for reliable payment processing."
-        ]
-      },
-      technologies: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL", "Neon"],
-      link: "https://www.clearpeaktrading.com/",
-      github: "",
-      image: "/clearpeak-trading-proj.png"
+      number: "01",
+      id: "instasew",
+      title: "Instasew",
+      subtitle: "Fashion Marketplace Platform",
+      category: "Marketplace / Backend Engineering",
+      description: "A multi-sided fashion marketplace platform designed to connect bespoke fashion designers, clients, and logistics carriers with real-time bidding, order tracking, and escrow-backed payouts.",
+      keyContributions: [
+        "Owned backend architecture and production delivery for the marketplace platform.",
+        "Built and maintained Django and Django REST Framework services.",
+        "Designed PostgreSQL data models and business workflows.",
+        "Implemented background processing using Redis and Celery.",
+        "Worked on payments, wallet payouts, subscriptions, messaging, bidding, and negotiation.",
+        "Supported AWS production and testing environments.",
+        "Contributed to a platform serving approximately 200 users."
+      ],
+      technologies: ["Python", "Django", "Django REST Framework", "PostgreSQL", "Redis", "Celery", "AWS", "Stripe"],
+      caseStudyUrl: "/case-study/instasew",
+      buttonText: "View Case Study",
+      isInternalCaseStudy: true,
+      image: null // Render sleek architectural visual preview
     },
     {
+      number: "02",
       id: "nexapay",
       title: "NexaPay",
+      subtitle: "Cross-Chain Payment Platform",
       category: "FinTech / Blockchain",
-      description: "Problem → Accepting Web3 crypto payments is fragmented and lacks unified dashboard management. Engineering → Architected an interface mapping custom EVM smart contracts (Solidity) to Next.js clients using Ethers.js. Result → Delivered a secure system with real-time txn verification, minimizing decentralized payment friction.",
-      details: {
-        architecture: `EVM Blockchain (Ethereum/Sepolia) ──► Smart Contracts (Solidity)
-                                                      ▲
-                                                      │ (Ethers.js provider)
-      Client (Next.js & TypeScript) ──────────────────┘`,
-        challenges: [
-          "Ensuring transaction integrity across asynchronous block confirmations.",
-          "Preventing security vulnerabilities in payment-routing smart contracts."
-        ],
-        decisions: [
-          "Used Hardhat to test gas optimization and contract invariants prior to testnet deployment.",
-          "Leveraged OpenZeppelin standards for secure, audited contract foundations."
-        ]
-      },
-      technologies: ["Next.js", "TypeScript", "Solidity", "Blockchain", "Smart Contracts", "Ethers.js"],
-      link: "https://nexapay.vercel.app/",
-      github: "",
+      description: "A blockchain payment platform designed to support payments across multiple networks and chains.",
+      keyContributions: [
+        "Built the application using Next.js and TypeScript.",
+        "Worked with Solidity smart contracts.",
+        "Integrated blockchain transactions and wallet interactions.",
+        "Implemented cross-chain payment functionality using Stargate.",
+        "Worked with testnet and mainnet environments.",
+        "Implemented a platform transaction fee model."
+      ],
+      technologies: ["Next.js", "TypeScript", "Solidity", "Web3", "Smart Contracts", "Stargate"],
+      liveUrl: "https://nexapay.vercel.app/",
+      caseStudyUrl: "/case-study/nexapay",
+      buttonText: "View Project",
       image: "/nexapay-proj.png"
     },
     {
-      id: "mla-draft",
-      title: "AI-powered MLA Draft Tool",
-      category: "AI / SaaS",
-      description: "Problem → Academic formatting standards are tedious to structure dynamically under user parameters. Engineering → Integrated OpenAI APIs with an automated Next.js workflow, persisting user logs in MongoDB. Result → Generated comprehensive, correctly cited MLA papers with automatic conversion to downloadable Microsoft Word (.docx) files.",
-      details: {
-        architecture: `Client (Next.js) ──► API Route (Edge) ──► OpenAI API (GPT-4)
-                                  │
-                                  ├──► MongoDB (Session Logs)
-                                  └──► DOCX Engine (Docx.js Conversion)`,
-        challenges: [
-          "Streaming large LLM content blocks reliably into formatted files without client-side memory leakage.",
-          "Maintaining semantic structural validity in generated files."
-        ],
-        decisions: [
-          "Leveraged serverless API routes to delegate document generation processes and keep client payloads minimal.",
-          "Created a key-value caching layer to prevent duplicate, expensive AI completions."
-        ]
-      },
-      technologies: ["Next.js", "MongoDB", "Stripe", "OpenAI API", "Vercel"],
-      link: "https://aja-pro-tools.vercel.app/",
-      github: "",
+      number: "03",
+      id: "ai-writing-assistant",
+      title: "AI Writing Assistant",
+      subtitle: "AI-Powered Writing Application",
+      category: "AI / Web Application",
+      description: "An AI-powered writing application designed to help users generate and work with written content through an application workflow.",
+      keyContributions: [
+        "Integrated AI functionality into a web application.",
+        "Built application workflows around content generation.",
+        "Worked on the user interface and application experience.",
+        "Integrated payment functionality for paid access.",
+        "Delivered the MVP for a client."
+      ],
+      technologies: ["Next.js", "TypeScript", "AI APIs", "MongoDB", "Stripe"],
+      liveUrl: "https://aja-pro-tools.vercel.app/",
+      buttonText: "View Project",
       image: "/ai_powered_mla_proj.png"
     },
     {
+      number: "04",
+      id: "clearpeak",
+      title: "ClearPeak Trading",
+      subtitle: "Trading Analytics SaaS",
+      category: "SaaS / FinTech",
+      description: "A subscription-based trading analytics platform offering performance indicators and paid access to specialized tools.",
+      keyContributions: [
+        "Built the application using Next.js and TypeScript.",
+        "Implemented authentication using Auth.js.",
+        "Used Prisma and PostgreSQL for data management.",
+        "Integrated Stripe subscriptions.",
+        "Implemented Stripe webhook handling.",
+        "Worked with subscription lifecycle events.",
+        "Integrated Brevo for email communication."
+      ],
+      technologies: ["Next.js", "TypeScript", "Auth.js", "Prisma", "PostgreSQL", "Stripe", "Brevo"],
+      liveUrl: "https://www.clearpeaktrading.com/",
+      caseStudyUrl: "/case-study/clearpeak",
+      buttonText: "View Project",
+      image: "/clearpeak-trading-proj.png"
+    },
+    {
+      number: "05",
       id: "travel-leaf",
-      title: "Travel Leaf API",
-      category: "Backend / API",
-      description: "Problem → Third-party integrations in travel platforms require high latency management, rate limiting, and robust authentication. Engineering → Built a Node.js/Express REST API utilizing Passport.js (JWT/OAuth), MongoDB schemas, Cloudinary media storage, and security middlewares. Result → Shipped a secure backend system with clean Swagger documentation, structured rate limiting, and secure sessions.",
-      technologies: ["Node.js", "Express.js", "MongoDB", "JWT", "Passport.js", "Stripe", "Cloudinary"],
-      link: "",
-      github: "https://github.com/chryzcode",
+      title: "Travel Leaf APIs",
+      subtitle: "Rental Marketplace API",
+      category: "Backend / REST API",
+      description: "A backend API for a platform connecting users with owners of houses, yachts, and vehicles for rental, leasing, and booking workflows.",
+      keyContributions: [
+        "Built REST API functionality with Node.js and Express.",
+        "Implemented authentication and authorization workflows.",
+        "Worked with JWT and Google OAuth authentication.",
+        "Integrated MongoDB through Mongoose.",
+        "Added file upload and Cloudinary integration.",
+        "Integrated Stripe payment functionality.",
+        "Implemented email and account verification workflows.",
+        "Added security middleware, rate limiting, and request protection.",
+        "Prepared API documentation for developers."
+      ],
+      technologies: ["Node.js", "Express", "MongoDB", "Mongoose", "JWT", "Google OAuth", "Stripe", "Cloudinary"],
+      liveUrl: "https://github.com/chryzcode",
+      buttonText: "View API Documentation",
       image: "/travel-leaf-api-proj.png"
     },
     {
-      id: "ycsyh",
-      title: "YCSYH",
-      category: "E-commerce / Payments",
-      description: "Problem → Digital beat storefronts suffer from download link leakage and unfulfilled purchases. Engineering → Developed a clean TypeScript/Next.js store leveraging Stripe sessions and automated PDF invoice/license generators. Result → Protected intellectual assets with expiring, pre-signed content delivery links triggered upon webhook verification.",
-      technologies: ["Next.js", "Stripe", "TypeScript", "File Delivery", "PDF Generation"],
-      link: "https://www.heardmusicycsyh.com/",
-      github: "",
-      image: "/ycsyh-proj.png"
-    },
-    {
-      id: "mathpoint",
-      title: "MathPoint",
-      category: "E-Learning",
-      description: "Problem → Gamified mathematics learning tools require responsive client interfaces alongside secure database synchronization. Engineering → Developed user dashboard and progress systems in Next.js, syncing metrics into MongoDB. Result → Created a high-performing pedagogical portal supporting customized worksheets and lesson logs.",
-      technologies: ["TypeScript", "Next.js", "MongoDB", "Tailwind CSS", "Stripe"],
-      link: "https://math-point.vercel.app/",
-      github: "",
-      image: "/mathpoint-proj.png"
-    },
-    {
+      number: "06",
       id: "fwc26",
-      title: "FWC26 Website",
-      category: "Business Consulting / SaaS",
-      description: "Problem → Organizing multi-channel lead pipelines for high-traffic events requires extensive manual triage. Engineering → Consolidated Stripe checkout hooks, Mailchimp lists, Calendly event triggers, and OpenAI chatbots under a Next.js hub. Result → Automated prospect inquiries and booking workflows for FIFA World Cup 2026 local consultants.",
-      technologies: ["Next.js", "TypeScript", "Stripe", "MongoDB", "Calendly", "OpenAI API", "Mailchimp"],
-      link: "https://fwc26-project.vercel.app/",
-      github: "",
+      title: "FWC26 Marketing Group",
+      subtitle: "Business Consulting Platform",
+      category: "Business Consulting / Web Application",
+      description: "A business consulting platform helping entrepreneurs and small businesses explore opportunities connected to the FIFA 2026 ecosystem in Toronto and Vancouver.",
+      keyContributions: [
+        "Built the platform with Next.js, React, and TypeScript.",
+        "Integrated Stripe payments.",
+        "Integrated Calendly for consultation bookings.",
+        "Connected OpenAI-powered live chat functionality.",
+        "Integrated Mailchimp for marketing communication.",
+        "Implemented payment and email workflows.",
+        "Added input validation and rate-limiting measures.",
+        "Deployed the application using Vercel."
+      ],
+      technologies: ["Next.js", "React", "TypeScript", "MongoDB", "Stripe", "Calendly", "OpenAI API", "Mailchimp", "Vercel"],
+      liveUrl: "https://fwc26-project.vercel.app/",
+      buttonText: "View Project",
       image: "/fwc26-proj.png"
     }
   ]
 
-  const additionalProjects = [
-    { title: "AssetFlow", technologies: ["Next.js", "Firebase", "Solidity", "Tailwind CSS"], link: "https://assetflow-site.vercel.app/" },
-    { title: "CVBuild", technologies: ["Python", "Django", "DRF", "PostgreSQL", "jQuery"], link: "https://cvbuild.onrender.com/" },
-    { title: "Shopit", technologies: ["Django", "PostgreSQL", "Paystack", "Flutterwave"], link: "https://shopit-t07j.onrender.com/" },
-    { title: "PenPages", technologies: ["React.js", "MongoDB", "Express.js", "Node.js"], link: "https://penpages.netlify.app/" },
-    { title: "E-Learn", technologies: ["TypeScript", "Next.js", "MongoDB", "Stripe"], link: "https://e-learn-app.vercel.app/" },
-    { title: "Topspot", technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Stripe"], link: "https://properties.topspothub.com/" },
-    { title: "TokenForge", technologies: ["Solidity", "Hardhat", "Ethers.js", "React"], link: "https://token-forge-app.vercel.app/" },
-    { title: "Next Play Recovery", technologies: ["Next.js", "TypeScript", "MongoDB", "OpenAI API"], link: "https://www.nextplayrecovery.com/" }
+  // Remaining Projects (Smaller Cards)
+  const moreProjects = [
+    {
+      title: "AssetFlow",
+      description: "Blockchain asset management and ownership transfer platform.",
+      technologies: ["Next.js", "Firebase", "Solidity", "Tailwind CSS"],
+      link: "https://assetflow-site.vercel.app/"
+    },
+    {
+      title: "MathPoint",
+      description: "Mathematics learning and problem-solving platform.",
+      technologies: ["TypeScript", "Next.js", "MongoDB", "Stripe"],
+      link: "https://math-point.vercel.app/"
+    },
+    {
+      title: "YCSYH",
+      description: "Beat-selling e-commerce platform with file delivery and PDF license generation.",
+      technologies: ["Next.js", "Stripe", "TypeScript", "PDF Engine"],
+      link: "https://www.heardmusicycsyh.com/"
+    },
+    {
+      title: "CVBuild",
+      description: "Resume and portfolio-building platform.",
+      technologies: ["Python", "Django", "DRF", "PostgreSQL"],
+      link: "https://cvbuild.onrender.com/"
+    },
+    {
+      title: "Shopit",
+      description: "E-commerce platform with payment gateway integrations.",
+      technologies: ["Django", "PostgreSQL", "Paystack", "Flutterwave"],
+      link: "https://shopit-t07j.onrender.com/"
+    },
+    {
+      title: "E-Learn",
+      description: "Learning platform for video content, teaching, and monetization.",
+      technologies: ["TypeScript", "Next.js", "MongoDB", "Stripe"],
+      link: "https://e-learn-app.vercel.app/"
+    },
+    {
+      title: "PenPages",
+      description: "Content publishing platform for writers and bloggers.",
+      technologies: ["React", "Node.js", "Express", "MongoDB"],
+      link: "https://penpages.netlify.app/"
+    },
+    {
+      title: "Topspot",
+      description: "Property management application.",
+      technologies: ["React", "Node.js", "Express", "Stripe"],
+      link: "https://properties.topspothub.com/"
+    },
+    {
+      title: "TokenForge",
+      description: "ERC-20 token implementation using Solidity and OpenZeppelin.",
+      technologies: ["Solidity", "Hardhat", "Ethers.js", "OpenZeppelin"],
+      link: "https://token-forge-app.vercel.app/"
+    },
+    {
+      title: "Next Play Recovery",
+      description: "Sports injury tracking platform.",
+      technologies: ["Next.js", "TypeScript", "MongoDB", "OpenAI API"],
+      link: "https://www.nextplayrecovery.com/"
+    },
+    {
+      title: "AI-powered MLA Draft Tool",
+      description: "AI-assisted academic writing and document-generation tool.",
+      technologies: ["Next.js", "OpenAI", "Docx.js", "MongoDB"],
+      link: "https://aja-pro-tools.vercel.app/"
+    }
   ]
 
-  // Experience timeline data matching the resume
-  const experience = [
+  // Experience timeline data matching resume and exact copy instructions
+  const experienceData = [
     {
-      role: "Lead Engineer",
+      role: "Backend / Full-Stack Engineer",
       company: "Instasew",
       period: "2024 – Present",
       bullets: [
-        "Led backend architecture and feature delivery for a scalable global marketplace, integrating logistics, payments, negotiation workflows, and enterprise operations.",
-        "Built real-time DHL shipping integration and manual tracking for non-integrated carriers.",
-        "Architected a 'Preferred Designer' negotiation system with dynamic bid recalculations and enhanced recommendation algorithms.",
-        "Overhauled payout systems, integrating Stripe, PayPal, BNPL, and custom wallets with real-time reconciliation.",
-        "Developed enterprise-tier user flows, tiered permissions, and admin dashboards for order and fulfillment management.",
-        "Implemented secure onboarding with identity verification, real-time messaging, and AWS S3 media management."
+        "Owned backend architecture and production delivery for a fashion marketplace.",
+        "Built and maintained Django and Django REST Framework services.",
+        "Designed PostgreSQL data models and business workflows.",
+        "Implemented background processing using Redis and Celery.",
+        "Worked on payments, wallet payouts, subscriptions, messaging, bidding, and negotiation.",
+        "Supported AWS production and testing environments.",
+        "Contributed to a platform serving approximately 200 users."
       ]
     },
     {
@@ -374,31 +425,7 @@ export default function Home() {
     }
   ]
 
-  // How I Work methodologies
-  const methodologies = [
-    {
-      step: "01",
-      title: "Understand",
-      description: "I clarify the business requirements, performance constraints, user profiles, and technical requirements before writing any code."
-    },
-    {
-      step: "02",
-      title: "Design",
-      description: "I define the system architecture, database models, API specs, security middleware, and integration strategies."
-    },
-    {
-      step: "03",
-      title: "Build",
-      description: "I develop modular code, implement robust test coverage, verify security protocols, and integrate third-party dependencies."
-    },
-    {
-      step: "04",
-      title: "Ship",
-      description: "I deploy applications to reliable cloud platforms, configure monitoring tools, document APIs, and iterate based on telemetry."
-    }
-  ]
-
-  // Curated 3 strongest Testimonials
+  // Testimonials
   const testimonials = [
     {
       name: "DynastyCorp",
@@ -417,11 +444,33 @@ export default function Home() {
     }
   ]
 
-
+  // FAQ Section
+  const faqs = [
+    {
+      question: "What kind of systems do you build?",
+      answer: "I build backend services, APIs, SaaS platforms, marketplaces, payment-enabled applications, and full-stack web products."
+    },
+    {
+      question: "What is your primary technology stack?",
+      answer: "My primary backend stack is Python, Django, Django REST Framework, PostgreSQL, Redis, Celery, and AWS. I also work with React, Next.js, and TypeScript for full-stack applications."
+    },
+    {
+      question: "Do you work across the full stack?",
+      answer: "Yes. My strongest area is backend engineering, but I also build frontend applications using React, Next.js, and TypeScript."
+    },
+    {
+      question: "Do you have production experience?",
+      answer: "Yes. I have worked on real applications involving users, payments, subscriptions, third-party integrations, background processing, deployments, and ongoing product workflows."
+    },
+    {
+      question: "Can you work with an existing engineering team?",
+      answer: "Yes. I can contribute to existing codebases, develop APIs and features, improve architecture, integrate external services, and collaborate with product and engineering teams."
+    }
+  ]
 
   const sectionVariants = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 35 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } }
   }
 
   return (
@@ -435,8 +484,8 @@ export default function Home() {
             "@type": "Person",
             "name": "Olanrewaju Alaba",
             "alternateName": "chryzcode",
-            "jobTitle": "Backend & Full-Stack Software Engineer",
-            "description": "Backend-focused software engineer with 5+ years of experience building web applications, APIs, SaaS platforms, and production systems using Python, Django, PostgreSQL, and cloud infrastructure.",
+            "jobTitle": "Backend / Full-Stack Software Engineer",
+            "description": "Backend / Full-Stack Software Engineer with 5+ years of experience building practical, production-focused software, APIs, SaaS platforms, and marketplaces using Python, Django, PostgreSQL, AWS, and Next.js.",
             "url": "https://chryzcode.netlify.app/",
             "sameAs": [
               "https://github.com/chryzcode",
@@ -445,17 +494,18 @@ export default function Home() {
             ],
             "knowsAbout": [
               "Backend Engineering",
-              "Full Stack Development",
+              "Full-Stack Development",
               "Python",
               "Django",
-              "Django Rest Framework",
+              "Django REST Framework",
               "PostgreSQL",
-              "Node.js",
+              "Redis",
+              "Celery",
+              "AWS",
               "Next.js",
               "TypeScript",
               "Stripe Integrations",
-              "API Security",
-              "Cloud Infrastructure"
+              "REST APIs"
             ]
           })
         }}
@@ -467,12 +517,12 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.35 }}
             className="fixed inset-0 bg-black z-50 flex items-center justify-center"
           >
             <div className="text-center">
               <h1 className="text-3xl font-mono text-white tracking-widest uppercase mb-2">chryzcode</h1>
-              <p className="text-zinc-500 text-sm font-mono">Initializing engineering portfolio...</p>
+              <p className="text-zinc-500 text-sm font-mono">Loading engineering portfolio...</p>
             </div>
           </motion.div>
         )}
@@ -521,7 +571,7 @@ export default function Home() {
                 </div>
               </motion.div>
               
-              {/* Specialized Core Identity */}
+              {/* Engineering Title */}
               <motion.h1 
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
@@ -531,17 +581,17 @@ export default function Home() {
                 <span className="text-zinc-500 font-light">Software Engineer</span>
               </motion.h1>
 
-              {/* Systems Positioning Copy */}
+              {/* Production-Focused Positioning Copy */}
               <motion.p 
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 transition={{ delay: 0.2 }}
                 className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-10 leading-relaxed font-mono"
               >
-                I build production web applications, APIs, and backend systems using Python, Django, PostgreSQL, and modern cloud infrastructure — with experience across payments, SaaS, AI, and blockchain.
+                I build practical, production-focused software, backend systems, APIs, and web applications using Python, Django, PostgreSQL, and modern cloud infrastructure.
               </motion.p>
 
-              {/* Action Anchors */}
+              {/* Action Buttons */}
               <motion.div 
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
@@ -566,7 +616,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Scroll Down Callout */}
+          {/* Scroll Down Indicator */}
           <div 
             className="relative z-10 flex flex-col items-center gap-3 text-zinc-500 hover:text-white transition-colors duration-300 font-mono text-[10px] tracking-widest uppercase cursor-pointer mt-8"
             onClick={() => {
@@ -609,16 +659,16 @@ export default function Home() {
             
             <div className="lg:col-span-2 space-y-6 text-zinc-400 text-base md:text-lg leading-relaxed font-sans">
               <p>
-                I'm <strong className="text-white font-medium">Olanrewaju Alaba — Chryzcode</strong>, a backend-focused full-stack software engineer with 5+ years of experience building web applications, APIs, SaaS platforms, and production systems.
+                I'm <strong className="text-white font-medium">Olanrewaju Alaba — Chryzcode</strong>, a backend-focused full-stack software engineer building practical, production-focused software with 5+ years of engineering experience.
               </p>
               <p>
-                My core backend stack is <strong className="text-white font-medium">Python, Django, Django REST Framework, PostgreSQL</strong>, and API development, with experience deploying and maintaining applications across cloud platforms.
+                My primary backend stack is <strong className="text-white font-medium">Python, Django, Django REST Framework, PostgreSQL, Redis, Celery, and AWS</strong>. I specialize in designing transactional database models, high-throughput APIs, background workers, and resilient cloud architectures.
               </p>
               <p>
-                I also work with React, Next.js, TypeScript, Node.js, MongoDB, Stripe, and modern frontend tooling, allowing me to build products end-to-end. Much of my work has involved systems around payments, subscriptions, e-commerce, authentication, AI-powered applications, blockchain, and third-party API integrations.
+                I also build full-stack web applications using <strong className="text-white font-medium">React, Next.js, and TypeScript</strong>, integrating Stripe billing, authentication, and external services. I have architected and built the core systems across almost all projects featured in this portfolio, delivering production software for both client platforms and specialized engineering products.
               </p>
               <p>
-                I'm particularly interested in backend architecture, reliable APIs, data-intensive applications, cloud infrastructure, and building software that can move from an idea into a real production environment.
+                Whether designing a multi-sided marketplace backend like Instasew, cross-chain payment pipelines, or data-intensive SaaS platforms, my focus is always on engineering integrity, clean architecture, and reliable production execution.
               </p>
               
               <div className="pt-4 font-mono">
@@ -634,9 +684,10 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* CORE SKILLS SECTION */}
+        {/* 7. TECHNICAL SKILLS SECTION */}
         <motion.section 
           id="skills" 
+          ref={(el) => { if (el) sectionsRef.current[1] = el as HTMLDivElement }}
           variants={sectionVariants} 
           initial="hidden" 
           whileInView="show" 
@@ -646,29 +697,29 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="mb-16">
               <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">02 // Capabilities</h2>
-              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">Skills & Expertise</h3>
+              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">Technical Skills</h3>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-              {skillCategories.map((category, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {technicalSkills.map((cat, index) => (
                 <div 
                   key={index} 
-                  className="p-6 bg-zinc-950/60 border border-zinc-900 hover:border-zinc-700 transition-all duration-300 rounded-none flex flex-col justify-between hover:shadow-[0_0_15px_rgba(255,255,255,0.03)]"
+                  className="p-6 bg-zinc-950 border border-zinc-900 hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex items-center gap-2 mb-6 pb-3 border-b border-zinc-900">
-                      <div className="w-8 h-8 bg-zinc-900/80 border border-zinc-800 flex items-center justify-center text-white">
-                        {category.icon}
+                    <div className="flex items-center gap-3 mb-5 pb-3 border-b border-zinc-900">
+                      <div className="w-8 h-8 bg-zinc-900 border border-zinc-800 flex items-center justify-center">
+                        {cat.icon}
                       </div>
-                      <h4 className="text-xs font-mono text-zinc-300 uppercase tracking-widest font-semibold leading-tight">
-                        {category.title}
+                      <h4 className="text-xs font-mono text-zinc-200 uppercase tracking-widest font-semibold leading-tight">
+                        {cat.category}
                       </h4>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill, sIdx) => (
+                      {cat.skills.map((skill, sIdx) => (
                         <span 
                           key={sIdx} 
-                          className="px-2.5 py-1 text-xs font-mono bg-zinc-900/30 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-500 hover:bg-zinc-900/80 transition-all duration-200"
+                          className="px-2.5 py-1 text-xs font-mono bg-zinc-900/50 border border-zinc-800/80 text-zinc-400 hover:text-white hover:border-zinc-600 transition-colors"
                         >
                           {skill}
                         </span>
@@ -681,41 +732,10 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* WHAT I DO SECTION (ENGINEERING FOCUS) */}
-        <motion.section 
-          variants={sectionVariants} 
-          initial="hidden" 
-          whileInView="show" 
-          viewport={{ once: true, margin: "-100px" }}
-          className="py-24 px-6 md:px-12 border-t border-zinc-900 bg-zinc-950/10"
-        >
-          <div className="max-w-7xl mx-auto">
-            <div className="mb-16">
-              <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">03 // Competencies</h2>
-              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">Engineering Focus</h3>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {competencies.map((comp, idx) => (
-                <div key={idx} className="p-8 bg-zinc-950 border border-zinc-900 hover:border-zinc-750 transition-all duration-300">
-                  <div className="w-12 h-12 bg-zinc-900 flex items-center justify-center border border-zinc-800 mb-6">
-                    {comp.icon}
-                  </div>
-                  <h4 className="text-xl font-semibold mb-3 text-white uppercase">{comp.title}</h4>
-                  <p className="text-zinc-400 text-sm leading-relaxed mb-6 font-sans">{comp.description}</p>
-                  <div className="font-mono text-xs text-zinc-500 pt-3 border-t border-zinc-900">
-                    {comp.stack}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.section>
-
-        {/* WORK / PROJECTS SECTION */}
+        {/* SELECTED WORK SECTION (6 MAIN PROJECTS) */}
         <motion.section 
           id="work" 
-          ref={(el) => { if (el) sectionsRef.current[1] = el as HTMLDivElement }}
+          ref={(el) => { if (el) sectionsRef.current[2] = el as HTMLDivElement }}
           variants={sectionVariants} 
           initial="hidden" 
           whileInView="show" 
@@ -723,204 +743,221 @@ export default function Home() {
           className="py-24 px-6 md:px-12 border-t border-zinc-900 scroll-mt-20"
         >
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-              <div>
-                <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">04 // Portfolio</h2>
-                <h3 className="text-4xl font-normal text-white uppercase tracking-tight">Selected Work</h3>
-              </div>
-
-              {/* Tabs selector */}
-              <div className="flex bg-zinc-900 border border-zinc-800 p-1 font-mono text-xs uppercase tracking-widest">
-                <button 
-                  onClick={() => setActiveProjectTab('featured')}
-                  className={`px-4 py-2 font-semibold ${activeProjectTab === 'featured' ? 'bg-white text-black' : 'text-zinc-400 hover:text-white'}`}
-                >
-                  Featured Projects ({featuredProjects.length})
-                </button>
-                <button 
-                  onClick={() => setActiveProjectTab('additional')}
-                  className={`px-4 py-2 font-semibold ${activeProjectTab === 'additional' ? 'bg-white text-black' : 'text-zinc-400 hover:text-white'}`}
-                >
-                  Additional Work ({additionalProjects.length})
-                </button>
-              </div>
+            <div className="mb-16">
+              <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">03 // Engineering Portfolio</h2>
+              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">Selected Work</h3>
+              <p className="text-zinc-500 text-sm font-mono mt-2">
+                Featured systems, marketplace architectures, APIs, and SaaS products.
+              </p>
             </div>
 
-            {activeProjectTab === 'featured' ? (
-              <div className="grid grid-cols-1 gap-12">
-                {featuredProjects.map((project, index) => {
-                  const isExpanded = expandedProjectDetails === project.id
-                  return (
-                    <div 
-                      key={project.id}
-                      className="bg-zinc-950 border border-zinc-900 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0"
-                    >
-                      {/* Left: Metadata & Descriptions */}
-                      <div className="p-8 lg:col-span-7 flex flex-col justify-between">
-                        <div>
-                          <div className="flex justify-between items-start mb-4">
-                            <span className="text-xs font-mono tracking-wider text-zinc-500 uppercase">{project.category}</span>
-                            <div className="flex gap-4">
-                              {project.link && (
-                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-zinc-400 hover:text-white flex items-center gap-1">
-                                  Live <ExternalLink size={12} />
-                                </a>
-                              )}
-                              {project.github && (
-                                <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-zinc-400 hover:text-white flex items-center gap-1">
-                                  Repo <Github size={12} />
-                                </a>
-                              )}
-                            </div>
-                          </div>
-                          
-                          <h4 className="text-2xl font-normal text-white mb-6 uppercase">{project.title}</h4>
-                          
-                          {/* Project description parsed as Problem, Engineering, Result block */}
-                          <div className="space-y-4 text-sm text-zinc-400 leading-relaxed font-sans pr-4 mb-6">
-                            {project.description.split("Engineering").map((part, pIdx) => {
-                              if (pIdx === 0) {
-                                return (
-                                  <p key={pIdx}>
-                                    <strong className="text-white uppercase font-mono text-xs block mb-1">Problem:</strong>
-                                    {part.replace("Problem →", "").trim()}
-                                  </p>
-                                )
-                              }
-                              
-                              const nestedParts = part.split("Result")
-                              return (
-                                <div key={pIdx} className="space-y-4">
-                                  <p>
-                                    <strong className="text-white uppercase font-mono text-xs block mb-1">Engineering:</strong>
-                                    {nestedParts[0].replace("→", "").trim()}
-                                  </p>
-                                  {nestedParts[1] && (
-                                    <p>
-                                      <strong className="text-white uppercase font-mono text-xs block mb-1">Result:</strong>
-                                      {nestedParts[1].replace("→", "").trim()}
-                                    </p>
-                                  )}
-                                </div>
-                              )
-                            })}
-                          </div>
-                        </div>
-
-                        <div>
-                          <div className="flex flex-wrap gap-2 mb-6">
-                            {project.technologies.map((tech) => (
-                              <span key={tech} className="px-2.5 py-1 bg-zinc-900 text-zinc-400 text-xs font-mono border border-zinc-800">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-
-                          {/* Architecture & Decision toggle */}
-                          {project.details && (
-                            <button
-                              onClick={() => setExpandedProjectDetails(isExpanded ? null : project.id)}
-                              className="w-full text-left font-mono text-xs uppercase tracking-widest text-zinc-300 hover:text-white border-t border-zinc-900 pt-4 flex items-center justify-between"
-                            >
-                              {isExpanded ? "Hide Architecture & Decisions" : "Inspect Architecture & Key Decisions"}
-                              <span>{isExpanded ? "▲" : "▼"}</span>
-                            </button>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Right: Preview Visual */}
-                      <div className="lg:col-span-5 relative bg-zinc-900 border-t lg:border-t-0 lg:border-l border-zinc-900 aspect-video lg:aspect-auto overflow-hidden group">
-                        <img 
-                          src={project.image} 
-                          alt={project.title}
-                          className="w-full h-full object-cover object-top filter grayscale contrast-110 opacity-75 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-[4000ms] ease-in-out" 
-                        />
-                      </div>
-
-                      {/* Expandable Architecture & Challenges Panel */}
-                      {project.details && isExpanded && (
-                        <div className="col-span-12 p-8 bg-zinc-950 border-t border-zinc-900 grid grid-cols-1 md:grid-cols-2 gap-8 font-mono text-xs text-zinc-400">
-                          <div>
-                            <h5 className="text-white font-bold uppercase mb-4 tracking-wider flex items-center gap-2">
-                              <Terminal size={14} /> System Architecture
-                            </h5>
-                            <pre className="bg-zinc-900 p-4 border border-zinc-800 overflow-x-auto text-zinc-300 leading-relaxed font-mono">
-                              {project.details.architecture}
-                            </pre>
-                          </div>
-                          <div className="space-y-6">
-                            <div>
-                              <h5 className="text-white font-bold uppercase mb-2 tracking-wider">Engineering Challenges</h5>
-                              <ul className="list-disc pl-4 space-y-2">
-                                {project.details.challenges.map((challenge, cIdx) => (
-                                  <li key={cIdx}>{challenge}</li>
-                                ))}
-                              </ul>
-                            </div>
-                            <div>
-                              <h5 className="text-white font-bold uppercase mb-2 tracking-wider">Key Decisions</h5>
-                              <ul className="list-disc pl-4 space-y-2">
-                                {project.details.decisions.map((decision, dIdx) => (
-                                  <li key={dIdx}>{decision}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
-            ) : (
-              // Lower prominence layout for additional projects
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {additionalProjects.map((p, idx) => (
-                  <div key={idx} className="p-6 bg-zinc-950 border border-zinc-900 flex flex-col justify-between h-48">
+            <div className="grid grid-cols-1 gap-12">
+              {featuredProjects.map((project) => (
+                <div 
+                  key={project.id}
+                  className="bg-zinc-950 border border-zinc-900 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 hover:border-zinc-800 transition-colors"
+                >
+                  {/* Left: Metadata & Descriptions */}
+                  <div className="p-8 lg:p-10 lg:col-span-7 flex flex-col justify-between">
                     <div>
-                      <h4 className="text-lg font-normal text-white uppercase mb-2">{p.title}</h4>
-                      <div className="flex flex-wrap gap-1.5 mb-4">
-                        {p.technologies.map(t => (
-                          <span key={t} className="text-[10px] font-mono text-zinc-500 bg-zinc-900 px-1.5 py-0.5 border border-zinc-900">{t}</span>
+                      <div className="flex justify-between items-start mb-4">
+                        <span className="text-xs font-mono tracking-widest text-zinc-500 uppercase">
+                          {project.number} — {project.category}
+                        </span>
+                      </div>
+                      
+                      <h4 className="text-2xl sm:text-3xl font-normal text-white mb-2 uppercase">
+                        {project.title}
+                      </h4>
+                      <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest mb-6">
+                        {project.subtitle}
+                      </p>
+                      
+                      <div className="space-y-4 text-sm text-zinc-400 leading-relaxed font-sans mb-8">
+                        <p className="text-zinc-300">
+                          {project.description}
+                        </p>
+
+                        <div>
+                          <span className="text-white font-mono text-xs uppercase tracking-wider block mb-3 font-semibold">
+                            Key Contributions
+                          </span>
+                          <ul className="space-y-2">
+                            {project.keyContributions.map((contrib, cIdx) => (
+                              <li key={cIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-400">
+                                <span className="text-zinc-600 shrink-0 font-mono">›</span>
+                                <span>{contrib}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      {/* Tech Stack Badges */}
+                      <div className="flex flex-wrap gap-2 mb-8 pt-4 border-t border-zinc-900">
+                        {project.technologies.map((tech) => (
+                          <span key={tech} className="px-2.5 py-1 bg-zinc-900 text-zinc-400 text-xs font-mono border border-zinc-800">
+                            {tech}
+                          </span>
                         ))}
                       </div>
+
+                      {/* Action Links */}
+                      <div className="flex flex-wrap items-center gap-4">
+                        {project.caseStudyUrl && (
+                          <Link
+                            href={project.caseStudyUrl}
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black hover:bg-zinc-200 transition-colors font-mono text-xs uppercase tracking-widest font-semibold"
+                          >
+                            View Case Study
+                            <ArrowRight size={14} />
+                          </Link>
+                        )}
+
+                        {project.liveUrl && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`inline-flex items-center gap-2 px-6 py-3 border font-mono text-xs uppercase tracking-widest transition-all ${
+                              !project.caseStudyUrl 
+                                ? 'bg-white text-black hover:bg-zinc-200 border-white font-semibold' 
+                                : 'border-zinc-800 hover:border-white text-white hover:bg-zinc-900'
+                            }`}
+                          >
+                            {project.buttonText}
+                            <ExternalLink size={14} />
+                          </a>
+                        )}
+                      </div>
                     </div>
-                    <a 
-                      href={p.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-white"
-                    >
-                      Visit Site <ArrowUpRight size={12} />
-                    </a>
                   </div>
-                ))}
-              </div>
-            )}
+
+                  {/* Right: Preview Visual */}
+                  <div className="lg:col-span-5 relative bg-zinc-900/60 border-t lg:border-t-0 lg:border-l border-zinc-900 flex items-center justify-center p-6 group overflow-hidden">
+                    {project.image ? (
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full max-h-[420px] object-cover object-top filter grayscale contrast-110 opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700" 
+                      />
+                    ) : (
+                      // Instasew Visual Schematic
+                      <div className="w-full h-full min-h-[300px] p-6 bg-zinc-950 border border-zinc-800/80 font-mono text-xs text-zinc-400 flex flex-col justify-between">
+                        <div>
+                          <div className="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
+                            <span className="text-white uppercase font-semibold flex items-center gap-2">
+                              <Terminal size={14} /> Marketplace Architecture
+                            </span>
+                            <span className="text-emerald-400 text-[10px] uppercase tracking-wider">● Production</span>
+                          </div>
+                          <pre className="text-[11px] text-zinc-300 leading-relaxed overflow-x-auto">
+{`[Django REST API Engine]
+   ├── PostgreSQL (ACID Data Models)
+   ├── Redis + Celery (Async Queue)
+   ├── Stripe & Escrow Wallet Service
+   ├── DHL Shipping Webhooks
+   └── AWS Production Cloud`}
+                          </pre>
+                        </div>
+                        <div className="pt-4 border-t border-zinc-900 flex justify-between items-center text-[10px] text-zinc-500 uppercase">
+                          <span>~200 Active Users</span>
+                          <span>Bespoke Logistics</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.section>
 
-        {/* EXPERIENCE SECTION */}
+        {/* 6. MORE PROJECTS SECTION */}
         <motion.section 
-          id="experience" 
-          ref={(el) => { if (el) sectionsRef.current[2] = el as HTMLDivElement }}
+          id="more-projects"
           variants={sectionVariants} 
           initial="hidden" 
           whileInView="show" 
           viewport={{ once: true, margin: "-100px" }}
-          className="py-24 px-6 md:px-12 border-t border-zinc-900 bg-zinc-950/20 scroll-mt-20"
+          className="py-24 px-6 md:px-12 border-t border-zinc-900 bg-zinc-950/20"
+        >
+          <div className="max-w-7xl mx-auto">
+            <div className="mb-14">
+              <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">Secondary Work</h2>
+              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">More Projects</h3>
+              <p className="text-zinc-500 text-sm font-mono mt-2">
+                Additional web applications, APIs, smart contract tools, and utilities.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {moreProjects.map((p, idx) => (
+                <div 
+                  key={idx} 
+                  className="p-6 bg-zinc-950 border border-zinc-900 hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between h-56 group"
+                >
+                  <div>
+                    <div className="flex items-start justify-between mb-2">
+                      <h4 className="text-lg font-normal text-white uppercase group-hover:text-zinc-200 transition-colors">
+                        {p.title}
+                      </h4>
+                      {p.link && (
+                        <a 
+                          href={p.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="text-zinc-500 hover:text-white transition-colors"
+                        >
+                          <ArrowUpRight size={16} />
+                        </a>
+                      )}
+                    </div>
+                    <p className="text-zinc-400 text-xs leading-relaxed font-sans mb-4">
+                      {p.description}
+                    </p>
+                  </div>
+
+                  <div>
+                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-zinc-900">
+                      {p.technologies.map(t => (
+                        <span key={t} className="text-[10px] font-mono text-zinc-400 bg-zinc-900/60 px-2 py-0.5 border border-zinc-800">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.section>
+
+        {/* 8. EXPERIENCE SECTION (Placed BEFORE Testimonials) */}
+        <motion.section 
+          id="experience" 
+          ref={(el) => { if (el) sectionsRef.current[3] = el as HTMLDivElement }}
+          variants={sectionVariants} 
+          initial="hidden" 
+          whileInView="show" 
+          viewport={{ once: true, margin: "-100px" }}
+          className="py-24 px-6 md:px-12 border-t border-zinc-900 scroll-mt-20"
         >
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-1">
-              <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">05 // Employment</h2>
-              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">Work Experience</h3>
+              <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">04 // Employment</h2>
+              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">Experience</h3>
+              <p className="text-zinc-500 text-sm font-mono mt-4 leading-relaxed">
+                Professional engineering experience, systems architecture, and production delivery.
+              </p>
             </div>
             
             <div className="lg:col-span-2 space-y-12 font-sans text-sm md:text-base">
-              {experience.map((exp, idx) => (
+              {experienceData.map((exp, idx) => (
                 <div key={idx} className="border-l-2 border-zinc-800 pl-6 relative">
-                  {/* Bullet indicator node */}
+                  {/* Timeline indicator node */}
                   <div className="absolute w-3.5 h-3.5 bg-black border border-white rounded-full -left-[8px] top-1.5" />
                   
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 font-mono">
@@ -931,7 +968,7 @@ export default function Home() {
                     <div className="text-xs text-zinc-500">{exp.period}</div>
                   </div>
                   
-                  <ul className="space-y-3.5 text-zinc-400 list-disc pl-4 leading-relaxed">
+                  <ul className="space-y-3 text-zinc-400 list-disc pl-4 leading-relaxed">
                     {exp.bullets.map((bullet, bIdx) => (
                       <li key={bIdx}>{bullet}</li>
                     ))}
@@ -942,46 +979,23 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* HOW I WORK SECTION (Replacing FAQ) */}
+        {/* 9. TESTIMONIALS SECTION */}
         <motion.section 
+          id="testimonials"
+          ref={(el) => { if (el) sectionsRef.current[4] = el as HTMLDivElement }}
           variants={sectionVariants} 
           initial="hidden" 
           whileInView="show" 
           viewport={{ once: true, margin: "-100px" }}
-          className="py-24 px-6 md:px-12 border-t border-zinc-900"
+          className="py-24 px-6 md:px-12 border-t border-zinc-900 bg-zinc-950/20 scroll-mt-20"
         >
           <div className="max-w-7xl mx-auto">
             <div className="mb-16">
-              <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">06 // Methodology</h2>
-              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">How I Work</h3>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {methodologies.map((method, idx) => (
-                <div key={idx} className="p-8 bg-zinc-950 border border-zinc-900 flex flex-col justify-between h-64">
-                  <div className="font-mono text-3xl text-zinc-800 font-bold">{method.step}</div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-white uppercase mb-2 font-mono">{method.title}</h4>
-                    <p className="text-zinc-500 text-sm leading-relaxed">{method.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.section>
-
-        {/* TESTIMONIALS SECTION */}
-        <motion.section 
-          variants={sectionVariants} 
-          initial="hidden" 
-          whileInView="show" 
-          viewport={{ once: true, margin: "-100px" }}
-          className="py-24 px-6 md:px-12 border-t border-zinc-900 bg-zinc-950/20"
-        >
-          <div className="max-w-7xl mx-auto">
-            <div className="mb-16">
-              <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">07 // Endorsements</h2>
-              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">What People Say</h3>
+              <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">05 // Endorsements</h2>
+              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">What Clients Say</h3>
+              <p className="text-zinc-500 text-sm font-mono mt-2">
+                Feedback from clients and collaborators I’ve worked with across different projects.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1005,44 +1019,100 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* CONTACT SECTION */}
+        {/* 10. FAQ SECTION */}
         <motion.section 
-          id="contact" 
-          ref={(el) => { if (el) sectionsRef.current[3] = el as HTMLDivElement }}
+          id="faq"
+          ref={(el) => { if (el) sectionsRef.current[5] = el as HTMLDivElement }}
           variants={sectionVariants} 
           initial="hidden" 
           whileInView="show" 
           viewport={{ once: true, margin: "-100px" }}
           className="py-24 px-6 md:px-12 border-t border-zinc-900 scroll-mt-20"
         >
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-16 text-center">
+              <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">06 // Inquiries</h2>
+              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">Frequently Asked Questions</h3>
+            </div>
+
+            <div className="space-y-4">
+              {faqs.map((faq, idx) => {
+                const isOpen = openFaq === idx
+                return (
+                  <div 
+                    key={idx}
+                    className="border border-zinc-900 bg-zinc-950 transition-colors"
+                  >
+                    <button
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                      className="w-full p-6 text-left flex items-center justify-between gap-4 font-mono text-sm sm:text-base text-white hover:text-zinc-300 transition-colors"
+                    >
+                      <span className="font-medium">{faq.question}</span>
+                      <span className="text-zinc-500 shrink-0">
+                        {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                      </span>
+                    </button>
+                    
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="px-6 pb-6 pt-2 text-sm text-zinc-400 leading-relaxed font-sans border-t border-zinc-900/60">
+                            {faq.answer}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </motion.section>
+
+        {/* 11. CONTACT SECTION */}
+        <motion.section 
+          id="contact" 
+          ref={(el) => { if (el) sectionsRef.current[6] = el as HTMLDivElement }}
+          variants={sectionVariants} 
+          initial="hidden" 
+          whileInView="show" 
+          viewport={{ once: true, margin: "-100px" }}
+          className="py-24 px-6 md:px-12 border-t border-zinc-900 bg-zinc-950/30 scroll-mt-20"
+        >
           <div className="max-w-7xl mx-auto">
             <div className="mb-16 text-center lg:text-left">
-              <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">08 // Communication</h2>
-              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">Let's Build</h3>
+              <h2 className="text-xs font-mono uppercase tracking-widest text-zinc-500 mb-2">07 // Collaboration</h2>
+              <h3 className="text-4xl font-normal text-white uppercase tracking-tight">Let’s Build Something Useful</h3>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
               {/* Left Column info */}
               <div className="lg:col-span-5 space-y-8 font-mono">
-                <p className="text-zinc-400 text-base leading-relaxed font-sans">
-                  I'm open to backend and full-stack engineering opportunities, interesting product collaborations, and selected contract work.
+                <p className="text-zinc-300 text-base md:text-lg leading-relaxed font-sans">
+                  Have a product to build, an existing system to improve, or a backend problem to solve?
+                </p>
+                <p className="text-zinc-400 text-sm leading-relaxed font-sans">
+                  I’m open to backend engineering, full-stack development, product collaborations, and selected freelance opportunities.
                 </p>
 
-                <div className="grid grid-cols-[100px_1fr] gap-y-4 gap-x-2 text-sm border-t border-zinc-900 pt-6">
-                  <span className="text-zinc-500">EMAIL //</span>
+                <div className="grid grid-cols-[100px_1fr] gap-y-3.5 items-baseline text-sm border-t border-zinc-900 pt-6 font-mono">
+                  <span className="text-zinc-500">EMAIL</span>
                   <a href="mailto:alabaolanrewaju13@gmail.com" className="text-white hover:text-zinc-300 break-all">alabaolanrewaju13@gmail.com</a>
                   
-                  <span className="text-zinc-500">GITHUB //</span>
-                  <a href="https://github.com/chryzcode" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 break-all">github.com/chryzcode</a>
+                  <span className="text-zinc-500">GITHUB</span>
+                  <a href="https://github.com/chryzcode" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 break-all">chryzcode</a>
                   
-                  <span className="text-zinc-500">LINKEDIN //</span>
-                  <a href="https://www.linkedin.com/in/olanrewaju-alaba" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 break-all">linkedin.com/in/olanrewaju-alaba</a>
+                  <span className="text-zinc-500">LINKEDIN</span>
+                  <a href="https://www.linkedin.com/in/olanrewaju-alaba" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 break-all">Olanrewaju Alaba</a>
                   
-                  <span className="text-zinc-600 font-semibold">TWITTER //</span>
-                  <a href="https://x.com/chryzcode" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white break-all">@chryzcode</a>
-                  
-                  <span className="text-zinc-600 font-semibold">YOUTUBE //</span>
-                  <a href="https://www.youtube.com/@chryzcode" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white break-all">@chryzcode</a>
+                  <span className="text-zinc-500">X</span>
+                  <a href="https://x.com/chryzcode" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 break-all">@chryzcode</a>
                 </div>
               </div>
 
@@ -1079,11 +1149,13 @@ export default function Home() {
                       onChange={(e) => setContactForm(prev => ({ ...prev, purpose: e.target.value }))}
                       className="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-zinc-500 transition-colors font-mono"
                     >
-                      <option value="Job Opportunity">Job Opportunity</option>
-                      <option value="Contract Work">Contract Work</option>
+                      <option value="Backend Engineering">Backend Engineering</option>
+                      <option value="Full-Stack Development">Full-Stack Development</option>
+                      <option value="API & Integrations">API & Integrations</option>
+                      <option value="Payments or SaaS">Payments or SaaS</option>
+                      <option value="AI Application">AI Application</option>
+                      <option value="Maintenance & Improvements">Maintenance & Improvements</option>
                       <option value="Collaboration">Collaboration</option>
-                      <option value="Project">Project</option>
-                      <option value="Technical Discussion">Technical Discussion</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
@@ -1092,6 +1164,7 @@ export default function Home() {
                     <label className="text-xs font-mono text-zinc-500 uppercase">Message</label>
                     <textarea 
                       rows={5} 
+                      required
                       value={contactForm.message}
                       onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
                       className="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-zinc-500 transition-colors font-mono" 
@@ -1123,16 +1196,21 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* FOOTER */}
-        <footer className="border-t border-zinc-900 bg-zinc-950 py-12 px-6 md:px-12">
+        {/* 12. FOOTER */}
+        <footer className="border-t border-zinc-900 bg-zinc-950 py-14 px-6 md:px-12">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <div className="text-xl font-bold text-white mb-1">chryzcode</div>
-              <p className="text-zinc-500 text-xs font-mono">Systems engineering & full-stack development.</p>
+              <div className="text-xl font-bold text-white mb-2">chryzcode</div>
+              <p className="text-zinc-400 text-sm font-sans mb-1">
+                Backend / Full-Stack Software Engineer building practical, production-focused software.
+              </p>
+              <p className="text-zinc-500 text-xs font-mono">
+                Python · Django · PostgreSQL · AWS · React · Next.js
+              </p>
             </div>
 
-            <div className="text-zinc-500 text-xs font-mono">
-              © {new Date().getFullYear()} chryzcode. All rights reserved.
+            <div className="text-zinc-500 text-xs font-mono text-center md:text-right">
+              © 2026 Olanrewaju Alaba. All rights reserved.
             </div>
           </div>
         </footer>
@@ -1141,6 +1219,7 @@ export default function Home() {
         <button 
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="fixed bottom-6 right-6 z-40 w-12 h-12 bg-white text-black hover:bg-zinc-200 flex items-center justify-center transition-colors"
+          aria-label="Back to Top"
         >
           <ChevronDown size={20} className="rotate-180" />
         </button>
