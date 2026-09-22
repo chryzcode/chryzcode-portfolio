@@ -192,6 +192,7 @@ export default function Home() {
       title: "Instasew",
       subtitle: "Fashion Marketplace Platform",
       category: "Marketplace / Backend Engineering",
+      projectType: "Company Project",
       description: "A multi-sided fashion marketplace platform designed to connect bespoke fashion designers, clients, and logistics carriers with real-time bidding, order tracking, and escrow-backed payouts.",
       keyContributions: [
         "Owned backend architecture and production delivery for the marketplace platform.",
@@ -214,6 +215,7 @@ export default function Home() {
       title: "NexaPay",
       subtitle: "Cross-Chain Payment Platform",
       category: "FinTech / Blockchain",
+      projectType: "Personal Project",
       description: "A blockchain payment platform designed to support payments across multiple networks and chains.",
       keyContributions: [
         "Built the application using Next.js and TypeScript.",
@@ -231,11 +233,12 @@ export default function Home() {
     },
     {
       number: "03",
-      id: "ai-writing-assistant",
-      title: "AI Writing Assistant",
-      subtitle: "AI-Powered Writing Application",
+      id: "essay-revive",
+      title: "Essay Revive",
+      subtitle: "AI Writing Assistant",
       category: "AI / Web Application",
-      description: "An AI-powered writing application designed to help users generate and work with written content through an application workflow.",
+      projectType: "Client Project",
+      description: "An AI-powered writing assistant application designed to help users generate, structure, and refine academic and professional essays with seamless content generation workflows.",
       keyContributions: [
         "Integrated AI functionality into a web application.",
         "Built application workflows around content generation.",
@@ -254,6 +257,7 @@ export default function Home() {
       title: "ClearPeak Trading",
       subtitle: "Trading Analytics SaaS",
       category: "SaaS / FinTech",
+      projectType: "Client Project",
       description: "A subscription-based trading analytics platform offering performance indicators and paid access to specialized tools.",
       keyContributions: [
         "Built the application using Next.js and TypeScript.",
@@ -276,6 +280,7 @@ export default function Home() {
       title: "Travel Leaf APIs",
       subtitle: "Rental Marketplace API",
       category: "Backend / REST API",
+      projectType: "Client Project",
       description: "A backend API for a platform connecting users with owners of houses, yachts, and vehicles for rental, leasing, and booking workflows.",
       keyContributions: [
         "Built REST API functionality with Node.js and Express.",
@@ -299,6 +304,7 @@ export default function Home() {
       title: "FWC26 Marketing Group",
       subtitle: "Business Consulting Platform",
       category: "Business Consulting / Web Application",
+      projectType: "Client Project",
       description: "A business consulting platform helping entrepreneurs and small businesses explore opportunities connected to the FIFA 2026 ecosystem in Toronto and Vancouver.",
       keyContributions: [
         "Built the platform with Next.js, React, and TypeScript.",
@@ -321,69 +327,38 @@ export default function Home() {
   const moreProjects = [
     {
       title: "AssetFlow",
+      projectType: "Personal Project",
       description: "Blockchain asset management and ownership transfer platform.",
       technologies: ["Next.js", "Firebase", "Solidity", "Tailwind CSS"],
       link: "https://assetflow-site.vercel.app/"
     },
     {
       title: "MathPoint",
+      projectType: "Client Project",
       description: "Mathematics learning and problem-solving platform.",
       technologies: ["TypeScript", "Next.js", "MongoDB", "Stripe"],
       link: "https://math-point.vercel.app/"
     },
     {
       title: "YCSYH",
+      projectType: "Client Project",
       description: "Beat-selling e-commerce platform with file delivery and PDF license generation.",
       technologies: ["Next.js", "Stripe", "TypeScript", "PDF Engine"],
       link: "https://www.heardmusicycsyh.com/"
     },
     {
       title: "CVBuild",
+      projectType: "Personal Project",
       description: "Resume and portfolio-building platform.",
       technologies: ["Python", "Django", "DRF", "PostgreSQL"],
       link: "https://cvbuild.onrender.com/"
     },
     {
-      title: "Shopit",
-      description: "E-commerce platform with payment gateway integrations.",
-      technologies: ["Django", "PostgreSQL", "Paystack", "Flutterwave"],
-      link: "https://shopit-t07j.onrender.com/"
-    },
-    {
-      title: "E-Learn",
-      description: "Learning platform for video content, teaching, and monetization.",
-      technologies: ["TypeScript", "Next.js", "MongoDB", "Stripe"],
-      link: "https://e-learn-app.vercel.app/"
-    },
-    {
-      title: "PenPages",
-      description: "Content publishing platform for writers and bloggers.",
-      technologies: ["React", "Node.js", "Express", "MongoDB"],
-      link: "https://penpages.netlify.app/"
-    },
-    {
-      title: "Topspot",
-      description: "Property management application.",
-      technologies: ["React", "Node.js", "Express", "Stripe"],
-      link: "https://properties.topspothub.com/"
-    },
-    {
       title: "TokenForge",
+      projectType: "Personal Project",
       description: "ERC-20 token implementation using Solidity and OpenZeppelin.",
       technologies: ["Solidity", "Hardhat", "Ethers.js", "OpenZeppelin"],
       link: "https://token-forge-app.vercel.app/"
-    },
-    {
-      title: "Next Play Recovery",
-      description: "Sports injury tracking platform.",
-      technologies: ["Next.js", "TypeScript", "MongoDB", "OpenAI API"],
-      link: "https://www.nextplayrecovery.com/"
-    },
-    {
-      title: "AI-powered MLA Draft Tool",
-      description: "AI-assisted academic writing and document-generation tool.",
-      technologies: ["Next.js", "OpenAI", "Docx.js", "MongoDB"],
-      link: "https://aja-pro-tools.vercel.app/"
     }
   ]
 
@@ -760,9 +735,12 @@ export default function Home() {
                   {/* Left: Metadata & Descriptions */}
                   <div className="p-8 lg:p-10 lg:col-span-7 flex flex-col justify-between">
                     <div>
-                      <div className="flex justify-between items-start mb-4">
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                         <span className="text-xs font-mono tracking-widest text-zinc-500 uppercase">
                           {project.number} — {project.category}
+                        </span>
+                        <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 border border-zinc-800 text-zinc-400 bg-zinc-900/50">
+                          {project.projectType}
                         </span>
                       </div>
                       
@@ -900,21 +878,25 @@ export default function Home() {
                   className="p-6 bg-zinc-950 border border-zinc-900 hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between h-56 group"
                 >
                   <div>
-                    <div className="flex items-start justify-between mb-2">
-                      <h4 className="text-lg font-normal text-white uppercase group-hover:text-zinc-200 transition-colors">
-                        {p.title}
-                      </h4>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">
+                        {p.projectType}
+                      </span>
                       {p.link && (
                         <a 
                           href={p.link} 
                           target="_blank" 
                           rel="noopener noreferrer" 
                           className="text-zinc-500 hover:text-white transition-colors"
+                          aria-label={`Visit ${p.title}`}
                         >
                           <ArrowUpRight size={16} />
                         </a>
                       )}
                     </div>
+                    <h4 className="text-lg font-normal text-white uppercase group-hover:text-zinc-200 transition-colors mb-2">
+                      {p.title}
+                    </h4>
                     <p className="text-zinc-400 text-xs leading-relaxed font-sans mb-4">
                       {p.description}
                     </p>
